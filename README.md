@@ -36,14 +36,14 @@ Ofreciendo siempre planes de pago mensual con descuento.
 
 ### 3. Buscar inspiración en referentes del mercado 
 
-# Paleta de Colores
+##### Paleta de Colores
         https://www.behance.net/gallery/37882913/Develox-Responsive-Template
         https://99designs.es/other-website-app-design/contests/saas-application-wordpress-site-851006
 
-# Simpleza y claridad
+##### Simpleza y claridad
         https://www.behance.net/gallery/42175659/Innovation-Roundtable-web-design
 
-# Movimientos, transiciones, animaciones y menues
+##### Movimientos, transiciones, animaciones y menues
 
         https://www.popwebdesign.net/web-development-serbia.html
 
