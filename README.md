@@ -16,15 +16,15 @@ Software web como ecosistema: un carrito de compras para vender desde el sitio, 
 		https://www.skullcandy.com/
 (los colores se acercan a los de la marca  )
 
-###2. Definir la temática del Market Place
+### 2. Definir la temática del Market Place
 
-#¿Qué productos o servicios brindará nuestro sitio?
+# ¿Qué productos o servicios brindará nuestro sitio?
 Sera un ecommerce configurable para diferentes tipos de productos de consumo masivo
 
-#¿Quién será nuestra audiencia objetivo?
+# ¿Quién será nuestra audiencia objetivo?
 Sera para diferentes tipo de tiendas retail
 
-#¿Cómo ajustaremos nuestra oferta a ese público?
+# ¿Cómo ajustaremos nuestra oferta a ese público?
 
 Diferentes planes de acuerdo a la contratacion de los diferentes modulos. 
 
@@ -34,16 +34,16 @@ Ej: agregar un producto para vender en el carrito de compras, alimenta el modulo
 
 Ofreciendo siempre planes de pago mensual con descuento. 
 
-###3. Buscar inspiración en referentes del mercado 
+### 3. Buscar inspiración en referentes del mercado 
 
-Paleta de Colores
-https://www.behance.net/gallery/37882913/Develox-Responsive-Template
-https://99designs.es/other-website-app-design/contests/saas-application-wordpress-site-851006
+# Paleta de Colores
+        https://www.behance.net/gallery/37882913/Develox-Responsive-Template
+        https://99designs.es/other-website-app-design/contests/saas-application-wordpress-site-851006
 
-Simpleza y claridad
-https://www.behance.net/gallery/42175659/Innovation-Roundtable-web-design
+# Simpleza y claridad
+        https://www.behance.net/gallery/42175659/Innovation-Roundtable-web-design
 
-Movimientos, transiciones, animaciones y menues
+# Movimientos, transiciones, animaciones y menues
 
-https://www.popwebdesign.net/web-development-serbia.html
+        https://www.popwebdesign.net/web-development-serbia.html
 
