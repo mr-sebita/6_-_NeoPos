@@ -7,3 +7,11 @@ Software web como ecosistema: un carrito de compras para vender desde el sitio, 
 ### Logotipo
 
 ![](https://i.imgur.com/S9ylSv7.png?1)
+
+
+###  Ejemplos web sites
+		https://www.newchapter.com/
+(Este fue elegido por los colores y la simple distribucion de los elementos de la pagina
+
+		https://www.skullcandy.com/
+(los colores se acercan a los de la marca  )
