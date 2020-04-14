@@ -55,5 +55,7 @@ Ofreciendo siempre planes de pago mensual con descuento.
 
 ##### Pratrón de colores modulares que pueden servir para adaptarse
 [versus](https://versus.com/en)
-
+[templates](https://startbootstrap.com/templates/ecommerce/) templates en general
+[lenovo](https://www.lenovo.com/us/en/pc?orgRef=https%253A%252F%252Fwww.google.com%252F) simple y comprensible - modular
+[ecommerce de ropa](https://www.koux.com.ar/) funciona como una extensión de instagram en caso de proponer algo muy muy simple
 ##### 
