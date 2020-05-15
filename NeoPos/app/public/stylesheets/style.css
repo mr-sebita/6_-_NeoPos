@@ -1,8 +1,101 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* -------------------------------------------------FORMULARIO------------------------------------------------------- */
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+header{
+  background-color: rgba(69,69,69,1) !important;
+}
+.img-logo{
+  width: 20%;
+}
+.logo:hover{
+  color: #34A410 !important;
+}
+a:hover{
+  color: #34A410 !important;
+}
+a{
+  color:black;
+}
+.class-logo img{
+  width: 80%;
+  border-radius: 100px;
 }
 
-a {
-  color: #00B7FF;
+.list-nav{
+  border: 1px solid;
 }
+
+main{
+  background-color: #F6F6F5 !important ;
+}
+
+.text-form{
+  border:1px solid #F6F6F5 ;
+  border-radius: 10px;
+  border-style: groove;
+  margin-left: 0 auto;
+  background-color: white;
+}
+label{
+   display: flex !important;
+   justify-content: center;
+   align-items: center;
+}
+
+.title-form{
+  display:flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+.title-p{
+  font-weight: bold;
+}
+.ancla-ctaempresa{
+  font-size: 13px;
+}
+
+.color-btn{
+  background-color: rgba(69,69,69,1) ;
+  color: white;
+}
+
+.color-btn:hover{
+  color:#34A410 ;
+}
+
+
+/* -------------------------------------------------FORMULARIO------------------------------------------------------- */
+
+
+/* -------------------------------------------------HOME------------------------------------------------------- */
+
+  /* header{
+       position: fixed;
+  } */
+  .cont-registro{
+       text-align: end;
+  }
+  .registros{
+     color:  #F6F6F5 ;
+     margin-left: 8px;
+  }
+  .img-banner img{
+       width: 100%;
+  }
+
+
+  .title-informat{
+       padding: 5px;
+       padding-top: 10px;
+  }
+  .title-informat h4{
+       border: 1px solid;
+       padding: 0 45px !important;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+
+  }
+/* -------------------------------------------------HOME------------------------------------------------------- */
