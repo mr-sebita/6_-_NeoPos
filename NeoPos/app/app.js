@@ -3,16 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-
 /*---- Listado de productos --*/
 var indexRouter = require('./routes/index');
-
-
+/*---- Seccion Usuarios --*/
 var userRouter = require('./routes/user');
+/*---- Seccion Productos ----*/
 var productRouter = require('./routes/product');
-
-/*------ productos que ya compramos y vamos a pagar ----*/
+/*--Carrito de productos que ya compramos y vamos a pagar ----*/
 var cartRouter = require('./routes/cart');
 
 var app = express();
