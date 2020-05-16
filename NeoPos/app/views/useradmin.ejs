@@ -46,36 +46,40 @@
                <article class="row">
                     <div class="col-12 title-form mt-5">
                          <p class="title-p">Completá tus datos<p>
-                         <a href="/user/newadmin" class="ancla-ctaempresa">Creá una cuenta de empresa</a>
+                         <a href="/user/new" class="ancla-ctaempresa">Creá una cuenta personal</a>
                     </div>
                          <div class="col-12 mt-3 p-4 text-form  ">
                               <form class="row">
-                                   <div class="form-group col-12 col-md-6 row pb-3">
-                                        <label for="name" class="col-1"><i class="fas fa-user col-2"></i></label>
-                                        <input type="text" class="form-control col-11" id="name" aria-describedby="textHelp"
-                                             placeholder="Nombre" required name="name">
+                                   <div class="form-group col-12 col-md-6 row">
+                                        <label for="cuit" class="col-1"><i class="fas fa-briefcase"></i></label>
+                                        <input type="number" class="form-control col-11" id="cuit" aria-describedby="textHelp"
+                                             placeholder="CUIT" required name="cuit">
+                                        <small id="textHelp" class="form-text text-muted col-12">Nunca compartiremos tus datos
+                                             con
+                                             nadie.</small>
                                    </div>
-                                   <div class="form-group col-12 col-md-6 row pb-3">
-                                        <label for="surname" class="col-1"><i class="fas fa-user col-2"></i></label>
-                                        <input type="text" class="form-control col-11" id="surname" aria-describedby="textHelp"
-                                             placeholder="Apellido" required name="surname">
+                                   <div class="form-group col-12 col-md-6 row">
+                                        <label for="razonsocial" class="col-1"><i class="fas fa-briefcase"></i></label>
+                                        <input type="text" class="form-control col-11" id="razonsocial" aria-describedby="textHelp"
+                                             placeholder="Razón Social" required name="razonsocial">
+                                        <small id="textHelp" class="form-text text-muted col-12">Nunca compartiremos tus datos
+                                             con nadie.</small>
                                    </div>
-
-                                   <div class="form-group col-12 col-md-6 row pb-3">
-                                        <label for="phone" class="col-1"><i class="fas fa-mobile-alt"></i></label>
-                                        <input type="number" class="form-control col-11" id="phone" aria-describedby="textHelp"
-                                             placeholder="Teléfono" required name="phone">
-                                   </div>
-                                   <div class="form-group col-12 col-md-6 row pb-3">
+                                   <div class="form-group col-12 col-md-6 row">
                                         <label for="email" class="col-1"><i class="fas fa-envelope-square"></i></label>
                                         <input type="email" class="form-control col-11" id="email" aria-describedby="emailHelp"
                                              placeholder="email" required name="email">
+                                        <small id="emailHelp" class="form-text text-muted col-12">Nunca compartiremos tus datos
+                                             con
+                                             nadie.</small>
                                    </div>
-                                   <div class="form-group col-12 col-md-6 row pb-3">
+                                   <div class="form-group col-12 col-md-6 row">
                                         <label for="password" class="col-1"><i class="fas fa-unlock-alt"></i></label>
                                         <input type="password" class="form-control col-11" id="password"
                                              placeholder="contraseña" required minlength="6" maxlength="15"
                                              name="password">
+                                        <small id="emailHelp" class="form-text text-muted col-12">Usá entre 6 y 15
+                                             caracteres.</small>
                                    </div>
                                    <div class="form-group col-12 col-md-6">
 

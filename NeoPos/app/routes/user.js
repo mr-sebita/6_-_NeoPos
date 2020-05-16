@@ -10,5 +10,6 @@ router.get('/detail', function(req, res, next) {
 
 /*------ Creacion de usuario ------*/
 router.get('/new', user.new);
+router.get('/newadmin', user.newadmin);
 
 module.exports = router;
