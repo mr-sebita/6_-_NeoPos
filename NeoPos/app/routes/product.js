@@ -8,8 +8,8 @@ router.get('/:id', function(req, res, next) {
 });
 
 /* GET product add page. Home (index.html) */
-router.get('/add', function(req, res, next) {
-    res.render('productAdd', { title: 'Creacion del Producto' });
+router.get('/new', function(req, res, next) {
+    res.render('productNew', { title: 'Creacion del Producto' });
 });
 
 module.exports = router;
