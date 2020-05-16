@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 /* GET product detail page. Home (product.ejs) */
-router.get('/:id', function(req, res, next) {
+router.get('/detail/:id', function(req, res, next) {
     res.render('product', { title: 'Detalle del Producto' });
 });
 
