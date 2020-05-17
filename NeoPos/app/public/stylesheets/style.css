@@ -135,7 +135,7 @@ footer img {
 /* -------------------------------------------------CARRITO------------------------------------------------------- */
 
 .cart-image-product {
-  width:100%;
+  width:75%;
 
 
 }
@@ -154,7 +154,7 @@ footer img {
 .carrito-resumen {
   margin-top: 3em;
   margin-bottom: 3em;
-  font-size: 1.5vw;
+  font-size: 1vw;
 }
 .carrito-detalle{
   margin-top: 3em;
