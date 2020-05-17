@@ -1,0 +1,46 @@
+{
+    "products": [{
+            "id": "1",
+            "img": "../images/iphone.jpg",
+            "price": "$150.970",
+            "brand": "Apple",
+            "title": "Iphone X 64gb",
+            "discount": "40% OFF",
+            "priceWithDiscount": "$90.940",
+            "description": "Equipo Desbloqueado para cualquier operador"
+        },
+        {
+            "id": "2",
+            "img": "../images/notebook.jpg",
+            "price": "$100.970",
+            "brand": "Apple",
+            "title": "Macbook Pro 2019",
+            "discount": "10% OFF",
+            "priceWithDiscount": "$90.940",
+            "description": "Macbook Pro Retina 15 pulgadas."
+        },
+        {
+            "id": "3",
+            "img": "../images/img-tv-samsung-smart.jpg",
+            "price": "$54.230",
+            "title": "Televisor Samsung Smart TV",
+            "discount": "",
+            "description": "Lorem ipsum, dolor sit amet."
+        },
+        {
+            "id": "4",
+            "img": "../images/img-samsung-galaxy-s10.jpg",
+            "price": "$89.410",
+            "title": "Samsung Galaxy s10",
+            "discount": "20% OFF",
+            "description": "Lorem ipsum, dolor sit amet."
+        }
+    ],
+
+    "menues": {
+        "title1": "Ofertas",
+        "title2": "Tiendas Oficiales",
+        "title3": "Vender",
+        "title4": "Ayuda"
+    }
+}
