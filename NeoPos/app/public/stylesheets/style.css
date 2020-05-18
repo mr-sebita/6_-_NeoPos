@@ -176,3 +176,39 @@ span.red {
     text-align: center;
     width: 1.2em;
 }
+
+
+/*------------------------------------------*/
+
+
+/*---------------------- Shop Styles -------*/
+
+.dark {
+    background-color: var(--light-blue);
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-item {
+    flex-shrink: 1;
+}
+
+.navbar-light .navbar-nav .active>.nav-link {
+    color: var(--green)
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--light-gray)
+}
+
+.navbar-nav i {
+    margin-right: 10px;
+    width: 15px;
+}
+
+.product-box_image {
+    /* height: 305px; */
+}

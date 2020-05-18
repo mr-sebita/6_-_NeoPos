@@ -7,7 +7,7 @@ function readJson(filename) {
     return archivoJson;
 }
 // Funciones publicas
-let mainController = {
+let productController = {
     detail: function(req, res, next) {
         let archivoJson = readJson('product');
         //console.log(req.params.id);
@@ -25,4 +25,4 @@ let mainController = {
     }
 }
 
-module.exports = mainController;
+module.exports = productController;
