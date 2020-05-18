@@ -11,7 +11,8 @@ var userRouter = require('./routes/user');
 var productRouter = require('./routes/product');
 /*--Carrito de productos que ya compramos y vamos a pagar ----*/
 var cartRouter = require('./routes/cart');
-
+/*--Landing page del Ecommerce ----*/
+var shopRouter = require('./routes/shop');
 var app = express();
 
 // view engine setup
@@ -24,10 +25,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/product', productRouter);
 app.use('/cart', cartRouter);
+app.use('/shop', shopRouter);
 
 
 // catch 404 and forward to error handler

@@ -1,148 +1,92 @@
-/* -------------------------------------------------HOME------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+:root {
+    --yellow: #EAC926;
+    --dark-blue: #03264C;
+    --light-blue: #0D5C63;
+    --gray: #595959;
+    --light-gray: #F1F7EE;
+    --gray-desc: #333333;
+    --green: #39b54a;
+    --background-color: #454545;
+    --base-font-family: 'Roboto', sans-serif;
+    --secondary-font-family: 'Heebo', sans-serif;
+}
+
+
+/* -------------------------------------------------FORMULARIO------------------------------------------------------- */
 
 body {
-  font-family: 'Roboto', sans-serif;
+    font-family: var(--base-font-family), sans-serif;
 }
 
 header {
-  background-image: url(../images/banner-2.jpg);
-  min-height: 700px;
-  width: 100%;
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 1;
+    background-color: #454545 !important;
 }
 
-#menuNav a {
-  color: white;
-}
-
-.navegador-principal {
-  background-color: rgba(65, 65, 65, 0.8);
+.img-logo {
+    width: 20%;
 }
 
 .logo:hover {
-  color: #34A410 !important;
+    color: #34A410 !important;
 }
 
 a:hover {
-  color: #34A410 !important;
+    color: #34A410 !important;
 }
 
 a {
-  color: black;
+    color: black;
 }
 
-.cont-registro {
-  text-align: end;
+.class-logo img {
+    width: 80%;
+    border-radius: 100px;
 }
 
-.registros {
-  color: white;
-  font-weight: bold;
-  margin-left: 8px;
+.list-nav {
+    border: 1px solid;
 }
-
-/* ----------------------MAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN------------------- */
 
 main {
-  background-color: #f1F7EE;
+    /*  background-color: #F6F6F5 !important; */
 }
 
-.title-informat {
-  padding: 5px;
-  padding-top: 10px;
+.text-form {
+    border: 1px solid #F6F6F5;
+    border-radius: 10px;
+    border-style: groove;
+    margin-left: 0 auto;
+    background-color: white;
 }
 
-.img-banner h1 {
-  background-color: rgba(65, 65, 65, 0.1);
-  display: inline-block;
-  margin-bottom: 5vh;
+label {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
-.img-banner p {
-  /* background-color: rgba(65, 65, 65, 0.1); */
-  font-weight: bold;
+.title-form {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
 }
 
-
-.title-informat {
-  background-color: white;
-  padding: 20px;
-  margin: 80px 0;
-  border-radius: 10px;
+.title-p {
+    font-weight: bold;
 }
 
-.title-informat h4 {
-  margin-top: 10px;
-  font-weight: bold;
-  border-bottom: 1px solid rgba(65, 65, 65, 0.8);
-  padding-bottom: 10px;
+.ancla-ctaempresa {
+    font-size: 13px;
 }
 
-.title-informat i {
-  font-size: 45px;
-  color: #34A410;
-  margin-bottom: 10px;
+.color-btn {
+    background-color: rgba(69, 69, 69, 1);
+    color: white;
 }
 
-.title-informat p {
-  margin: 0;
-  height: 0;
-  transition: 300ms;
-  overflow: hidden;
-}
-
-.title-informat:hover p {
-  height: auto;
-  margin-top: 15px;
-}
-
-
-
-/* Barra lateral */
-.icon-bar {
-  z-index: 1;
-  position: fixed;
-  top: 0px;
-  bottom: 30px;
-  left: 0px;
-  height: 60vh;
-  margin-top: 20vh;
-  background-color: rgba(65, 65, 65, 1);
-}
-
-.icon-bar a {
-  display: block;
-  text-align: center;
-  padding: 16px;
-  transition: all 0.3s ease;
-  color: white;
-  font-size: 36px;
-}
-
-.icon-bar a:hover {
-  background-color: #000;
-}
-
-.active {
-  background-color: #4CAF50;
-}
-
-/* Barra lateral */
-
-/*------------------- PIE DE HOME------------ */
-footer {
-  background-color: rgba(65, 65, 65, 1) !important;
-  z-index: 1 !important;
-  color: white;
-}
-
-.help a {
-  color: white;
+.color-btn:hover {
+    color: #34A410;
 }
 
 footer img {
@@ -157,6 +101,7 @@ footer img {
 
 
 /* -------------------------------------------------HOME------------------------------------------------------- */
+
 
 
 
@@ -204,4 +149,120 @@ footer img {
 
 
 /* -------------------------------------------------CARRITO END/------------------------------------------------------- */
->>>>>>> origin/mauric_sprint2
+
+/* header{
+       position: fixed;
+  } */
+
+.cont-registro {
+    text-align: end;
+}
+
+.registros {
+    color: #F6F6F5;
+    margin-left: 8px;
+}
+
+.img-banner img {
+    width: 100%;
+}
+
+.title-informat {
+    padding: 5px;
+    padding-top: 10px;
+}
+
+.title-informat h4 {
+    border: 1px solid;
+    padding: 0 45px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* -------------------------------------------------HOME------------------------------------------------------- */
+
+
+/*-------------------- Product Detail ---------------------*/
+
+.brand {
+    color: var(--green);
+    font-family: var(--secondary-font-family), sans-serif;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.047em;
+    color: var(--gray-desc);
+}
+
+.fullPrice {
+    color: var(--gray);
+    text-decoration: line-through;
+}
+
+.discount {}
+
+.section-border {
+    border-top: 1px var(--light-gray) solid;
+}
+
+.fa-truck {
+    color: var(--light-blue);
+}
+
+span.red {
+    position: relative;
+    font-size: 12px;
+    background: var(--green);
+    border-radius: 1em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.2em;
+    margin-left: 2px;
+    bottom: 10px;
+    text-align: center;
+    width: 1.2em;
+}
+
+
+/*------------------------------------------*/
+
+
+/*---------------------- Shop Styles -------*/
+
+.dark {
+    background-color: var(--light-blue);
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-item {
+    flex-shrink: 1;
+}
+
+.navbar-light .navbar-nav .active>.nav-link {
+    color: var(--green)
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--light-gray)
+}
+
+.navbar-nav i {
+    margin-right: 10px;
+    width: 15px;
+}
+
+.product-box_image {
+    /* height: 305px; */
+}
