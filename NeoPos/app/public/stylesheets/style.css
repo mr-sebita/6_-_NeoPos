@@ -156,6 +156,52 @@ footer img {
 }
 
 
-/*------------------- PIE DE HOME------------ */
-
 /* -------------------------------------------------HOME------------------------------------------------------- */
+
+
+
+
+/* -------------------------------------------------CARRITO------------------------------------------------------- */
+
+.cart-image-product {
+  width:75%;
+
+
+}
+.cart-card {
+
+
+
+
+
+}
+.section-title {
+  color: white;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.carrito-resumen {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  font-size: 1vw;
+}
+.carrito-detalle{
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+.cart-card-image {
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/* -------------------------------------------------CARRITO END/------------------------------------------------------- */
+>>>>>>> origin/mauric_sprint2

@@ -7,7 +7,7 @@ router.get('/detail/:id', function(req, res, next) {
     res.render('product', { title: 'Detalle del Producto' });
 });
 
-/* GET product add page. Home (index.html) */
+/* GET product add page. Home (productAdd.ejs) */
 router.get('/add', function(req, res, next) {
     res.render('productAdd', { title: 'Creacion del Producto' });
 });
