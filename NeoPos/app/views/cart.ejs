@@ -2,23 +2,16 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Bienvenido</title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-          crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-          crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-          crossorigin="anonymous"></script>
-     <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
-     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
-          rel="stylesheet">
-     <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
 
 
 
@@ -28,196 +21,160 @@
 
 
 <body>
-     <%- include("partials/headerShop")%> 
+    <%- include("partials/headerShop")%>
 
-     <!--
-     <header>
-          <nav class="navbar navbar-expand-md navbar-dark container nav-bg">
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNav"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-               </button>
-               <a href="/" class="navbar-brand logo">NEO POS</a>
-               <div class="collapse navbar-collapse" id="menuNav">
-                    <ul class="navbar-nav ml-auto">
-                         <li class="nav-item">
-                              <a href="/" class="nav-link"><i class="fas fa-home"></i> </a>
-                         </li>
-                         <li class="nav-item">
-                              <a href="/" class="nav-link"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                              </a>
-                         </li>
-                         <li class="nav-item">
-                              <a href="" class="nav-link"><i class="fa fa-user-circle" aria-hidden="true"></i>
-                              </a>
-                         </li>
-
-                    </ul>
-               </div>
-          </nav>
-     </header>
-     -->
-
-     <main>
-          <section class="carrito-resumen">
-               <div class="container">
+        <main>
+            <section class="carrito-resumen">
+                <div class="container">
                     <header class="section-heading">
 
-                         <h3 class="section-title-cart">Carrito de compras</h3>
-                    </header><!-- sect-heading -->
-               </div>
+                        <h3 class="section-title-cart">Carrito de compras</h3>
+                    </header>
+                    <!-- sect-heading -->
+                </div>
 
-               <section class="tabla-carrito">
+                <section class="tabla-carrito">
                     <div class="container">
-                         <div class="row">
-                              <div class="col-md-12">
-                                   <table class="table table-hover">
-                                        <thead>
-                                             <tr>
-                                                  <th scope="col">#</th>
-                                                  <th scope="col">Cantidad</th>
-                                                  <th scope="col">Producto</th>
-                                                  <th scope="col">Descripcion</th>
-                                                  <th scope="col">Precio</th>
-                                                  <th scope="col">Promo</th>
-                                                  <th scope="col">Importe</th>
-                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                             <tr>
-                                                  <th scope="row">1</th>
-                                                  <td>1</td>
-                                                  <td>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Promo</th>
+                                            <th scope="col">Importe</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>1</td>
+                                            <td>
 
-                                                       <a href="#" class="cart-card-image"> <img
-                                                                 class="cart-image-product"
-                                                                 src="/images/product_reloj.jpg"
-                                                                 style="width: 20%; height: 100%;"> </a>
+                                                <a href="#" class="cart-card-image"> <img class="cart-image-product" src="/images/product_reloj.jpg" style="width: 20%"> </a>
 
 
-                                                  </td>
-                                                  <td>Reloj smart</td>
-                                                  <td>$500</td>
-                                                  <td>2x1</td>
-                                                  <td>$500</td>
+                                            </td>
+                                            <td>Reloj smart</td>
+                                            <td>$5000</td>
+                                            <td>2x1</td>
+                                            <td>$500</td>
 
-                                             </tr>
-                                             <tr>
-                                                  <th scope="row">2</th>
-                                                  <td>1</td>
-                                                  <td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>1</td>
+                                            <td>
 
-                                                       <a href="#" class="cart-card-image"> <img
-                                                                 class="cart-image-product"
-                                                                 src="/images/product_casque.jpg"
-                                                                 style="width: 20%; height: 100%;"> </a>
+                                                <a href="#" class="cart-card-image"> <img class="cart-image-product" src="/images/product_casque.jpg" style="width: 20%"> </a>
 
 
-                                                  </td>
-                                                  <td>Auriculares inalambricos minimalistas</td>
-                                                  <td>$500</td>
-                                                  <td>2x1</td>
-                                                  <td>$500</td>
+                                            </td>
+                                            <td>Auriculares inalambricos minimalistas</td>
+                                            <td>$800</td>
+                                            <td>2x1</td>
+                                            <td>$500</td>
 
-                                             </tr>
-                                             <tr>
-                                                  <th scope="row">3</th>
-                                                  <td>1</td>
-                                                  <td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>1</td>
+                                            <td>
 
-                                                       <a href="#" class="cart-card-image"> <img
-                                                                 class="cart-image-product"
-                                                                 src="/images/product_mochij.jpg"
-                                                                 style="width: 20%; height: 100%;"> </a>
+                                                <a href="#" class="cart-card-image"> <img class="cart-image-product" src="/images/product_mochij.jpg" style="width: 20%"> </a>
 
 
-                                                  </td>
-                                                  <td>Mochila minimalista</td>
-                                                  <td>$500</td>
-                                                  <td>2x1</td>
-                                                  <td>$500</td>
+                                            </td>
+                                            <td>Mochila minimalista</td>
+                                            <td>$500</td>
+                                            <td>2x1</td>
+                                            <td>$500</td>
 
-                                             </tr>
-                                             <tr>
-                                                  <th scope="row">3</th>
-                                                  <td>1</td>
-                                                  <td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>1</td>
+                                            <td>
 
-                                                       <a href="#" class="cart-card-image"> <img
-                                                                 class="cart-image-product"
-                                                                 src="/images/produc_couch.jpg"
-                                                                 style="width: 20%; height: 100%;"> </a>
+                                                <a href="#" class="cart-card-image"> <img class="cart-image-product" src="/images/produc_couch.jpg" style="width: 20%"> </a>
 
 
-                                                  </td>
-                                                  <td>Sillon minimalista</td>
-                                                  <td>$500</td>
-                                                  <td>2x1</td>
-                                                  <td>$500</td>
+                                            </td>
+                                            <td>Sillon minimalista</td>
+                                            <td>$1500</td>
+                                            <td>2x1</td>
+                                            <td>$500</td>
 
-                                             </tr>
-                                        </tbody>
-                                   </table>
-                              </div>
-                         </div>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
 
-               </section>
-          </section>
+                </section>
+            </section>
 
-          <section class="carrito-detalle">
-               <div class="container">
+            <section class="carrito-detalle">
+                <div class="container">
                     <header class="section-heading">
 
-                         <h3 class="section-title-cart">Detalle</h3>
-                    </header><!-- sect-heading -->
-               </div>
+                        <h3 class="section-title-cart">Detalle</h3>
+                    </header>
+                    <!-- sect-heading -->
+                </div>
 
-               <section class="section-content padding-bottom-sm">
+                <section class="section-content padding-bottom-sm">
                     <div class="container">
-                         <div class="row flex">
-                              <div class="col-md-2">
-                                   <div href="#" class="card card-product-grid">
-                                        <a href="#" class="cart-card-image"> <img class="cart-image-product"
-                                                  src="/images/product_reloj.jpg"> </a>
+                        <div class="row flex">
+                            <div class="col-md-2">
+                                <div href="#" class="card card-product-grid">
+                                    <a href="#" class="cart-card-image"> <img class="cart-image-product" src="/images/product_reloj.jpg"> </a>
 
-                                   </div>
+                                </div>
 
-                              </div> <!-- row.// -->
-                              <div class="col-md-10 flex-column">
-                                   <div href="#" class="card card-product-grid " style="height: 100%;">
-                                        <h3><a href="#" class="title">Reloj inteligente</a></h3>
-                                        <div class="rating-wrap">
-                                             <ul class="rating-stars">
-                                                  <li style="width:80%" class="stars-active">
-                                                       <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                            class="fa fa-star"></i>
-                                                  </li>
-                                             </ul>
-                                             <span class="label-rating text-muted"> 34 reviws</span>
-                                        </div>
-                                        <div class="price mt-1">
-                                             <h4>$178.99</h4>
-                                        </div> <!-- price-wrap.// -->
+                            </div>
+                            <!-- row.// -->
+                            <div class="col-md-10 flex-column">
+                                <div href="#" class="card card-product-grid " style="height: 100%;">
+                                    <h3><a href="#" class="title">Reloj inteligente</a></h3>
+                                    <div class="rating-wrap">
+                                        <ul class="rating-stars">
+                                            <li style="width:80%" class="stars-active">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="label-rating text-muted"> 34 reviws</span>
+                                    </div>
+                                    <div class="price mt-1">
+                                        <h4>$178.99</h4>
+                                    </div>
+                                    <!-- price-wrap.// -->
 
-                                   </div>
-                              </div> <!-- row.// -->
-                         </div> <!-- container .//  -->
+                                </div>
+                            </div>
+                            <!-- row.// -->
+                        </div>
+                        <!-- container .//  -->
 
-               </section><!-- section producto-->
-
-
-
-          </section>
-          <!--section detalle carrito-->
+                </section>
+                <!-- section producto-->
 
 
 
-     </main>
-     <footer>
-          footer
-     </footer>
+            </section>
+            <!--section detalle carrito-->
+
+
+
+        </main>
+        <footer>
+            footer
+        </footer>
 
 
 
