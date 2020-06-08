@@ -1,50 +1,42 @@
-{
-    "products": [{
-            "id": "1",
-            "img": "../images/iphone.jpg",
-            "price": "$150.970",
-            "brand": "Apple",
-            "title": "Iphone X 64gb",
-            "discount": "40% OFF",
-            "priceWithDiscount": "$90.940",
-            "description": "Equipo Desbloqueado para cualquier operador"
-        },
-        {
-            "id": "2",
-            "img": "../images/notebook.jpg",
-            "price": "$100.970",
-            "brand": "MSI",
-            "title": "G62 FX-6 2019",
-            "discount": "10% OFF",
-            "priceWithDiscount": "$90.940",
-            "description": "Notebook Gamer 15 pulgadas."
-        },
-        {
-            "id": "3",
-            "img": "../images/teclado.jpg",
-            "price": "$14.230",
-            "brand": "Apple",
-            "title": "Magic Keyboard",
-            "discount": "5%",
-            "priceWithDiscount": "$10.940",
-            "description": "Teclado original Apple WIFI"
-        },
-        {
-            "id": "4",
-            "img": "../images/mouse.jpg",
-            "price": "$1.410",
-            "brand": "Logitech",
-            "title": "Wireless Mouse",
-            "discount": "20% OFF",
-            "priceWithDiscount": "$940",
-            "description": "El mejor mouse configurable de Logitech"
-        }
-    ],
-
-    "menues": {
-        "title1": "Ofertas",
-        "title2": "Tiendas Oficiales",
-        "title3": "Vender",
-        "title4": "Ayuda"
-    }
-}
+[
+ {
+  "id": "1",
+  "img": "../images/iphone.jpg",
+  "price": "$150.970",
+  "brand": "Apple",
+  "title": "Iphone X 64gb",
+  "discount": "40% OFF",
+  "priceWithDiscount": "$90.940",
+  "description": "Equipo Desbloqueado para cualquier operador"
+ },
+ {
+  "id": "2",
+  "img": "../images/notebook.jpg",
+  "price": "$100.970",
+  "brand": "MSI",
+  "title": "G62 FX-6 2019",
+  "discount": "10% OFF",
+  "priceWithDiscount": "$90.940",
+  "description": "Notebook Gamer 15 pulgadas."
+ },
+ {
+  "id": "3",
+  "img": "../images/teclado.jpg",
+  "price": "$14.230",
+  "brand": "Apple",
+  "title": "Magic Keyboard",
+  "discount": "5%",
+  "priceWithDiscount": "$10.940",
+  "description": "Teclado original Apple WIFI"
+ },
+ {
+  "id": "4",
+  "img": "../images/mouse.jpg",
+  "price": "$1.410",
+  "brand": "Logitech",
+  "title": "Wireless Mouse",
+  "discount": "20% OFF",
+  "priceWithDiscount": "$940",
+  "description": "El mejor mouse configurable de Logitech"
+ }
+]

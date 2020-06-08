@@ -9,12 +9,17 @@ let productController = require("../controller/productController");
 }); */
 
 /* GET product detail page. Home (product.ejs) */
-router.get('/detail/:id', productController.detail);
+router.get('/:id', productController.detail);
 
+router.get('/edit/:id', productController.detailEdit);        //EDITAR UN PRODUCTO, RUTA POR GET
+router.put('/edit/:id', productController.edit);                  //EDITAR UN PRODUCTO, RUTA POR PUT
+router.delete('/:id', productController.delete);
 
 /* GET product add page. Home (index.html) */
-router.get('/new', function(req, res, next) {
+router.get('/create', function(req, res, next) {
     res.render('productNew', { title: 'Creacion del Producto' });
 });
-
+router.post('/create', productController.createProduct);
 module.exports = router;
+
+

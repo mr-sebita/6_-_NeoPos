@@ -245,8 +245,7 @@ footer img {
 }
 
 .title-informat h4 {
-    border: 1px solid;
-    padding: 0 45px !important;
+    /* padding: 0 45px !important; */
     display: flex;
     justify-content: center;
     align-items: center;
