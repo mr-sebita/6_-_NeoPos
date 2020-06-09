@@ -131,3 +131,15 @@ let productController = {
 module.exports = productController;
 
 
+
+
+// {
+//     "id": "2",
+//     "img": "../images/notebook.jpg",
+//     "price": "$100.970",
+//     "brand": "MSI",
+//     "title": "G62 FX-6 2020",
+//     "discount": "10% OFF",
+//     "priceWithDiscount": "$90.940",
+//     "description": "Notebook Gamer 15 pulgadas."
+//    },

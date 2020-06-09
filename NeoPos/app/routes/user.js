@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var user = require('../controller/userControllers');
+var userAdmin = require( '../controller/userAdminControllers' );
 
 
 /*------ Edicion de usuario ya creado -----*/
@@ -12,6 +13,7 @@ router.get('/detail', function(req, res, next) {
 router.get('/new', user.new);
 router.post('/new', user.createUser);
 
-router.get('/newadmin', user.newadmin);
+router.get( '/newadmin', userAdmin.new );
+router.post( '/newadmin', userAdmin.createUser );
 
 module.exports = router;

@@ -31,50 +31,52 @@
                     <section class="product-box">
                          <div class="row">
                               <div class="col-12 col-md-8 align-self-stretch ">
+                                   <form action="/product/edit/<%= data.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                        <label for="image"></label>
                                    <a href="">
                                         <figure class="">
                                              <img class="img-fluid " src="/images/<%=data.img  %> "
                                                   alt="imagen de producto">
-                                        </figure>
+                                        </figure><input type="file" name="image">
                                    </a>
                               </div>
 
                               <div class="col-md-4">
                                    <div class="d-flex flex column">
-                                        <form action="/product/edit/<%= data.id %>?_method=PUT" method="POST">
-                                             <article class="product-box_data px-2 py-2">
-                                                  <p class="brand">
-                                                       <%= data.brand %>
-                                                  </p>
-                                                  <p class="title">
-                                                       <label for="title">Producto</label>
-                                                       <input type="text" name="title" value="<%= data.title %>"><br>
-                                                       <label for="description">Description</label>
-                                                       <textarea type="text"
-                                                            name="description"><%= data.description %></textarea><br>
-                                                  </p>
 
-                                                  <span class="fullPrice"><%= data.price %></span>
-                                                  <span class="discount"><%= data.discount %></span>
-                                                  <h2>
-                                                       <%= data.priceWithDiscount %>
-                                                  </h2>
-                                                 
-                                                  <div class=" section-border py-4 ">
-                                                       Color<br>
-                                                       <h5><b>Space Gray</b> </h5>
-                                                  </div>
-                                                  <div class=" section-border py-4 text-center ">
-                                                       <button type="submit"
-                                                            class="btn btn-success btn-lg btn-radius ml-3">Editar</button>
-                                                           
-                                                  </div>
-                                             </article>
+                                        <article class="product-box_data px-2 py-2">
+                                             <p class="brand">
+                                                  <%= data.brand %>
+                                             </p>
+                                             <p class="title">
+                                                  <label for="title">Producto</label>
+                                                  <input type="text" name="title" value="<%= data.title %>"><br>
+                                                  <label for="description">Description</label>
+                                                  <textarea type="text"
+                                                       name="description"><%= data.description %></textarea><br>
+                                             </p>
+
+                                             <span class="fullPrice"><%= data.price %></span>
+                                             <span class="discount"><%= data.discount %></span>
+                                             <h2>
+                                                  <%= data.priceWithDiscount %>
+                                             </h2>
+
+                                             <div class=" section-border py-4 ">
+                                                  Color<br>
+                                                  <h5><b>Space Gray</b> </h5>
+                                             </div>
+                                             <div class=" section-border py-4 text-center ">
+                                                  <button type="submit"
+                                                       class="btn btn-success btn-lg btn-radius ml-3">Editar</button>
+
+                                             </div>
+                                        </article>
                                         </form>
                                         <form action="/product/<%= data.id %>?_method=DELETE" method="POST">
                                              <button type="submit"
-                                             class="btn btn-success btn-lg btn-radius ml-3">Borrar</button>
-                                              </form>
+                                                  class="btn btn-success btn-lg btn-radius ml-3">Borrar</button>
+                                        </form>
                                    </div>
                               </div>
 

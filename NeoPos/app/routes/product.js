@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let productController = require("../controller/productController");
-
+let uploadFile= require( '../middlewares/uploadFiles' );
 
 /* GET product detail page. Home (product.ejs) */
 /* router.get('/detail/:id', function(req, res, next) {
@@ -19,7 +19,7 @@ router.delete('/:id', productController.delete);
 router.get('/create', function(req, res, next) {
     res.render('productNew', { title: 'Creacion del Producto' });
 });
-router.post('/create', productController.createProduct);
+router.post('/create', uploadFile.uploadFile ,productController.createProduct);
 module.exports = router;
 
 
