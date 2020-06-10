@@ -22,7 +22,11 @@ let productController = {
         } else
 
             res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
-    }
+    },
+    new: function(req, res, next) {
+        res.render('productNew');
+    },
+
 }
 
 module.exports = productController;

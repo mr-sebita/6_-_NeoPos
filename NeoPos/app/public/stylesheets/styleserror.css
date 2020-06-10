@@ -1,0 +1,7 @@
+.fondo {
+    width: 70%;
+    height: 70vh;
+    box-shadow: 20px 20px 50px #c7c9c9, -30px -30px 60px #c7c9c9;
+    margin-top: 100px;
+    padding: 25px;
+}
