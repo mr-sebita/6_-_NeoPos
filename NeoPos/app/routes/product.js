@@ -13,8 +13,6 @@ router.get('/detail/:id', productController.detail);
 
 
 /* GET product add page. Home (index.html) */
-router.get('/new', function(req, res, next) {
-    res.render('productNew', { title: 'Creacion del Producto' });
-});
+router.get('/new', productController.new);
 
 module.exports = router;
