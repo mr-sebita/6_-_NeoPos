@@ -1,6 +1,6 @@
 let inicio = {
      index: (req, res) => {
-          res.render('index');
+          res.render('index1');
      }
 }
 
