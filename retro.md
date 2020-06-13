@@ -21,3 +21,6 @@
 - Respetar mas la metodologia SCRUM
 - Definir roles y aprender a rotarlos
 - Actualizar trello mas seguido
+
+/// sprint 2
+
