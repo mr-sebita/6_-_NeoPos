@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -143,4 +144,83 @@
      crossorigin="anonymous"></script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/styleregister.css">
+</head>
+
+<body>
+    <%- include("partials/headerShop")%>
+        <main>
+            <section class="container">
+                <article class="row">
+                    <div class="col-12 title-form mt-5">
+                        <p class="title-p">Completá tus datos
+                            <p>
+                                <a href="/user/newadmin" class="ancla-ctaempresa">Creá una cuenta de empresa</a>
+                    </div>
+                    <div class="col-12 mt-3 p-4 text-form  ">
+                        <form class="row">
+                            <div class="form-group col-12 col-md-6 row pb-3">
+                                <label for="name" class="col-1"><i class="fas fa-user col-2"></i></label>
+                                <input type="text" class="form-control col-11" id="name" aria-describedby="textHelp" placeholder="Nombre" required name="name">
+                            </div>
+                            <div class="form-group col-12 col-md-6 row pb-3">
+                                <label for="surname" class="col-1"><i class="fas fa-user col-2"></i></label>
+                                <input type="text" class="form-control col-11" id="surname" aria-describedby="textHelp" placeholder="Apellido" required name="surname">
+                            </div>
+
+                            <div class="form-group col-12 col-md-6 row pb-3">
+                                <label for="phone" class="col-1"><i class="fas fa-mobile-alt"></i></label>
+                                <input type="number" class="form-control col-11" id="phone" aria-describedby="textHelp" placeholder="Teléfono" required name="phone">
+                            </div>
+                            <div class="form-group col-12 col-md-6 row pb-3">
+                                <label for="email" class="col-1"><i class="fas fa-envelope-square"></i></label>
+                                <input type="email" class="form-control col-11" id="email" aria-describedby="emailHelp" placeholder="email" required name="email">
+                            </div>
+                            <div class="form-group col-12 col-md-6 row pb-3">
+                                <label for="password" class="col-1"><i class="fas fa-unlock-alt"></i></label>
+                                <input type="password" class="form-control col-11" id="password" placeholder="contraseña" required minlength="6" maxlength="15" name="password">
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+
+                            </div>
+                            <button type="submit" class="btn  col-12 col-md-6 color-btn " target="blank">Crear
+                                        Cuenta</button>
+                            <small class="col-12 col-md-6">Al registrarme, declaro que soy mayor de edad y acepto los
+                                        Términos y condiciones y las Políticas de privacidad.</small>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-3 mt-5 logo-fondo">
+                    </div>
+                    <!-- <div class="col-12 col-md-3 mt-5 bg-light p-4 text-form ">
+                         <div class="form-group form-check img">
+                              <img class="mr-4" src="./images/person.png" alt="">
+                              <label for="foto">Foto</label>
+                             <input type="file" id="foto" name="foto"><br><br>
+                         </div>
+                    </div> -->
+                </article>
+            </section>
+        </main>
+
+        <%- include("partials/footer")%>
+
+
+
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+>>>>>>> origin/Jesu3.0
 </html>
