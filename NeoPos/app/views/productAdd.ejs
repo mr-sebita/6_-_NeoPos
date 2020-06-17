@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargar Producto</title>
+    <title>Registrate</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
@@ -17,6 +17,53 @@
         <main>
             <div class="container">
                 <section class="product-box">
+                    <!--  <div class="row">
+                        <div class="col-12 col-md-8 align-self-stretch ">
+                            <a href="">
+                                <figure class="">
+                                    <img class="img-fluid " src="/images/<%=data.img  %> " alt="imagen de producto">
+                                </figure>
+                            </a>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="d-flex flex column">
+                                <article class="product-box_data px-2 py-2">
+                                    <p class="brand">
+                                        <%= data.brand %>
+                                    </p>
+                                    <p class="title">
+                                        <%=data.title %> -
+                                            <%=data.description%>
+                                    </p>
+
+                                    <span class="fullPrice"><%= data.price %></span>
+                                    <span class="discount"><%= data.discount %></span>
+                                    <h2>
+                                        <%= data.priceWithDiscount %>
+                                    </h2>
+                                    <div class="container">
+                                        <div class="d-flex flex-row">
+                                            <div class="section-border">
+                                                <span class=""><i class="fas fa-truck fa-2x pr-3"></i></span>
+                                            </div>
+                                            <div class="d-flex justify-content-center"><b>FREE</b> Ahora te llega sin Cargo | Detalles</div>
+                                        </div>
+                                    </div>
+                                    <div class=" section-border py-4 ">
+                                        Color<br>
+                                        <h5><b>Space Gray</b> </h5>
+                                    </div>
+                                    <div class=" section-border py-4 text-center d-flex flex-row justify-content-center ">
+                                        <input type="number" value="1" min="0" max="100" step="1" class="text-sm-center" />
+                                        <button class="btn-neo"><i class="fas fa-cart-plus fa-1x glow"></i></button>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+
+                    </div> -->
+
                     <div class=" row ">
 
                         <div class="card-body col-12 ">
@@ -29,10 +76,10 @@
                             <form action=" " method="post ">
                                 <div class="row ">
 
-                                    <div class="col-6 modal-body ">
+                                    <div class="col-lg-6 modal-body ">
 
                                         <p>Selecciona la categoria</p>
-                                        <select class="form-control form-control-md ">
+                                        <select class="form-control form-control-sm">
                                             <option>Electronica</option>
                                             <option>Hogar</option>
                                             <option>Indumentaria</option>
@@ -40,14 +87,14 @@
                                         </select>
                                     </div>
 
-                                    <div class="col-3 ">
+                                    <div class="col-lg-3 col-md-6 ">
                                         <div class="modal-body ">
                                             <p>Titulo del producto</p>
                                             <input class="form-control form-control-sm " type="text " placeholder="Nombre ">
                                         </div>
                                     </div>
-                                    <div class="col-3 ">
-                                        <div class="modal-body ">
+                                    <div class="col-lg-3 col-md-6 modal-body">
+                                        <div class=" ">
                                             <p>Precio</p>
                                             <input class="form-control form-control-sm " type="number " placeholder="$ ">
                                         </div>
@@ -55,7 +102,7 @@
                                 </div>
 
                                 <div class="row ">
-                                    <div class="col-6 modal-body ">
+                                    <div class="col-lg-6 modal-body ">
 
                                         <div class=" ">
                                             <p>Descripción</p>
@@ -63,7 +110,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-6 modal-body ">
+                                    <div class="col-lg-6 modal-body ">
                                         <div class="row ">
                                             <div class="col-6 ">
                                                 <p>Carga tus imagenes </p>
@@ -120,19 +167,14 @@
                     </div>
                 </section>
             </div>
-            </div>
+        </main>
+        <%- include("partials/footer")%>
 
 
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-
-
-
-
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
 </body>
 
 </html>
