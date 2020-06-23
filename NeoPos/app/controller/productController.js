@@ -48,7 +48,7 @@ let productController = {
     },
     // ------------------------------------------------------------------------------------------------------------
     createProduct: (req, res) => {
-
+       
         let product = {
             //"img": "../images/iphone.jpg",
             id: req.body.id,
@@ -84,7 +84,6 @@ let productController = {
     },
     // ------------------------------------------------------------------------------------------------------------
     edit: (req, res) => {
-
 
         let product = searchById(req.params.id); //conocemos el producto a editar
 
