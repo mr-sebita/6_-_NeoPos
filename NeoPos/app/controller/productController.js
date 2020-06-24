@@ -36,7 +36,7 @@ let productController = {
     archivo: path.join(__dirname, '/../models/' + 'product.json'),
     // ------------------------------------------------------------------------------------------------------------
     detail: function (req, res, next) {
-        let archivoJson = readJson();
+        // let archivoJson = readJson();
 
         let productById = searchById(req.params.id);
         // console.log(productById);
@@ -48,7 +48,7 @@ let productController = {
     },
     // ------------------------------------------------------------------------------------------------------------
     createProduct: (req, res) => {
-
+       
         let product = {
             //"img": "../images/iphone.jpg",
             id: req.body.id,
@@ -77,14 +77,13 @@ let productController = {
         console.log(product);
 
         if (product != null) {
-            res.render('productEdit', { data: product });
+            res.render('productEdit2', { data: product });
         } else
             res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
 
     },
     // ------------------------------------------------------------------------------------------------------------
     edit: (req, res) => {
-
 
         let product = searchById(req.params.id); //conocemos el producto a editar
 
@@ -99,11 +98,13 @@ let productController = {
                 req.body.description.trim() !== '') {
                 product.title = req.body.title; //se modifica el campo
                 product.description = req.body.description;
+                product.price = req.body.price;
 
                 products.map((prod) => {
                     if (prod.id == product.id) {
                         prod.title = product.title;
                         prod.description = product.description;
+                        prod.price = product.price;
                     }
                 });
                 saveJson(products);

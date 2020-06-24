@@ -2,71 +2,15 @@
  {
   "name": "Martin",
   "surname": "Aguilera",
-  "phone": "123131",
+  "phone": "",
   "email": "rp_tincho@hotmail.com",
-  "password": "13121asdadaa"
- },
- {
-  "name": "Dana",
-  "surname": "Navas",
-  "phone": "2232322",
-  "email": "dana@hotmail.com",
-  "password": "danadana"
+  "password": "dadadasada"
  },
  {
   "name": "Martin",
   "surname": "Aguilera",
-  "phone": "32131",
-  "email": "rp_tincho@hotmail.com",
-  "password": "adaaddaasdada"
- },
- {
-  "name": "Martin",
-  "surname": "Aguilera",
-  "phone": "6757657",
-  "email": "ncho@hotmail.com",
-  "password": "kghff5657"
- },
- {
-  "name": "Martin",
-  "surname": "Aguilera",
-  "phone": "675645",
-  "email": "rp_tincho@hotmail.com",
-  "password": "kjhkfghvh"
- },
- {
-  "name": "Martin",
-  "surname": "Aguilera",
-  "phone": "675645",
-  "email": "rp_tincho@hotmail.com",
-  "password": "hgjfhgfhgh"
- },
- {
-  "name": "Martin",
-  "surname": "Aguilera",
-  "phone": "675645",
-  "email": "rp_tincho@hotmail.com",
-  "password": "kjghjgjhg"
- },
- {
-  "name": "Martin",
-  "surname": "Aguilera",
-  "phone": "675657",
-  "email": "rp_tincho@hotmail.com",
-  "password": "khgjyftfjj"
- },
- {
-  "name": "dofjeojslfj",
-  "surname": "jslejflkjdklj",
-  "phone": "2225",
-  "email": "mauric.caceres@gmail.com",
-  "password": "oasjfljas"
- },
- {
-  "name": "Mauricio1",
-  "surname": "Caceres1",
-  "phone": "3334234234235",
-  "email": "mauric.caceres@gmail.com",
-  "password": "pippipiipi"
+  "phone": "",
+  "email": "martin@hotmail.com",
+  "password": "$2b$10$95ZEBo.j5qU19RVmCeAD0ervb7zLSMn/WiOJtZoTq/qPSuzdJIFOu"
  }
 ]
