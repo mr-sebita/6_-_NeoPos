@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+let bcrypt = require('bcrypt');
 let { check, validationResult, body } = require('express-validator');
 
 // FUNCIONES PRIVADAS
@@ -61,34 +62,39 @@ let user = {
      },
      processLogin: (req, res) => {
 
-          let errors= validationResult(req);
+          let errors = validationResult(req);
 
-          if( errors.isEmpty() ){
+          if (errors.isEmpty()) {
 
                let users = readJson();
 
-               for(let i = 0 ; i < users.length ; i++){
-                    if( users[i].email == req.body.email ){
+               for (let i = 0; i < users.length; i++) {
+                    if (users[i].email == req.body.email) {
                          //IF PARA VERIFICAR LA CONTRASEÑA
-                         var usuarioALoguearse= users[i];
-                         break;
+                         if (bcrypt.compareSync( req.body.password, users[i].password)) {
+                              var usuarioALoguearse = users[i];
+                              break;
+                         }
                     }
                }
 
                if (usuarioALoguearse == undefined) {
-                  return res.render('login', {errors : [
-                       {msg : 'No estas registrado todavía!'}
-                  ]});
+                    return res.render('login', {
+                         errors: [
+                              { msg: 'No estas registrado todavía!' }
+                         ]
+                    });
                }
 
                req.session.usuarioLogueado = usuarioALoguearse;
-               res.send(req.session.usuarioLogueado)
 
-          }else{
-               res.render( 'login', {errors: errors.errors} )
+               res.send('Ingresaste');
+
+          } else {
+               res.render('login', { errors: errors.errors })
           }
 
-          
+
      },
      // -----------------------------------------------------------------------------------------------------------
      createUser: (req, res) => { //creación del usuario!
@@ -106,10 +112,10 @@ let user = {
                     surname: req.body.surname,
                     phone: req.body.phone,
                     email: req.body.email,
-                    password: req.body.password
+                    password: bcrypt.hashSync(req.body.password, 10)
                }
                addUser(user);
-           res.redirect('login');
+               res.redirect('login');
                // } else {
                //      return res.send('Cliente ya existente');
                // }

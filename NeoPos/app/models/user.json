@@ -10,21 +10,7 @@
   "name": "Martin",
   "surname": "Aguilera",
   "phone": "",
-  "email": "martinale93aguilera@gmail.com",
-  "password": "sadadasadaadsa"
- },
- {
-  "name": "Martin",
-  "surname": "Aguilera",
-  "phone": "",
-  "email": "rp_tin@hotmail.com",
-  "password": "  jbbkbkjbkbmn"
- },
- {
-  "name": "Martin",
-  "surname": "Aguilera",
-  "phone": "",
-  "email": "rcho@hotmail.com",
-  "password": "asdadsaadadadaa"
+  "email": "martin@hotmail.com",
+  "password": "$2b$10$95ZEBo.j5qU19RVmCeAD0ervb7zLSMn/WiOJtZoTq/qPSuzdJIFOu"
  }
 ]

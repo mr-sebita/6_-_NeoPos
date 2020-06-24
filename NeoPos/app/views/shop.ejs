@@ -18,10 +18,10 @@
         <main>
             <div class="container-fluid">
                 <div class="row display-flex">
-                    <% for (item of data.products){ %>
+                    <% for (item of data){ %>
                         <div class="col-12 col-sm-6 col-lg-3 bg-product">
                             <section class="product-box">
-                                <a href="/product/detail/<%=item.id %>">
+                                <a href="/product/<%=item.id %>">
                                     <figure class="product-box_image d-flex text-align-center justify-content-center">
                                         <img class="img-fluid" src=" <%=item.img %> " alt="imagen de producto">
                                     </figure>

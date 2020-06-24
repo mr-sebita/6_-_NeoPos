@@ -26,7 +26,7 @@ router.post('/new', [
 
         let usersJson = fs.readFileSync(path.join(__dirname, '/../models/' + 'user.json'), { encoding: 'utf-8' });
         let users;
-        if (usersJson == '') {
+        if (usersJson == ' ') {
             users=[];
         } else {
             users = JSON.parse(usersJson);

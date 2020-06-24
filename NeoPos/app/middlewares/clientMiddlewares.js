@@ -1,6 +1,7 @@
+var user = require('../controller/userControllers');
 function clientMiddlewares( req , res , next ){
     if ( req.session.usuarioLogueado == undefined ){
-        res.send('Esta página es solo para usuarios');
+        res.render('login');
     }else{
         next();
     }
