@@ -14,13 +14,12 @@
     --new-base-font-family: 'Montserrat', sans-serif;
     --secondary-font-family: 'Heebo', sans-serif;
     --alternative-font-family: 'Josefin Sans', sans-serif;
-        /* CSS colors */
+    /* CSS colors */
     --quick-silver: hsla(27, 5%, 65%, 1);
     --cultured: hsla(0, 0%, 96%, 1);
     --gainsboro: hsla(0, 0%, 88%, 1);
     --turquoise: hsla(168, 69%, 86%, 1);
     --eerie-black: hsla(0, 5%, 8%, 1);
-
     /*SOFT UI DIMENSIONS*/
 }
 
@@ -363,7 +362,6 @@ span.red {
 
 /*---------------------- Shop Styles -------*/
 
-
 .dark {
     background-color: var(--light-blue);
 }
@@ -373,9 +371,7 @@ span.red {
     justify-content: space-between;
 }
 
-.nav-item {
-    
-}
+.nav-item {}
 
 .navbar-light .navbar-nav .active>.nav-link {
     color: var(--green)
@@ -442,7 +438,6 @@ span.red {
 .glow {}
 
 
-
 /*------headers*/
 
 .module-cards {
@@ -454,4 +449,15 @@ span.red {
     border-radius: 40%;
     width: 50px;
     height: 50px;
+}
+
+.gradient-login {
+    background: rgba(20, 18, 20, 1);
+    background: -moz-linear-gradient(45deg, rgba(20, 18, 20, 1) 0%, rgba(115, 115, 115, 1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(20, 18, 20, 1)), color-stop(100%, rgba(115, 115, 115, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(20, 18, 20, 1) 0%, rgba(115, 115, 115, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(20, 18, 20, 1) 0%, rgba(115, 115, 115, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(20, 18, 20, 1) 0%, rgba(115, 115, 115, 1) 100%);
+    background: linear-gradient(45deg, rgba(20, 18, 20, 1) 0%, rgba(115, 115, 115, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#141214', endColorstr='#737373', GradientType=1);
 }
