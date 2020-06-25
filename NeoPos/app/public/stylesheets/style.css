@@ -14,6 +14,14 @@
     --new-base-font-family: 'Montserrat', sans-serif;
     --secondary-font-family: 'Heebo', sans-serif;
     --alternative-font-family: 'Josefin Sans', sans-serif;
+        /* CSS colors */
+    --quick-silver: hsla(27, 5%, 65%, 1);
+    --cultured: hsla(0, 0%, 96%, 1);
+    --gainsboro: hsla(0, 0%, 88%, 1);
+    --turquoise: hsla(168, 69%, 86%, 1);
+    --eerie-black: hsla(0, 5%, 8%, 1);
+    
+    /*SOFT UI DIMENSIONS*/
 }
 
 
