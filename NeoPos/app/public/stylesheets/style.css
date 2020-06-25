@@ -374,7 +374,7 @@ span.red {
 }
 
 .nav-item {
-    
+    flex-shrink: 1;
 }
 
 .navbar-light .navbar-nav .active>.nav-link {
