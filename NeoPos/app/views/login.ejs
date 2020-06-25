@@ -7,6 +7,7 @@
     <title>Neo Pos Software</title>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/main-style.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" > -->
 </head>
 
 <body>
@@ -34,16 +35,20 @@
     </header>
 
     <section class="text-gray-700 body-font module-cards" id="team">
-        <div class="container px-5 py-24 mx-auto" style="display:flex;justify-content:center;flex-wrap:wrap;box-sizing:border-box">
-            <div class="text-center mb-20" >
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-20">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Ingresá</h1>
 
             </div>
             <% if( typeof errors != 'undefined') { %>
-                <% for(error of errors){ %>
-                    <ul style="color: red;"> <%= error.msg %> </ul>
-                    <% } %> 
-                <% } %>  
+            <% for(error of errors){ %>
+            <div>
+                <ul>
+                    <li style="color: red;"> <%= error.msg %> </li>
+                </ul>
+            </div>
+            <% } %>
+            <% } %>
             <form action="/user/login" method="POST" class="container"
                 style="display: flex;flex-wrap:wrap;justify-content:center">
                 <div style="flex-direction:column-reverse;justify-content:center">
@@ -56,6 +61,10 @@
                         <label for="password"></label>
                         <input type="password" class="form-control col-11" id="password" placeholder="contraseña"
                             minlength="6" maxlength="15" name="password" style="width: auto;">
+                    </div>
+                    <div style="margin-top:10px;">
+                        <label for="recordame">Recordame</label>
+                        <input type="checkbox" name="recordame" id="">
                     </div>
                     <div style="margin-top:10px;">
                         <button type="submit" target="blank"

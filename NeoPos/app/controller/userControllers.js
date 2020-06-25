@@ -87,7 +87,10 @@ let user = {
                }
 
                req.session.usuarioLogueado = usuarioALoguearse;
-
+               if( req.body.recordame != undefined){
+                   res.cookie( 'recordame' ,
+                    usuarioALoguearse.email, { maxAge: 60000 })
+               }
                res.send('Ingresaste');
 
           } else {

@@ -18,6 +18,7 @@ var app = express();
 const methodOverride = require( 'method-override' );
 // Requerimos Session
 let session= require( 'express-session' );
+let cookie= require('./middlewares/cookieMiddleware');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
