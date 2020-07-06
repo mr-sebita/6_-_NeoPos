@@ -87,8 +87,9 @@ let user = {
                }
 
                req.session.usuarioLogueado = usuarioALoguearse;
-
-               res.send('Ingresaste');
+               // console.log(req.session.usuarioLogueado);
+               
+               res.render('profile', {data: usuarioALoguearse });
 
           } else {
                res.render('login', { errors: errors.errors })
@@ -97,7 +98,7 @@ let user = {
 
      },
      // -----------------------------------------------------------------------------------------------------------
-     createUser: (req, res) => { //creación del usuario!
+     createUser: (req, res , next ) => { //creación del usuario!
 
           let errors = validationResult(req);
 
@@ -109,6 +110,7 @@ let user = {
                let user = {
                     id: req.body.id,
                     name: req.body.name,
+                    img: req.body.img,
                     surname: req.body.surname,
                     phone: req.body.phone,
                     email: req.body.email,

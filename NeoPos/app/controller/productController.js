@@ -47,28 +47,29 @@ let productController = {
             res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
     },
     // ------------------------------------------------------------------------------------------------------------
-    createProduct: (req, res) => {
+    createProduct: (req, res, next) => {
        
         let product = {
             //"img": "../images/iphone.jpg",
-            id: req.body.id,
+            // id: req.body.id,
             price: req.body.price,
+            img: req.files[0].filename,
             brand: req.body.brand,
             title: req.body.title,
             discount: req.body.discount,
-            priceWithDiscount: this.price - (this.price / this.discount),
+            // priceWithDiscount: this.price - (this.price / this.discount),
             description: req.body.description,
         }
 
-        let searchById = searchById(product.id);
-        let productos = readJson();
+        // let searchById = searchById(product.id);
+        // let productos = readJson();
 
-        if (searchById == null) {
+        // if (searchById == null) {
             addProduct(product);
             return res.send('bien!');
-        } else {
-            return res.send('Producto ya existente');
-        }
+        // } else {
+        //     return res.send('Producto ya existente');
+        // }
     },
     // ------------------------------------------------------------------------------------------------------------
     detailEdit: (req, res) => {
@@ -95,20 +96,25 @@ let productController = {
 
         if (product != null) {
             if (req.body.title.trim() !== '' ||
-                req.body.description.trim() !== '') {
+                req.body.description.trim() !== '' ||
+                req.body.price.trim() !== ''||
+                req.body.img !== '' ) {
+
                 product.title = req.body.title; //se modifica el campo
                 product.description = req.body.description;
                 product.price = req.body.price;
+                product.img= req.files[0].filename;
 
                 products.map((prod) => {
                     if (prod.id == product.id) {
                         prod.title = product.title;
                         prod.description = product.description;
                         prod.price = product.price;
+                        prod.img= product.img;
                     }
                 });
                 saveJson(products);
-                return res.send('GENIAL!')
+                return res.render('product', {data: product})
             } else {
                 res.send('no podemos modificarlo')
             }

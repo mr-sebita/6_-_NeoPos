@@ -7,6 +7,9 @@ let clientMiddlewares = require( '../middlewares/clientMiddlewares' );
 let fs = require('fs');
 let path = require( 'path' );
 
+
+
+
 /*------ Creacion de usuario ------*/
 router.get('/new',guestMiddlewares ,user.new);
 router.post('/new', [
@@ -48,7 +51,7 @@ router.post('/newadmin', (req, res) => {
 });
 /*------ Login -----*/
 router.get('/login', user.login);
-router.post('/login', [
+router.post('/login',[
     check('email')
     .isEmail()
     .withMessage('Falta el email!'),
@@ -77,14 +80,5 @@ router.post('/login', [
     
 ] ,user.processLogin);
 
-router.get('/check' , (req,res)=>{
-    
-    if(req.session.usuarioLogueado == undefined){
-        res.send('NO ESTAS LOGUEADO');
-    }else{
-        res.send(req.session.usuarioLogueado)
-    }
-    
-})
-
+// router.get('/profile' , user.profile );
 module.exports = router;
