@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/buttons.css">
+</head>
+
+
+<body>
+    <%- include("partials/headerShop")%>
+        <main>
+            <section class="carrito-resumen">
+                <div class="container">
+                <div class="row">
+                <div class="col-12 col-md-8">
+                      
+                                <table class="table table-hover table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Descripcion</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Promo</th>
+                                            <th scope="col">Importe</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>1</td>
+                                            <td>
+                                                <a href="#" class="cart-card-image"> <img class="cart-image-product" src="/images/product_reloj.jpg" style="width: 20%"> </a>
+                                            </td>
+                                            <td>Reloj smart</td>
+                                            <td>$5000</td>
+                                            <td>2x1</td>
+                                            <td>$500</td>
+                                        </tr>
+                                            <tr>
+                                            <th scope="row">1</th>
+                                            <td>1</td>
+                                            <td>
+                                                <a href="#" class="cart-card-image"> <img class="cart-image-product" src="/images/notebook.jpg" style="width: 20%"> </a>
+                                            </td>
+                                            <td>Reloj smart</td>
+                                            <td>$5000</td>
+                                            <td>2x1</td>
+                                            <td>$500</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                </div><!-- end table col-->
+                <div class="col-12 col-md-4">
+
+                    <div class="container">
+                                <div href="#" class="card card-product-grid">
+                                    <a href="#" class="cart-card-image"> <img class="cart-image-product" src="/images/product_reloj.jpg"> </a>
+                                </div>
+                            </div>
+                            <!-- row.// -->
+                            <div class="col-md-10 flex-column">
+                                <div href="#" class="card card-product-grid " style="height: 100%;">
+                                    <h3><a href="#" class="title">Reloj inteligente</a></h3>
+                                    <div class="rating-wrap">
+                                        <ul class="rating-stars">
+                                            <li style="width:80%" class="stars-active">
+                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="label-rating text-muted"> 34 reviws</span>
+                                    </div>
+                                    <div class="price mt-1">
+                                        <h4>$178.99</h4>
+                                    </div>
+                                    <!-- price-wrap.// -->
+                                </div>
+
+
+                </div><!-- end col for detail-->
+                </div><!-- end main row-->
+                </div><!-- end main container-->
+                
+                <div class="container" style="margin-top:50px; margin-bottom:80px">
+                <button type="button" class="btn btn-secondary btn-lg btn-block">Comprar!!</button>
+                </div><!-- end of go buy container-->
+                
+                
+                  <%- include("partials/footer2")%>
+
+        </main>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

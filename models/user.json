@@ -1,0 +1,47 @@
+[
+<<<<<<< HEAD:NeoPos/app/models/user.json
+    {
+        "name": "admin",
+        "surname": "",
+        "phone": "",
+        "email": "admin@admin.com",
+        "password": "admin1234"
+    },
+    {
+        "name": "Martin",
+        "surname": "Aguilera",
+        "phone": "",
+        "email": "rp_tincho@hotmail.com",
+        "password": "dadadasada"
+    },
+    {
+        "name": "Martin",
+        "surname": "Aguilera",
+        "phone": "",
+        "email": "martin@hotmail.com",
+        "password": "$2b$10$95ZEBo.j5qU19RVmCeAD0ervb7zLSMn/WiOJtZoTq/qPSuzdJIFOu"
+    }
+=======
+ {
+  "name": "Martin",
+  "surname": "Aguilera",
+  "phone": "",
+  "email": "rp_tincho@hotmail.com",
+  "password": "dadadasada"
+ },
+ {
+  "name": "Martin",
+  "surname": "Aguilera",
+  "phone": "",
+  "email": "martin@hotmail.com",
+  "password": "$2b$10$95ZEBo.j5qU19RVmCeAD0ervb7zLSMn/WiOJtZoTq/qPSuzdJIFOu"
+ },
+ {
+  "name": "mauri",
+  "surname": "c",
+  "phone": "",
+  "email": "mauri@mauri.com",
+  "password": "$2b$10$WGMrgl4wyTiXkHqGZYcgb.7jdXipgI6BwdKw5RpHEHKRuV9wDfMxy"
+ }
+>>>>>>> 3d6836b012f3291ad2b3c9900c95735585073702:models/user.json
+]
