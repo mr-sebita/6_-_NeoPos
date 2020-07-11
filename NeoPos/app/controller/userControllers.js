@@ -3,7 +3,8 @@ const path = require('path');
 let bcrypt = require('bcrypt');
 let { check, validationResult, body } = require('express-validator');
 
-// FUNCIONES PRIVADAS
+// FUNCIONES 
+
 
 // Leer JSON
 function readJson(filename) {
@@ -49,7 +50,7 @@ function searchByEmail(email) {
      }
 }
 
-// FUNCIONES PÚBLICAS
+// Controlador
 let user = {
      archivo: path.join(__dirname, '/../models/' + 'user.json'),
      // -----------------------------------------------------------------------------------------------------------
@@ -71,7 +72,7 @@ let user = {
                for (let i = 0; i < users.length; i++) {
                     if (users[i].email == req.body.email) {
                          //IF PARA VERIFICAR LA CONTRASEÑA
-                         if (bcrypt.compareSync( req.body.password, users[i].password)) {
+                         if (bcrypt.compareSync(req.body.password, users[i].password)) {
                               var usuarioALoguearse = users[i];
                               break;
                          }

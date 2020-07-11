@@ -1,16 +1,23 @@
 [
- {
-  "name": "Martin",
-  "surname": "Aguilera",
-  "phone": "",
-  "email": "rp_tincho@hotmail.com",
-  "password": "dadadasada"
- },
- {
-  "name": "Martin",
-  "surname": "Aguilera",
-  "phone": "",
-  "email": "martin@hotmail.com",
-  "password": "$2b$10$95ZEBo.j5qU19RVmCeAD0ervb7zLSMn/WiOJtZoTq/qPSuzdJIFOu"
- }
+    {
+        "name": "admin",
+        "surname": "",
+        "phone": "",
+        "email": "admin@admin.com",
+        "password": "admin1234"
+    },
+    {
+        "name": "Martin",
+        "surname": "Aguilera",
+        "phone": "",
+        "email": "rp_tincho@hotmail.com",
+        "password": "dadadasada"
+    },
+    {
+        "name": "Martin",
+        "surname": "Aguilera",
+        "phone": "",
+        "email": "martin@hotmail.com",
+        "password": "$2b$10$95ZEBo.j5qU19RVmCeAD0ervb7zLSMn/WiOJtZoTq/qPSuzdJIFOu"
+    }
 ]
