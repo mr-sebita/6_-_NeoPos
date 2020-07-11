@@ -1,10 +1,11 @@
-var user = require('../controller/userControllers');
-function clientMiddlewares( req , res , next ){
-    if ( req.session.usuarioLogueado == undefined ){
+var user = require('../controller/userController');
+
+function clientMiddlewares(req, res, next) {
+    if (req.session.usuarioLogueado == undefined) {
         res.render('login');
-    }else{
+    } else {
         next();
     }
-} 
+}
 
-module.exports= clientMiddlewares; 
+module.exports = clientMiddlewares;

@@ -10,14 +10,14 @@ var userRouter = require('./routes/user');
 /*---- Seccion Productos ----*/
 var productRouter = require('./routes/product');
 /*--Carrito de productos que ya compramos y vamos a pagar ----*/
-var cartRouter = require('./routes/cart'); 
+var cartRouter = require('./routes/cart');
 /*--Landing page del Ecommerce ----*/
 var shopRouter = require('./routes/shop');
 var app = express();
- //METODOS PARA PUT Y DELETE
-const methodOverride = require( 'method-override' );
+//METODOS PARA PUT Y DELETE
+const methodOverride = require('method-override');
 // Requerimos Session
-let session= require( 'express-session' );
+let session = require('express-session');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use( methodOverride('_method') ) ;
+app.use(methodOverride('_method'));
 app.use(session({ secret: 'Secreto!!' }));
 
 
@@ -41,7 +41,8 @@ app.use('/shop', shopRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    next(createError(404));
+    res.status(404).render('error404');
+    next();
 });
 
 

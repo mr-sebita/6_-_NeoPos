@@ -153,10 +153,6 @@ a {
     background-color: #000;
 }
 
-.active {
-    background-color: #4CAF50;
-}
-
 
 /* Barra lateral */
 
@@ -193,11 +189,13 @@ footer img {
     background-color: white;
 }
 
+
+/* 
 label {
     display: flex !important;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .title-form {
     display: flex;

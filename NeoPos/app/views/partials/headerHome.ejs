@@ -1,4 +1,4 @@
-<header class="text-gray-700 body-font">
+<header class="text-gray-700 body-font" style="z-index:100; background-color: white">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
             <a href="/"><img class="logo-circle" src="/images/logo.png" alt=""></a>
@@ -9,17 +9,27 @@
             <a href="#eco" class="mr-5 hover:text-gray-900">Ecosistema</a>
             <a href="#team" class="mr-5 hover:text-gray-900">Nuestro Equipo</a>
             <a href="#client" class="mr-5 hover:text-gray-900">Nuestro Clientes</a>
-            <a href="../user/login"><button class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">Ingresa
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button></a>
-            <a href="../user/new"><button class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0" style="margin-left: 5px;">Registrate
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button></a>
+            <% if (typeof userData == 'object' && userData) { %>
+                <img alt="team " class="flex-shrink-0 rounded-lg w-8 h-8 object-cover object-center sm:mb-0 mb-4 " src="/images/mauri.png ">
+                <%= /*  userData.name */%>
+                    <% } else { %>
+                        <button class="inline-flex items-center bg-gray-200 border-0 mr-2 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base md:mt-0" data-toggle="modal" data-target="#modalLogin">Ingresa
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                        <button class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base md:mt-0" data-toggle="modal" data-target="#modalSignUp">Registrate
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                        <%  } %>
+
         </nav>
 
     </div>
+
+    <%- include("./modalLogIn")%>
+        <%- include("./modalSignUp")%>
+
 </header>
