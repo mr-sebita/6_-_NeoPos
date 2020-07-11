@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/buttons.css">
+</head>
+
+<body>
+
+    <%- include("partials/headerShop")%>
+        <main>
+        <div class="d-none d-lg-block  icon-bar">
+            <a class="active" href="#"><i class="fa fa-home"></i></a>
+            <a href="#"><i class="fa fa-search"></i></a>
+            <a href="/product/4"><i><img src="/images/mouse.jpg" alt="comprahecha" class="img-thumbnail" width="50px"></i></a>
+            <a href="./buy"><i class="fas fa-handshake-o "></i></a>
+        </div>
+
+            <div class="container">
+                <div class="row display-flex">
+                    <% for (item of data){ %>
+                        <div class="col-12 col-sm-6 col-lg-3 bg-product">
+                            <section class="product-box">
+                                <a href="/product/<%=item.id %>">
+                                    <figure class="product-box_image d-flex text-align-center justify-content-center">
+                                        <img class="img-fluid" src=" <%=item.img %> " alt="imagen de producto">
+                                    </figure>
+
+                                    <article class="product-box_data px-2 py-2">
+                                        <p class="brand">
+                                            <%= item.brand %>
+                                        </p>
+                                        <p class="title">
+                                            <%=item.title %>
+                                                <%=item.description%>
+                                        </p>
+
+                                        <span class="fullPrice"><%= item.price %></span>
+                                        <span class="discount"><%= item.discount %></span>
+                                        <h2>
+                                            <%= item.priceWithDiscount %>
+                                        </h2>
+                                        <div class="container">
+                                            <div class="d-flex flex-row section-border pt-2">
+                                                <div class="d-flex flex-row text-align-center">
+                                                    <div>
+                                                        <i class="fas fa-truck fa-2x pr-3 delivery pt-2"></i></div>
+                                                </div>
+                                                <div class="d-flex justify-content-center delivery"><b>FREE</b> Ahora te llega sin Cargo | Detalles</div>
+                                            </div>
+
+                                            <div class=" section-border py-2 mt-2">
+                                                Color<br>
+                                                <h5><b>Space Gray</b> </h5>
+                                            </div>
+                                            <div class="  section-border py-4 d-flex flex-row justify-content-center align-items-center">
+                                                <input type="number" value="1" min="0" max="100" step="1" class="qty-input" />
+                                                <button type="button" class="btn btn-success btn-lg btn-radius ml-3"><i class="fas fa-cart-plus fa-2x"></i></button>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </a>
+                            </section>
+                        </div>
+                        <%}%>
+
+                </div>
+            </div>
+
+        </main>
+        <%- include("partials/footer2")%>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
