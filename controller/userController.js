@@ -20,27 +20,23 @@ function readJson(filename) {
 function saveJson(users) {
     return fs.writeFileSync(user.archivo, JSON.stringify(users, null, ' '))
 }
+
 // Guardar un usuario
 function addUser(user) {
     let users = readJson();
-
     users.push(user);
     saveJson(users);
-
 }
+
 // Buscar por id
 function searchByEmail(email) {
     let users = readJson();
     console.log(email);
-
     let user = users.filter(u => {
-
         u.email === email
         console.log(u.email);
-
     });
     console.log(user[0]);
-
     if (typeof user != "undefined" &&
         user != null &&
         user.length != null &&
@@ -49,27 +45,13 @@ function searchByEmail(email) {
     }
 }
 
-// FUNCIONES PÚBLICAS
+
 let user = {
     archivo: path.join(__dirname, '/../models/' + 'user.json'),
-    // -----------------------------------------------------------------------------------------------------------
-    /* new: (req, res) => {
-         res.render('user')
-     },
-     login: (req, res) => {
-
-         res.render('login');
-     },*/
-
-
     processLogin: (req, res) => {
-
         let errors = validationResult(req);
-
         if (errors.isEmpty()) {
-
             let users = readJson();
-
             for (let i = 0; i < users.length; i++) {
                 if (users[i].email == req.body.email) {
                     //IF PARA VERIFICAR LA CONTRASEÑA
@@ -79,32 +61,20 @@ let user = {
                     }
                 }
             }
-
             if (usuarioALoguearse == undefined) {
                 let error = ['El Usuario no Existe'];
                 res.render('index1', { errors: error })
             }
-
             req.session.usuarioLogueado = usuarioALoguearse;
-
             res.render('index1', { userData: req.session.usuarioLogueado });
-
         } else {
             res.render('index1', { 'errors': errors.errors })
         }
-
-
     },
-    // -----------------------------------------------------------------------------------------------------------
     createUser: (req, res) => { //creación del usuario!
-
         let errors = validationResult(req);
-
         console.log(validationResult(req));
-
-
         if (errors.isEmpty()) { //Si el valor es true, significa que no hay errores!
-
             let user = {
                 id: req.body.id,
                 name: req.body.name,
@@ -115,14 +85,10 @@ let user = {
             }
             addUser(user);
             res.render('index1', { userData: req.session.usuarioLogueado });
-            // } else {
-            //      return res.send('Cliente ya existente');
-            // }
         } else {
             res.render('index1', { errors: errors.errors });
         }
     },
-    // -----------------------------------------------------------------------------------------------------------
     newadmin: (req, res) => {
         res.render('useradmin')
     },
