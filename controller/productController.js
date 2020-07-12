@@ -36,6 +36,9 @@ let productController = {
             res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
         }
     },
+    newProduct: (req, res, next) => {
+    res.render('productNew', { title: 'Creacion del Producto' });
+    },
     createProduct: (req, res) => {
         let product = {
             id: req.body.id,
@@ -100,6 +103,7 @@ let productController = {
         saveJson(nuevoArray);
         res.send('Borrado!!')
     }
+    
 }
 
 module.exports = productController;
