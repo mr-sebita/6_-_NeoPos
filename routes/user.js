@@ -6,8 +6,8 @@ let guestMiddlewares = require('../middlewares/guestMiddlewares');
 let clientMiddlewares = require('../middlewares/clientMiddlewares');
 let fs = require('fs');
 let path = require('path');
+const { usuarioLogeado } = require('../controller/productController');
 
-/*------ New User -----*/
 router.post('/new', [
     check('name'),
     check('surname'),
@@ -29,22 +29,11 @@ router.post('/new', [
         }
     }).withMessage('EL USUARIO YA EXISTE')], user.createUser);
 
-router.post('/newadmin', (req, res) => {res.send('llego un pedido de new admin');});
-
-/*------ Login -----*/
+router.post('/newadmin', (req, res) => { res.send('llego un pedido de new admin'); });
 router.post('/login', [
     check('email').isEmail().withMessage('Falta el email!'),
     check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
 ], user.processLogin);
-
-router.get('/check', (req, res) => {
-
-    if (req.session.usuarioLogueado == undefined) {
-        res.send('NO ESTAS LOGUEADO');
-    } else {
-        res.send(req.session.usuarioLogueado)
-    }
-
-})
+router.get('/check', usuarioLogeado);
 
 module.exports = router;

@@ -102,8 +102,14 @@ let productController = {
         nuevoArray = products.filter(prod => prod.id != product.id);
         saveJson(nuevoArray);
         res.send('Borrado!!')
+    },
+    usuarioLogeado: (req, res) => {
+        if (req.session.usuarioLogueado == undefined) {
+            res.send('NO ESTAS LOGUEADO');
+        } else {
+            res.send(req.session.usuarioLogueado)
+        }
     }
-    
 }
 
 module.exports = productController;
