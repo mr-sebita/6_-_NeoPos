@@ -41,13 +41,8 @@ app.use('/shop', shopRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-//<<<<<<< HEAD:NeoPos/app/app.js
-//    res.status(404).render('error404');
-//    next();
-//=======
-   // next(createError(404));
-    res.render('404');
-//>>>>>>> 6088ec68a1bea25218919a511b3de6fd8113313d:app.js
+    res.status(404).render('error404');
+    next();
 });
 
 
