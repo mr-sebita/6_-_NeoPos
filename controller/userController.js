@@ -3,9 +3,6 @@ const path = require('path');
 let bcrypt = require('bcrypt');
 let { check, validationResult, body } = require('express-validator');
 
-// FUNCIONES PRIVADAS
-
-// Leer JSON
 function readJson(filename) {
     let userLeido = fs.readFileSync(user.archivo, 'utf-8');
     let users;
@@ -16,35 +13,15 @@ function readJson(filename) {
         return JSON.parse(userLeido);
     }
 }
-// Escribir en el JSON
 function saveJson(users) {
     return fs.writeFileSync(user.archivo, JSON.stringify(users, null, ' '))
 }
 
-// Guardar un usuario
 function addUser(user) {
     let users = readJson();
     users.push(user);
     saveJson(users);
 }
-
-// Buscar por id
-function searchByEmail(email) {
-    let users = readJson();
-    console.log(email);
-    let user = users.filter(u => {
-        u.email === email
-        console.log(u.email);
-    });
-    console.log(user[0]);
-    if (typeof user != "undefined" &&
-        user != null &&
-        user.length != null &&
-        user.length > 0) {
-        return user[0]
-    }
-}
-
 
 let user = {
     archivo: path.join(__dirname, '/../models/' + 'user.json'),
