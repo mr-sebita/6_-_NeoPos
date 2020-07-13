@@ -62,7 +62,7 @@ let productController = {
         console.log(product);
 
         if (product != null) {
-            res.render('productEdit2', { data: product });
+            res.render('productEdit', { data: product });
         } else
             res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
 

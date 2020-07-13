@@ -38,13 +38,11 @@ app.use('/product', productRouter);
 app.use('/cart', cartRouter);
 app.use('/shop', shopRouter);
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     res.status(404).render('error404');
     next();
 });
-
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -54,7 +52,7 @@ app.use(function(err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    res.render('error404');
 });
 
 module.exports = app;

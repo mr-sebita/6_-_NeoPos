@@ -7,8 +7,8 @@
             <div class="modal-header px-4 ">
                 <h5 class="modal-title" id="exampleModalLabel">Ingreso Usuarios</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
             <form action="/user/login" method="POST" class="">
                 <div class="modal-body mb-2 mx-1">
@@ -16,29 +16,36 @@
                     <div style="flex-direction:column-reverse;justify-content:center">
                         <div>
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                name="email">
                         </div>
                         <!-- Alerta de correo no encontrado -->
-
-                        <div class="alert alert-warning" role="alert">
-                            This is a warning alert—check it out!
-                        </div>
+                        <% if (typeof(errorView) !== 'undefined'){ %>
+                        <div id="errorUser" class="alert alert-warning"
+                            role="alert"> <%= errorView %> 
+                        </div> 
+                            <% } %>
                         <div style="margin-top:10px;">
                             <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" id="password" minlength="6" maxlength="15" name="password">
+                            <input type="password" class="form-control" id="password" minlength="6" maxlength="15"
+                                name="password">
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer px-3">
-                    <button type="submit" class="inline-flex text-white items-center text-center bg-green-700 border-0 py-2 px-5 focus:outline-none hover:bg-gray-700 hover:text-black  rounded text-base md:mt-0">Ingresá
-                                                      <svg fill="none" stroke="#d3d3d3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                                      </svg>
-                                                    </button>
+                    <button type="submit"
+                        class="inline-flex text-white items-center text-center bg-green-700 border-0 py-2 px-5 focus:outline-none hover:bg-gray-700 hover:text-black  rounded text-base md:mt-0">Ingresá
+                        <svg fill="none" stroke="#d3d3d3" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 </div>
+
+<script> window.onload = function () { <% if (typeof (errorView) != "undefined") { %> $('#modalLogin').modal({ show: true }); <% } else { %> $('#modalLogin').modal({ show: false }); <% } %> }; </script>

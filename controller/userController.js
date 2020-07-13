@@ -26,12 +26,14 @@ function addUser(user) {
 let user = {
     archivo: path.join(__dirname, '/../models/' + 'user.json'),
     processLogin: (req, res) => {
-        let errors = validationResult(req);
-        if (errors.isEmpty()) {
+        //1 . validation in fields
+        //2 . validation in password field
+        //3 . send messages
+        let errorsResult = validationResult(req);
+        if (errorsResult.isEmpty()) {
             let users = readJson();
             for (let i = 0; i < users.length; i++) {
                 if (users[i].email == req.body.email) {
-                    //IF PARA VERIFICAR LA CONTRASEÑA
                     if (bcrypt.compareSync(req.body.password, users[i].password)) {
                         var usuarioALoguearse = users[i];
                         break;
@@ -39,13 +41,13 @@ let user = {
                 }
             }
             if (usuarioALoguearse == undefined) {
-                let error = ['El Usuario no Existe'];
-                res.render('index1', { errors: error })
+                let errorMessage = ['El Usuario no Existe'];
+                res.render('index', { errorView: errorMessage })
             }
             req.session.usuarioLogueado = usuarioALoguearse;
-            res.render('index1', { userData: req.session.usuarioLogueado });
+            res.render('index', { userData: req.session.usuarioLogueado });
         } else {
-            res.render('index1', { 'errors': errors.errors })
+            res.render('index', { errorView: errorsResult.errors })
         }
     },
     createUser: (req, res) => { //creación del usuario!
@@ -61,9 +63,9 @@ let user = {
                 password: bcrypt.hashSync(req.body.password, 10)
             }
             addUser(user);
-            res.render('index1', { userData: req.session.usuarioLogueado });
+            res.render('index', { userData: req.session.usuarioLogueado });
         } else {
-            res.render('index1', { errors: errors.errors });
+            res.render('index', { errors: errors.errors });
         }
     },
     newadmin: (req, res) => {

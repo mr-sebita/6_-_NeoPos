@@ -1,87 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Editar Producto</title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-     <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
-     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
-          rel="stylesheet">
-     <link rel="stylesheet" href="/stylesheets/style.css">
-     <link rel="stylesheet" href="/stylesheets/buttons.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/buttons.css">
 </head>
 
 <body>
-     <%- include("partials/headerShop")%>
-     <main>
-          <div class="container">
-               <section class="product-box">
-                    <div class="row">
-                         <div class="col-12 col-md-8 align-self-stretch ">
-                              <a href="">
-                                   <figure class="">
-                                        <img class="img-fluid " src="/images/<%=data.img  %> " alt="imagen de producto">
-                                   </figure>
-                              </a>
-                         </div>
-
-                         <div class="col-md-4">
-                              <div class="d-flex flex column">
-                                   <form action="/product/edit/<%= data.id %>?_method=PUT" method="POST">
-                                        <article class="product-box_data px-2 py-2">
-                                             <p class="brand">
-                                                  <%= data.brand %>
-                                             </p>
-                                             <p class="title">
-                                                  <label for="title">Producto</label>
-                                                  <input type="text" name="title" value="<%= data.title %>"><br>
-                                                  <label for="description">Description</label>
-                                                  <textarea type="text"
-                                                       name="description"><%= data.description %></textarea><br>
-                                             </p>
-
-                                             <span class="fullPrice"><%= data.price %></span>
-                                             <span class="discount"><%= data.discount %></span>
-                                             <h2>
-                                                  <%= data.priceWithDiscount %>
-                                             </h2>
-
-                                             <div class=" section-border py-4 ">
-                                                  Color<br>
-                                                  <h5><b>Space Gray</b> </h5>
-                                             </div>
-                                             <div class=" section-border py-4 text-center ">
-                                                  <button type="submit"
-                                                       class="btn btn-success btn-lg btn-radius ml-3">Editar</button>
-
-                                             </div>
-                                        </article>
-                                   </form>
-                                   <form action="/product/<%= data.id %>?_method=DELETE" method="POST">
-                                        <button type="submit"
-                                             class="btn btn-success btn-lg btn-radius ml-3">Borrar</button>
-                                   </form>
-                              </div>
-                         </div>
-
+    <%- include("partials/headerShop")%>
+    <main>
+        <div class="container">
+            <section class="product-box">
+                <div class=" row ">
+                    <div class="card-body col-12 ">
+                        <div class="modal-header ">
+                            <h5 class="modal-title ">Editá : <%= data.title %> </h5>
+                        </div>
                     </div>
-          </div>
-     </main>
-     <footer>
+                    <div class="container ">
+                        <form action="/product/edit/<%= data.id %>?_method=PUT" method="POST">
+                            <div class="row ">
 
-     </footer>
+                                <div class="col-12 col-md-6 modal-body ">
+
+                                    <p>Selecciona la categoria</p>
+                                    <select class="form-control form-control-md ">
+                                        <option>Electronica</option>
+                                        <option>Hogar</option>
+                                        <option>Indumentaria</option>
+                                        <option>Otro</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-md-3 ">
+                                    <div class="modal-body ">
+                                        <p>Titulo del producto</p>
+                                        <input class="form-control form-control-sm " type="text "
+                                            value="<%= data.title %>" name="title">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3 ">
+                                    <div class="modal-body ">
+                                        <p>Precio</p>
+                                        <input class="form-control form-control-sm " type="number "
+                                            value="<%= data.price %>" name="price">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-12 col-md-6 modal-body ">
+
+                                    <div class=" ">
+                                        <p>Descripción</p>
+                                        <textarea class="form-control " aria-label="With textarea "
+                                            name="description"><%= data.description %></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 modal-body ">
+                                    <div class="row ">
+                                        <div class="col-12 col-md-6 ">
+                                            <p>Carga tus imagenes </p>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 ">
+                                            <!-- <form id="frmUploader " enctype="multipart/form-data " action="api/Upload/ "
+                                                method="post "> -->
+
+                                                <label>
+                                                    <i class="fa fa-plus-square "></i>
+                                                    <input type="file" style="visibility: hidden;" />
+                                                </label>
+
+                                                <input type="file" style="display:none;" id="file" name="file" />
+
+                                            <!-- </form> -->
+                                        </div>
+                                    </div>
+                                    <!--Carousel Wrapper-->
+                                    <div id="carousel-thumb " class="carousel slide carousel-fade carousel-thumbnails "
+                                        data-ride="carousel ">
+                                        <!--Slides-->
+                                        <div class="carousel-inner " role="listbox ">
+                                            <div class="carousel-item active ">
+                                                <img class="d-block w-100 h-0 img-fluid "
+                                                    src='/images/<%= data.img %> '
+                                                    alt="First slide ">
+                                            </div>
+<!-- "https://previews.123rf.com/images/antkevyv/antkevyv1508/antkevyv150800081/44219251-c%C3%A1mara-signo-icono-agregar-la-imagen.jpg " -->
+                                        </div>
+                                        <!--/.Slides-->
+                                        <!--Controls-->
+                                        <a class="carousel-control-prev " href="#carousel-thumb " role="button "
+                                            data-slide="prev ">
+                                            <span class="carousel-control-prev-icon " aria-hidden="true "></span>
+                                            <span class="sr-only ">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next " href="#carousel-thumb " role="button "
+                                            data-slide="next ">
+                                            <span class="carousel-control-next-icon " aria-hidden="true "></span>
+                                            <span class="sr-only ">Next</span>
+                                        </a>
+
+                                    </div>
+                                    <!--/.Carousel Wrapper-->
+
+                                    <button type="button " class="btn btn-danger mt-2 ml-a mr-a ">Eliminar foto</button>
+                                </div>
+                            </div>
+                            <div class=" section-border py-4 text-center ">
+                                <button type="submit"
+                                     class="btn btn-success btn-lg btn-radius ml-3">Editar</button>
+
+                           </div>
+                            <!-- <input class=" " type="submit " value="Cargar Producto "> -->
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
 
 
-     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-          crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-          crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-          crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
 </body>
 

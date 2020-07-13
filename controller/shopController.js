@@ -8,7 +8,6 @@ function readJson(filename) {
 let shopController = {
     index: function(req, res, next) {
         let archivoJson = readJson('product');
-        console.log(archivoJson);
         res.render('shop', { data: archivoJson });
     }
 }

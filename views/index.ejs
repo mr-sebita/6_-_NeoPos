@@ -4,145 +4,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido</title>
+    <title>Neo Pos Software</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-    <header class="header-tincho">
-        <div class="navegador-principal">
-            <nav class="navbar navbar-expand-md navbar-dark container nav-bg">
+    <%- include("partials/headerHome")%>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-                <a href="#" class="navbar-brand logo">NEO POS</a>
-                <div class="collapse navbar-collapse" id="menuNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="/shop" class="nav-link">ECommerce</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">POS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/cart" class="nav-link"><i class="fas fa-shopping-cart"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#about" class="nav-link">About</a>
-                        </li>
-                    </ul>
+
+        <section class="text-gray-700 body-font " id="eco ">
+            <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
+                <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center ">
+                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 ">Un solo lugar
+                        <br class="hidden lg:inline-block ">todo tu negocio
+                    </h1>
+                    <p class="mb-8 leading-relaxed ">Hemos creado un sistema integrado donde tu ecommerce tu Stock y tu Punto de venta funcionan integrados. Potenciando y organizando tus ventas. </p>
                 </div>
-
-            </nav>
-            <div class="container navegador navbar navbar-expand-md">
-                <div class="row collapse navbar-collapse" id="menuNav">
-                    <div class="col-1"></div>
-                    <div class="col-8"></div>
-                    <div class="col-3 cont-registro pb-3">
-
-
-                        <a href="./cart" class="registros"><i class="fas fa-sign-in-alt"></i> Ingresá</a>
-                        <a href="./user/new" class="registros"><i class="fas fa-user-plus"></i> Registrate</a>
+                <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 ">
+                    <img class="object-cover object-center rounded " alt="hero " src="/images/image.png ">
+                </div>
+            </div>
+        </section>
+        <section class="text-gray-700 body-font module-cards ">
+            <div class="container px-5 py-24 mx-auto ">
+                <div class="text-center mb-20 ">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4 ">Nuestro Ecosistema</h1>
+                    <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto ">Podes manejar todo tu negocio desde una sola app. Tu Punto de venta en el local. Tu ecommerce para vender online y tu stock integrado para ambas applicaciones</p>
+                    <div class="flex mt-6 justify-center ">
+                        <div class="w-16 h-1 rounded-full bg-green-500 inline-flex "></div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 ">
+                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col text-center items-center ">
+                        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-5 flex-shrink-0 ">
+                            <svg fill="none " stroke="currentColor " stroke-linecap="round " stroke-linejoin="round " stroke-width="1 " class="w-10 h-10 " viewBox="0 0 20 20 ">
+                              <path d="M17.638,6.181h-3.844C13.581,4.273,11.963,2.786,10,2.786c-1.962,0-3.581,1.487-3.793,3.395H2.362c-0.233,0-0.424,0.191-0.424,0.424v10.184c0,0.232,0.191,0.424,0.424,0.424h15.276c0.234,0,0.425-0.191,0.425-0.424V6.605C18.062,6.372,17.872,6.181,17.638,6.181 M13.395,9.151c0.234,0,0.425,0.191,0.425,0.424S13.629,10,13.395,10c-0.232,0-0.424-0.191-0.424-0.424S13.162,9.151,13.395,9.151 M10,3.635c1.493,0,2.729,1.109,2.936,2.546H7.064C7.271,4.744,8.506,3.635,10,3.635 M6.605,9.151c0.233,0,0.424,0.191,0.424,0.424S6.838,10,6.605,10c-0.233,0-0.424-0.191-0.424-0.424S6.372,9.151,6.605,9.151 M17.214,16.365H2.786V7.029h3.395v1.347C5.687,8.552,5.332,9.021,5.332,9.575c0,0.703,0.571,1.273,1.273,1.273c0.702,0,1.273-0.57,1.273-1.273c0-0.554-0.354-1.023-0.849-1.199V7.029h5.941v1.347c-0.495,0.176-0.849,0.645-0.849,1.199c0,0.703,0.57,1.273,1.272,1.273s1.273-0.57,1.273-1.273c0-0.554-0.354-1.023-0.849-1.199V7.029h3.395V16.365z"></path>
+                </svg>
+                        </div>
+                        <div class="flex-grow ">
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3 ">Ecommerce</h2>
+                            <p class="leading-relaxed text-base h-40">Ecommerce personalizado para tu branding y tus necesidades. Transporta en simples pasos tu negocio a la web</p>
+                            <a class="mt-3 text-green-500 inline-flex items-center " href="/shop ">Mas Detalles 
+                  <svg fill="none " stroke="currentColor " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-4 h-4 ml-2 " viewBox="0 0 24 24 ">
+                    <path d="M5 12h14M12 5l7 7-7 7 "></path>
+                  </svg>
+                </a>
+                        </div>
+                    </div>
+                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col text-center items-center ">
+                        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-5 flex-shrink-0 ">
+                            <svg fill="none " stroke="currentColor " stroke-linecap="round " stroke-linejoin="round " stroke-width="1" class="w-10 h-10 " viewBox="0 0 20 20 ">
+                  <path d="M17.431,2.156h-3.715c-0.228,0-0.413,0.186-0.413,0.413v6.973h-2.89V6.687c0-0.229-0.186-0.413-0.413-0.413H6.285c-0.228,0-0.413,0.184-0.413,0.413v6.388H2.569c-0.227,0-0.413,0.187-0.413,0.413v3.942c0,0.228,0.186,0.413,0.413,0.413h14.862c0.228,0,0.413-0.186,0.413-0.413V2.569C17.844,2.342,17.658,2.156,17.431,2.156 M5.872,17.019h-2.89v-3.117h2.89V17.019zM9.587,17.019h-2.89V7.1h2.89V17.019z M13.303,17.019h-2.89v-6.651h2.89V17.019z M17.019,17.019h-2.891V2.982h2.891V17.019z"></path>
+                </svg>
+                        </div>
+                        <div class="flex-grow ">
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3 ">Stock</h2>
+                            <p class="leading-relaxed text-base h-40">Podes llevar el stock de tu negocio para mejorar las entregas y tomar los pedidos en tiempo real, sin equivocaciones optimizando tus ventas</p>
+                            <a class="mt-3 text-green-500 inline-flex items-center ">Mas Detalles 
+                  <svg fill="none " stroke="currentColor " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-4 h-4 ml-2 " viewBox="0 0 24 24 ">
+                    <path d="M5 12h14M12 5l7 7-7 7 "></path>
+                  </svg>
+                </a>
+                        </div>
+                    </div>
+                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col text-center items-center ">
+                        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-5 flex-shrink-0 ">
+                            <svg fill="none " stroke="currentColor " stroke-linecap="round " stroke-linejoin="round " stroke-width="1 " class="w-10 h-10 " viewBox="0 0 20 20 ">
+                              <path d="M17.237,3.056H2.93c-0.694,0-1.263,0.568-1.263,1.263v8.837c0,0.694,0.568,1.263,1.263,1.263h4.629v0.879c-0.015,0.086-0.183,0.306-0.273,0.423c-0.223,0.293-0.455,0.592-0.293,0.92c0.07,0.139,0.226,0.303,0.577,0.303h4.819c0.208,0,0.696,0,0.862-0.379c0.162-0.37-0.124-0.682-0.374-0.955c-0.089-0.097-0.231-0.252-0.268-0.328v-0.862h4.629c0.694,0,1.263-0.568,1.263-1.263V4.319C18.5,3.625,17.932,3.056,17.237,3.056 M8.053,16.102C8.232,15.862,8.4,15.597,8.4,15.309v-0.89h3.366v0.89c0,0.303,0.211,0.562,0.419,0.793H8.053z M17.658,13.156c0,0.228-0.193,0.421-0.421,0.421H2.93c-0.228,0-0.421-0.193-0.421-0.421v-1.263h15.149V13.156z M17.658,11.052H2.509V4.319c0-0.228,0.193-0.421,0.421-0.421h14.308c0.228,0,0.421,0.193,0.421,0.421V11.052z"></path>
+                </svg>
+                        </div>
+                        <div class="flex-grow ">
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3 ">POS</h2>
+                            <p class="leading-relaxed text-base h-40">Podes vender en tu negocio fisico desde tu celular sin necesidad de estar detras del mostrador. Te ayudamos a crear promociones que maximicen tus ventas y asi ocupar toda la potencia de la web para hacer crecer tu negocio</p>
+                            <a class="mt-3 text-green-500 inline-flex items-center ">Mas Detalles
+                  <svg fill="none " stroke="currentColor " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-4 h-4 ml-2 " viewBox="0 0 24 24 ">
+                    <path d="M5 12h14M12 5l7 7-7 7 "></path>
+                  </svg>
+                </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-        <section class="container">
-            <article class="row principal-banner">
-                <div class="col-12 pl-4 pt-5 img-banner">
-                    <h1 class="mb-5 ml-2">Un ecosistema de software que potencia tu negocio.</h1>
-
-                    <p><i class="fas fa-hand-point-right mb-3 ml-1"></i> Un solo lugar donde encontrás todas las soluciones de software para manejar tu negocio.</p>
-                    <p><i class="fas fa-hand-point-right mb-3 ml-1"></i> Un E-Commerce para vender online y asi salir de tu área para atraer a más clientes.</p>
-                    <p><i class="fas fa-hand-point-right mb-3 ml-1"></i> Punto de venta adicional para aumentar tus ganancias.
-                    </p>
-                    <p><i class="fas fa-hand-point-right mb-3 ml-1"></i> Sistema de stock integrado.</p>
-                </div>
-                <!-- <div class="d-none d-lg-block col-lg-8  img-banner">
-                   <img src="/images/banner-2.jpg" class="max-width: 100%" alt=""> 
-              </div> -->
-            </article>
         </section>
-    </header>
-
-    <main>
-
-
-        <div class="d-none d-lg-block  icon-bar">
-            <a class="active" href="#"><i class="fa fa-home"></i></a>
-            <a href="#"><i class="fa fa-search"></i></a>
-            <a href="#"><i class="fa fa-envelope"></i></a>
-            <a href="#"><i class="fas fa-sign-in-alt"></i></a>
-            <a href="./user/new"><i class="fas fa-user-plus"></i></a>
-        </div>
-
-        <article class="container pb-5 contenedora ">
-            <div class=" col-12 col-lg-12 row d-flex justify-content-between">
-                <div class="col-12 col-md-3 title-informat">
-                    <i class="fas fa-store"></i>
-                    <h4>Punto de venta</h4>
-                    <p>Punto de Venta parametrizable. Podemos adaptar nuestro sistema a tus necesidades. Con solo unos clicks ya podes cargar tus productos en el stock y asi vender de manera instantanea.</p>
+        <section class="text-gray-700 body-font " id="team ">
+            <div class="container px-5 py-24 mx-auto ">
+                <div class="flex flex-col text-center w-full mb-20 ">
+                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest ">Nuestro Equipo</h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base ">Nuestro equipo esta formado por los mejores profesionales en cada Area (Diseño, Imagen Corporativa, Desarrollo Web y Ventas) Asi podemos ayudarte a mejorar cada aspecto de tu negocio y acompañarte en tu crecimiento</p>
                 </div>
-                <div class="col-12 col-md-3 title-informat">
-                    <i class="fas fa-network-wired"></i>
-                    <h4>E-Commerce</h4>
-                    <p>Punto de Venta parametrizable. Podemos adaptar nuestro sistema a tus necesidades. Con solo unos clicks ya podes cargar tus productos en el stock y asi vender de manera instantanea.</p>
-                </div>
-                <div class="col-12 col-md-3 title-informat ">
-                    <i class="fas fa-database"></i>
-                    <h4>Sistema de Stock</h4>
-                    <p>Punto de Venta parametrizable. Podemos adaptar nuestro sistema a tus necesidades. Con solo unos clicks ya podes cargar tus productos en el stock y asi vender de manera instantanea. </p>
+                <div class="flex flex-wrap -m-4 ">
+                    <div class="p-4 lg:w-1/2 ">
+                        <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left ">
+                            <img alt="team " class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4 " src="/images/mauri.png ">
+                            <div class="flex-grow sm:pl-8 ">
+                                <h2 class="title-font font-medium text-lg text-gray-900 ">Mauricio Caceres</h2>
+                                <h3 class="text-gray-500 mb-3 ">UI Developer</h3>
+                                <p class="mb-4 ">El Saruman del Codding - Un tipo capo que programa como los Dioses</p>
+                                <span class="inline-flex ">
+                    <a class="text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z "></path>
+                      </svg>
+                    </a>
+                    <a class="ml-2 text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z "></path>
+                      </svg>
+                    </a>
+                    <a class="ml-2 text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z "></path>
+                      </svg>
+                    </a>
+                  </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 lg:w-1/2 ">
+                        <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left ">
+                            <img alt="team " class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4 " src="/images/jesu.png ">
+                            <div class="flex-grow sm:pl-8 ">
+                                <h2 class="title-font font-medium text-lg text-gray-900 ">Jesus Manrique</h2>
+                                <h3 class="text-gray-500 mb-3 ">Full Stack Developer</h3>
+                                <p class="mb-4 ">El Slash del UI Development - Siempre pensando como agregar mas cosas y romper menos</p>
+                                <span class="inline-flex ">
+                    <a class="text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z "></path>
+                      </svg>
+                    </a>
+                    <a class="ml-2 text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z "></path>
+                      </svg>
+                    </a>
+                    <a class="ml-2 text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z "></path>
+                      </svg>
+                    </a>
+                  </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 lg:w-1/2 ">
+                        <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left ">
+                            <img alt="team " class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4 " src="/images/seba.png ">
+                            <div class="flex-grow sm:pl-8 ">
+                                <h2 class="title-font font-medium text-lg text-gray-900 ">Sebastian Ballester</h2>
+                                <h3 class="text-gray-500 mb-3 ">UI Developer</h3>
+                                <p class="mb-4 ">El Yaco Pastorius del Desarrollo - El Rebelde del grupo queriendo meter alguna idea loca para sumar</p>
+                                <span class="inline-flex ">
+                    <a class="text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z "></path>
+                      </svg>
+                    </a>
+                    <a class="ml-2 text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z "></path>
+                      </svg>
+                    </a>
+                    <a class="ml-2 text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z "></path>
+                      </svg>
+                    </a>
+                  </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 lg:w-1/2 ">
+                        <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left ">
+                            <img alt="team " class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4 " src="/images/tincho.png ">
+                            <div class="flex-grow sm:pl-8 ">
+                                <h2 class="title-font font-medium text-lg text-gray-900 ">Tincho Aguilera</h2>
+                                <h3 class="text-gray-500 mb-3 ">Software Developer</h3>
+                                <p class="mb-4 ">El Messi de la Codificacion - El 10 del equipo siempre ayudando con lo ultimo de la tech y empujando para que no nos detengamos</p>
+                                <span class="inline-flex ">
+                    <a class="text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z "></path>
+                      </svg>
+                    </a>
+                    <a class="ml-2 text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z "></path>
+                      </svg>
+                    </a>
+                    <a class="ml-2 text-gray-500 ">
+                      <svg fill="none " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " class="w-5 h-5 " viewBox="0 0 24 24 ">
+                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z "></path>
+                      </svg>
+                    </a>
+                  </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </article>
-
-
-
-    </main>
-
-    <footer>
-        <div class="container p-3 ">
-            <div class="row footer">
-                <div class="col-12 col-md-4" id="about">
-                    <h4>Nosotros</h4>
-                    <p>Sebastián Ballester</p>
-                    <p>Mauricio Cáceres</p>
-                    <p>Jesús Manrique</p>
-                    <p>Martin Aguilera</p>
-                </div>
-                <div class="col-12 col-md-4 help">
-                    <h4>Ayuda</h4>
-                    <p><a href="#">Preguntas Frecuentes</a></p>
-                    <p><a href="#">Reportá un error</a></p>
-                    <p><a href="#">Conseguí ayuda</a></p>
-                </div>
-                <div class="col-12 col-md-4">
-                    <img class="fluid-img" src="images/neo pos.png" alt="">
+        </section>
+        <section class="text-gray-700 body-font " id="client ">
+            <div class="container px-5 py-24 mx-auto ">
+                <div class="flex flex-wrap -m-4 ">
+                    <div class="lg:w-1/3 lg:mb-0 mb-6 p-4 ">
+                        <div class="h-full text-center ">
+                            <img alt="testimonial " class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 " src="/images/carefour.png ">
+                            <p class="leading-relaxed ">Creemos que Neo Pos es el proximo salto evolutivo en Ecommerce para cualquier negocio sin importar su envergadura</p>
+                            <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4 "></span>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">MARTIN GONZALEZ</h2>
+                            <p class="text-gray-500 ">Carrefour Argentina</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3 lg:mb-0 mb-6 p-4 ">
+                        <div class="h-full text-center ">
+                            <img alt="testimonial " class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 " src="/images/logo-supermercados-dia.png ">
+                            <p class="leading-relaxed ">Fue realmente la mejor eleccion que pudimos hacer hasta la fecha para reducir los costos operativos y aumentar las ventas</p>
+                            <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4 "></span>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">ALFREDO KAMU</h2>
+                            <p class="text-gray-500 ">Red de Mercados Dia</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3 lg:mb-0 p-4 ">
+                        <div class="h-full text-center ">
+                            <img alt="testimonial " class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 " src="/images/kiosko.png ">
+                            <p class="leading-relaxed ">Ha sido una experiencia maravillosa ver como nos guian y ayudan hacia un crecimiento sostenido tanto en mejorar el manejo de nuestro negocio como organizarnos para mejorar las ventas</p>
+                            <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4 "></span>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">MARCELO KAPLAN</h2>
+                            <p class="text-gray-500 ">Cadena de kioskos SALE!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 footer-final pt-3">
-                    <p>&copy; 2020 Copyright </p>
-                </div>
-            </div>
-        </div>
+        </section>
 
-    </footer>
 
+        <%- include("partials/footer2")%>
 
 
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+<script src="https://kit.fontawesome.com/2aa1bb4704.js " crossorigin="anonymous "></script>
 
 </html>
