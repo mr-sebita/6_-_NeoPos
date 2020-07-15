@@ -14,11 +14,13 @@ let shopController = {
         res.render('shop', { data: archivoJson });
     },
     indexdb: (req, res ) => {
-        sequelize.query("SELECT * FROM movies")
-            .then(function(resultados)=>{
+        sequelize.query("SELECT * FROM productos")
+            .then(function(resultados){
                 //use data
-                let data = resultados[0];
-                res.send(data);
+                let datosquery = resultados[0];
+//                res.send(datosquery);
+                res.render('shop', { data: datosquery });
+
             }) 
     }
 }

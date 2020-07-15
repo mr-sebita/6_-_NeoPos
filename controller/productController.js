@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models');
+let sequelize = db.sequelize;
 
 function readJson() {
     return JSON.parse(fs.readFileSync(productController.archivo, 'utf-8'));
@@ -109,6 +111,21 @@ let productController = {
         } else {
             res.send(req.session.usuarioLogueado)
         }
+    },
+    detaildb: (req, res, next) => {
+        let productById = searchById(req.params.id);
+        if (productById != null) {
+        db.Auto.findByPk(productById)
+            .then(function(resultados){
+                //use data
+                let datosquery = resultados;
+//                res.send(datosquery);
+                res.render('product', { data: datosquery });
+            }) 
+        } else {
+            res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
+        }
+        
     }
 }
 
