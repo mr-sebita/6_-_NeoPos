@@ -113,19 +113,19 @@ let productController = {
         }
     },
     detaildb: (req, res, next) => {
-        let productById = searchById(req.params.id);
-        if (productById != null) {
-        db.Auto.findByPk(productById)
-            .then(function(resultados){
+        //let productById = searchById(req.params.id);
+        //if (productById != null) {
+        //db.Auto.findByPk(productById)
+         //   .then(function(resultados){
                 //use data
-                let datosquery = resultados;
+          //      let datosquery = resultados;
 //                res.send(datosquery);
-                res.render('product', { data: datosquery });
-            }) 
-        } else {
-            res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
-        }
-        
+           //     res.render('product', { data: datosquery });
+          //  })
+      //  } else {
+       //     res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
+       // }
+
     }
 }
 
