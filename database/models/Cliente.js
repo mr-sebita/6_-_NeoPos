@@ -7,18 +7,18 @@
             autoincrement: true
         },
         name: {
-            type: type.dataTypes.STRING },
+            type: DataTypes.STRING },
         cuit: {
-            type: type.dataTypes.STRING
+            type: DataTypes.STRING
         },
         email: {
-            type: type.dataTypes.STRING
+            type: DataTypes.STRING
         },
         password: {
-            type: type.dataTypes.STRING
+            type: DataTypes.STRING
         },
         avatar: {
-           type: type.dataTypes.STRING 
+           type: DataTypes.STRING 
         }
     };
     let config = {

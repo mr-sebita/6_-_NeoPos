@@ -1,30 +1,30 @@
- module.exports = (sequelize, dataTypes) => {
+ module.exports = (sequelize, DataTypes) => {
     let alias = "Products";
     let cols = {
         idproducts: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoincrement: true
         },
         img: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
 
         },
         price: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         brand: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         title: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         description: {
-            type: dataTypes.STRING
+            type: DataTypes.STRING
         },
         //clave foranea
         cliente_idcliente: {
-           type: dataTypes.INTEGER 
+           type: DataTypes.INTEGER 
         }
     };
     let config = {

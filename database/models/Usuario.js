@@ -7,18 +7,18 @@ module.exports = (sequelize, dataTypes) => {
             autoincrement: true
         },
         name: {
-            type: type.dataTypes.STRING },
+            type: DataTypes.STRING },
         surname: {
-            type: type.dataTypes.STRING
+            type: DataTypes.STRING
         },
         email: {
-            type: type.dataTypes.STRING
+            type: DataTypes.STRING
         },
         password: {
-            type: type.dataTypes.STRING
+            type: DataTypes.STRING
         },
         avatar: {
-           type: type.dataTypes.STRING 
+           type: DataTypes.STRING 
         }
     };
     let config = {

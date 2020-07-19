@@ -7,13 +7,13 @@ module.exports = (sequelize, dataTypes) => {
             autoincrement: true
         },
         carrito_idcarrito: {
-            type: type.dataTypes.STRING 
+            type: DataTypes.STRING 
         },
         productos_idproductos: {
-            type: type.dataTypes.STRING
+            type: DataTypes.STRING
         },
         productos_idproducts: {
-            type: type.dataTypes.STRING
+            type: DataTypes.STRING
         },
     };
     let config = {
