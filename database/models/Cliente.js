@@ -1,8 +1,8 @@
- module.exports = (sequelize, dataTypes) => {
+ module.exports = (sequelize, DataTypes) => {
     let alias = "Cliente";
     let cols = {
         idcliente: {
-            type: dataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoincrement: true
         },

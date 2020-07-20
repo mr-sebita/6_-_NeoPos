@@ -16,16 +16,16 @@ let shopController = {
     indexdb: (req, res ) => {
         db.Product.findAll()
         .then(function(datosquery){
-            res.render('shop', { data: datosquery });
-        })
-        //sequelize.query("SELECT * FROM productos")
-        //    .then(function(resultados){
-        //        //use data
-        //        let datosquery = resultados[0];
-//      //          res.send(datosquery);
-        //        res.render('shop', { data: datosquery });
-
-            }) 
+         res.render('shop', { data: datosquery });
+        //});
+       // sequelize.query("SELECT * FROM products")
+       //     .then(function(resultados){
+       //         //use data
+       //         let datosquery = resultados[0];
+//     //           res.send(datosquery);
+       //         res.render('shop', { data: datosquery });
+        });
     }
-}
+};
+
 module.exports = shopController;
