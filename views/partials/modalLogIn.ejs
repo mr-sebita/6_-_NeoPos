@@ -1,6 +1,5 @@
 <!-- Pop up Login -->
 
-
 <div id="modalLogin" class="modal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -20,11 +19,9 @@
                                 name="email">
                         </div>
                         <!-- Alerta de correo no encontrado -->
-                        <% if (typeof(errorView) !== 'undefined'){ %>
                         <div id="errorUser" class="alert alert-warning"
-                            role="alert"> <%= errorView %> 
+                            role="alert"> 
                         </div> 
-                            <% } %>
                         <div style="margin-top:10px;">
                             <label for="password">Contraseña</label>
                             <input type="password" class="form-control" id="password" minlength="6" maxlength="15"
@@ -46,6 +43,4 @@
         </div>
     </div>
 </div>
-</div>
-
-<script> window.onload = function () { if (typeof (user) != "undefined") { $('#modalLogin').modal({ show: false });  } else {  $('#modalLogin').modal({ show: true });  }  }; </script>
+</div> 

@@ -1,5 +1,5 @@
 let inicio = {
-    index: ( req, res ) => {
+    index: ( req , res , next  ) => {
             res.render( 'index' );
     }
 }
