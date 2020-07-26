@@ -8,6 +8,8 @@ let fs = require('fs');
 let path = require('path');
 const { usuarioLogeado } = require('../controller/productController');
 
+
+// REGISTRO USUARIO----------------------------
 router.post('/new', [
     check('name'),
     check('surname'),
@@ -29,11 +31,22 @@ router.post('/new', [
         }
     }).withMessage('EL USUARIO YA EXISTE')], user.createUser);
 
+// REGISTRO ADMINISTRADOR --------------------------------
 router.post('/newadmin', (req, res) => { res.send('llego un pedido de new admin'); });
+
+// LOGIN-----------------------------------------------
 router.post('/login', [
     check('email').isEmail().withMessage('Falta el email!'),
     check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
 ], user.processLogin);
-router.get('/check', usuarioLogeado);
+
+// -----------------------------------------------------------
+router.get('/check', (req, res) => {
+    if (req.session.user == undefined) {
+        res.send('NO ESTAS LOGUEADO');
+    } else {
+        res.send(req.session.user)
+    }
+},);
 
 module.exports = router;

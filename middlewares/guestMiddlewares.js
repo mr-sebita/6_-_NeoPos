@@ -1,8 +1,8 @@
 function guestMiddlewares( req , res , next ){
-    if ( req.session.usuarioLogueado == undefined ){
+    if ( req.session.user == undefined ){
         next();
     }else{
-        res.send('Esta página es solo para invitados');
+        res.redirect('shop');
     }
 } 
 

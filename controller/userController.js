@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 let bcrypt = require('bcrypt');
 let { check, validationResult, body } = require('express-validator');
+const db = require('../database/models');
 
 function readJson(filename) {
     let userLeido = fs.readFileSync(user.archivo, 'utf-8');
@@ -31,23 +32,29 @@ let user = {
         //3 . send messages
         let errorsResult = validationResult(req);
         if (errorsResult.isEmpty()) {
-            let users = readJson();
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.password, users[i].password)) {
-                        var usuarioALoguearse = users[i];
-                        break;
-                    }
+            let usuarioALoguearse;
+            db.Usuario.findAll({
+                where: {
+                    email: req.body.email,
                 }
-            }
-            if (usuarioALoguearse == undefined) {
-                let errorMessage = ['El Usuario no Existe'];
-                res.render('index', { errorView: errorMessage })
-            }
-            req.session.usuarioLogueado = usuarioALoguearse;
-            res.render('index', { userData: req.session.usuarioLogueado });
+            })
+                .then(user => {
+                    let usuarioALoguearse;
+                    if (bcrypt.compareSync(req.body.password, user[0].password)) {
+                        usuarioALoguearse = user[0].name;
+                        console.log(usuarioALoguearse);
+
+                    } else {
+                        let errors = ['El usuario no existe!'];
+                        res.render('index', { user: errors });
+                    }
+                    req.session.user = usuarioALoguearse;
+                    let userLogin = req.session.user;
+                    console.log(req.session.user);
+                    res.redirect('/');
+                })
         } else {
-            res.render('index', { errorView: errorsResult.errors })
+            res.render('index', { user: errorsResult.errors })
         }
     },
     createUser: (req, res) => { //creación del usuario!
@@ -63,7 +70,7 @@ let user = {
                 password: bcrypt.hashSync(req.body.password, 10)
             }
             addUser(user);
-            res.render('index', { userData: req.session.usuarioLogueado });
+            res.render('index', { userData: req.session.user });
         } else {
             res.render('index', { errors: errors.errors });
         }
@@ -74,3 +81,51 @@ let user = {
 }
 
 module.exports = user;
+
+
+
+
+// <% if (userData != undefined) { %>
+//     <img alt="team" class="flex-shrink-0 rounded-lg w-8 h-8 object-cover object-center sm:mb-0 mb-4 " src="/images/mauri.png ">
+//    <p><%= userData.name %></p> 
+//         <% } else { %> 
+// <%  } %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // let usuarioLogueado;
+            // let users = readJson();
+            // for (let i = 0; i < users.length; i++) {
+            //     if (users[i].email == req.body.email) {
+            //         if (bcrypt.compareSync(req.body.password, users[i].password)) {
+            //             var usuarioALoguearse = users[i];
+            //             req.session.usuarioLogueado = usuarioALoguearse;
+            //              usuarioLogueado= req.session.usuarioLogueado;
+            //             break;
+            //         }
+            //     }
+            // }
+            // if (usuarioALoguearse == undefined) {
+            //     let errorMessage = ['El Usuario no Existe'];
+            //     res.render('index', { userData: errorMessage })
+            // }
+            // console.log('El usuario logueado es : ' +  usuarioLogueado.name);
+            // res.render('index', { user: usuarioLogueado });

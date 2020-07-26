@@ -1,6 +1,6 @@
 function clientMiddlewares(req, res, next) {
-    if (req.session.usuarioLogueado == undefined) {
-        res.render('login');
+    if (req.session.user == undefined) {
+        res.render('/');
     } else {
         next();
     }
