@@ -1,0 +1,3 @@
+window.onload= () => {
+    //MAÑANA VOY A VALIDAR FORMULARIO DESDE EL FRONT (MARTIN - SABADO 25/7 )
+}

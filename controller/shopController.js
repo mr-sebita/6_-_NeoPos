@@ -11,6 +11,7 @@ function readJson(filename) {
 let shopController = {
     index: function(req, res, next) {
         let archivoJson = readJson('product');
+        console.log(req.session.usuarioLogueado);
         res.render('shop', { data: archivoJson });
     },
     indexdb: (req, res ) => {

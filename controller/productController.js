@@ -60,8 +60,15 @@ let productController = {
         }
     },
     detailEdit: (req, res) => {
+        // if (req.session.usuarioLogueado == undefined) {
+        //     res.send('NO ESTAS LOGUEADO');
+        // } else {
+        //     res.send(req.session.usuarioLogueado)
+        // }
         let product = searchById(req.params.id); //conocemos el producto a editar
         console.log(product);
+        
+        console.log('El usuario logueado es : ' + req.session.usuarioLogueado.name);
 
         if (product != null) {
             res.render('productEdit', { data: product });
@@ -104,13 +111,6 @@ let productController = {
         nuevoArray = products.filter(prod => prod.id != product.id);
         saveJson(nuevoArray);
         res.send('Borrado!!')
-    },
-    usuarioLogeado: (req, res) => {
-        if (req.session.usuarioLogueado == undefined) {
-            res.send('NO ESTAS LOGUEADO');
-        } else {
-            res.send(req.session.usuarioLogueado)
-        }
     },
     detaildb: (req, res, next) => {
         //let productById = searchById(req.params.id);

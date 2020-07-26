@@ -9,11 +9,66 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-
+<header>
+    <%- include('partials/headerHome.ejs') %>
+</header>
 <body>
-    <%- include("partials/headerHome")%>
+     
+    <section class="text-gray-700 body-font " id="client">
+        <div class="container px-5 py-24 mx-auto text-center mb-20 ">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4 ">Nuestros E-Commerce
+                Desarrollados
+            </h1>
+            <div class="flex flex-wrap -m-4 ">
 
+                <div class="lg:w-1/3 lg:mb-0 mb-6 p-4 ">
+                    <a href="/shop">
+                        <div class="h-full text-center ">
+                            <img alt="testimonial "
+                                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 "
+                                src="/images/carefour.png ">
+                            <p class="leading-relaxed ">Creemos que Neo Pos es el proximo salto evolutivo en Ecommerce
+                                para cualquier negocio sin importar su envergadura</p>
+                            <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4 "></span>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">MARTIN GONZALEZ
+                            </h2>
+                            <p class="text-gray-500 ">Carrefour Argentina</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="lg:w-1/3 lg:mb-0 mb-6 p-4 ">
+                    <a href="/shop">
+                        <div class="h-full text-center ">
+                            <img alt="testimonial "
+                                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 "
+                                src="/images/logo-supermercados-dia.png ">
+                            <p class="leading-relaxed ">Fue realmente la mejor eleccion que pudimos hacer hasta la fecha
+                                para reducir los costos operativos y aumentar las ventas</p>
+                            <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4 "></span>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">ALFREDO KAMU</h2>
+                            <p class="text-gray-500 ">Red de Mercados Dia</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="lg:w-1/3 lg:mb-0 p-4 ">
+                    <a href="/shop">
+                        <div class="h-full text-center ">
+                            <img alt="testimonial "
+                                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 "
+                                src="/images/kiosko.png ">
+                            <p class="leading-relaxed ">Ha sido una experiencia maravillosa ver como nos guian y ayudan
+                                hacia un crecimiento sostenido tanto en mejorar el manejo de nuestro negocio como
+                                organizarnos para mejorar las ventas</p>
+                            <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4 "></span>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">MARCELO KAPLAN</h2>
+                            <p class="text-gray-500 ">Cadena de kioskos SALE!</p>
+                        </div>
+                    </a>
+                </div>
 
+            </div>
+        </div>
+    </section>
     <section class="text-gray-700 body-font ">
         <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
             <div
@@ -111,60 +166,7 @@
             </div>
         </div>
     </section>
-    <section class="text-gray-700 body-font " id="client">
-        <div class="container px-5 py-24 mx-auto text-center mb-20 ">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4 ">Nuestros E-Commerce Desarrollados
-            </h1>
-            <div class="flex flex-wrap -m-4 ">
-           
-                    <div class="lg:w-1/3 lg:mb-0 mb-6 p-4 ">
-                        <a href="/shop">
-                            <div class="h-full text-center ">
-                            <img alt="testimonial "
-                                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 "
-                                src="/images/carefour.png ">
-                            <p class="leading-relaxed ">Creemos que Neo Pos es el proximo salto evolutivo en Ecommerce
-                                para cualquier negocio sin importar su envergadura</p>
-                            <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4 "></span>
-                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">MARTIN GONZALEZ
-                            </h2>
-                            <p class="text-gray-500 ">Carrefour Argentina</p>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="lg:w-1/3 lg:mb-0 mb-6 p-4 ">
-                        <a href="/shop">
-                        <div class="h-full text-center ">
-                            <img alt="testimonial "
-                                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 "
-                                src="/images/logo-supermercados-dia.png ">
-                            <p class="leading-relaxed ">Fue realmente la mejor eleccion que pudimos hacer hasta la fecha
-                                para reducir los costos operativos y aumentar las ventas</p>
-                            <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4 "></span>
-                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">ALFREDO KAMU</h2>
-                            <p class="text-gray-500 ">Red de Mercados Dia</p>
-                        </div>
-                        </a>
-                    </div>
-                    <div class="lg:w-1/3 lg:mb-0 p-4 ">
-                        <a href="/shop">
-                        <div class="h-full text-center ">
-                            <img alt="testimonial "
-                                class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100 "
-                                src="/images/kiosko.png ">
-                            <p class="leading-relaxed ">Ha sido una experiencia maravillosa ver como nos guian y ayudan
-                                hacia un crecimiento sostenido tanto en mejorar el manejo de nuestro negocio como
-                                organizarnos para mejorar las ventas</p>
-                            <span class="inline-block h-1 w-10 rounded bg-green-500 mt-6 mb-4 "></span>
-                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm ">MARCELO KAPLAN</h2>
-                            <p class="text-gray-500 ">Cadena de kioskos SALE!</p>
-                        </div>
-                        </a>
-                    </div>
-         
-            </div>
-        </div>
-    </section>
+
     <section class="text-gray-700 body-font " id="team">
         <div class="container px-5 py-24 mx-auto ">
             <div class="flex flex-col text-center w-full mb-20 ">
@@ -332,9 +334,6 @@
             </div>
         </div>
     </section>
-
-
-
     <%- include("partials/footer2")%>
 
 
@@ -349,5 +348,7 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 "
     crossorigin="anonymous "></script>
 <script src="https://kit.fontawesome.com/2aa1bb4704.js " crossorigin="anonymous "></script>
+<script> if(user !== undefined){
+    alert('no logueado')} </script>
 
 </html>

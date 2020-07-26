@@ -16,25 +16,25 @@
             <div class="modal-body p-0">
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
-                        <form action="/createUser" method="POST">
+                        <form action="/user/new" method="POST">
                             <div class="modal-body mx-2">
                                 <div class="form-group row">
                                     <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
                                     <div class="col-sm-10">
-                                        <input type="input" class="form-control" id="nombre" placeholder="" name="nombre">
+                                        <input type="input" class="form-control" id="nombre" placeholder="" name="name">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="apellido" class="col-sm-2 col-form-label">Apellido</label>
                                     <div class="col-sm-10">
-                                        <input type="input" class="form-control" id="apellido" placeholder="" name="apellido">
+                                        <input type="input" class="form-control" id="apellido" placeholder="" name="surname">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="telefono" class="col-sm-2 col-form-label">Telefono</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="telefono" placeholder="" name="telefono">
+                                        <input type="number" class="form-control" id="telefono" placeholder="" name="phone">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -49,12 +49,12 @@
                                         <input type="password" class="form-control" id="inputPassword" placeholder="" name="password">
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="inputPassword2" class="col-sm-2 col-form-label">Password </label>
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="inputPassword" placeholder="" name="password2">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group col-12 col-md-6">
 
                                 </div>
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="nav-empresa" role="tabpanel" aria-labelledby="nav-empresa-tab">
-                        <form action="/user/createAdmin" method="POST">
+                        <form action="/user/newadmin" method="POST">
                             <div class="modal-body mx-2">
                                 <div class="form-group row">
                                     <label for="nombre" class="col-sm-2 col-form-label">CUIT</label>
@@ -83,7 +83,7 @@
                                 <div class="form-group row">
                                     <label for="nombre" class="col-sm-2 col-form-label">UserName</label>
                                     <div class="col-sm-10">
-                                        <input type="input" class="form-control" id="nombre" placeholder="" name="nombre">
+                                        <input type="input" class="form-control" id="nombre" placeholder="" name="username">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -98,12 +98,12 @@
                                         <input type="password" class="form-control" id="inputPassword" placeholder="" name="password">
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="inputPassword2" class="col-sm-2 col-form-label">Password </label>
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="inputPassword" placeholder="" name="password2">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group col-12 col-md-6">
 
                                 </div>
@@ -126,3 +126,5 @@
     </div>
 
 </div>
+
+<script src="/javascripts/validation.js"></script>
