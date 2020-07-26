@@ -18,7 +18,7 @@ USE `neoposdb` ;
 -- Table `neoposdb`.`carrito`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `neoposdb`.`carrito` (
-  `idcarrito` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `idcarrito` INT(11) NOT NULL AUTO_INCREMENT,
   `date` DATE NULL DEFAULT NULL,
   `cost` FLOAT UNSIGNED NULL DEFAULT NULL,
   `payment` TINYINT(1) UNSIGNED NULL DEFAULT NULL,
@@ -31,8 +31,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `neoposdb`.`cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `neoposdb`.`cliente` (
-  `idcliente` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `shop_idshop` INT(11) NOT NULL,
+  `idcliente` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL DEFAULT NULL,
   `cuit` INT(10) UNSIGNED NULL DEFAULT NULL,
   `email` VARCHAR(45) NULL DEFAULT NULL,
@@ -44,20 +43,37 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `neoposdb`.`shop`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `neoposdb`.`shop` (
+  `idshop` INT NOT NULL AUTO_INCREMENT,
+  `cliente_idcliente` INT(11) NOT NULL,
+  PRIMARY KEY (`idshop`),
+
+  CONSTRAINT `fk_shop_cliente1`
+    FOREIGN KEY (`cliente_idcliente`)
+    REFERENCES `neoposdb`.`cliente` (`idcliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `neoposdb`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `neoposdb`.`products` (
-  `idproducts` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `idproducts` INT(11) NOT NULL AUTO_INCREMENT,
   `img` VARCHAR(200) NULL DEFAULT NULL,
   `price` FLOAT UNSIGNED NULL DEFAULT NULL,
   `brand` VARCHAR(45) NULL DEFAULT NULL,
   `title` VARCHAR(45) NULL DEFAULT NULL,
   `description` VARCHAR(140) NULL DEFAULT NULL,
-  `cliente_idcliente` INT(11) UNSIGNED NOT NULL,
+  `shop_idshop` INT NOT NULL,
   PRIMARY KEY (`idproducts`),
-  CONSTRAINT `fk_products_cliente1`
-    FOREIGN KEY (`cliente_idcliente`)
-    REFERENCES `neoposdb`.`cliente` (`idcliente`)
+
+  CONSTRAINT `fk_products_shop1`
+    FOREIGN KEY (`shop_idshop`)
+    REFERENCES `neoposdb`.`shop` (`idshop`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -68,10 +84,11 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `neoposdb`.`carrito_productos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `neoposdb`.`carrito_productos` (
-  `idcarrito_productos` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `idcarrito_productos` INT(11) NOT NULL AUTO_INCREMENT,
   `carrito_idcarrito` INT(11) NOT NULL,
   `products_idproducts` INT(11) NOT NULL,
   PRIMARY KEY (`idcarrito_productos`),
+
   CONSTRAINT `fk_carrito_productos_carrito`
     FOREIGN KEY (`carrito_idcarrito`)
     REFERENCES `neoposdb`.`carrito` (`idcarrito`)
@@ -96,8 +113,9 @@ CREATE TABLE IF NOT EXISTS `neoposdb`.`usuario` (
   `email` VARCHAR(45) NULL DEFAULT NULL,
   `password` VARCHAR(45) NULL DEFAULT NULL,
   `avatar` VARCHAR(200) NULL DEFAULT NULL,
-  `carrito_idcarrito` INT(11) NOT NULL,
+  `carrito_idcarrito` INT(11) UNSIGNED NOT NULL,
   PRIMARY KEY (`idusuario`),
+
   CONSTRAINT `fk_usuario_carrito1`
     FOREIGN KEY (`carrito_idcarrito`)
     REFERENCES `neoposdb`.`carrito` (`idcarrito`)
