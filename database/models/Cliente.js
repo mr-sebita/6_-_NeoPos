@@ -6,8 +6,9 @@
             primaryKey: true,
             autoincrement: true
         },
-        name: {
-            type: DataTypes.STRING },
+        username: {
+            type: DataTypes.STRING 
+        },
         cuit: {
             type: DataTypes.STRING
         },

@@ -41,42 +41,68 @@ let user = {
                 .then(user => {
                     let usuarioALoguearse;
                     if (bcrypt.compareSync(req.body.password, user[0].password)) {
-                        usuarioALoguearse = user[0].name;
-                        console.log(usuarioALoguearse);
+                        usuarioALoguearse = user[0];
+                        console.log(user[0]);
 
                     } else {
                         let errors = ['El usuario no existe!'];
-                        res.render('index', { user: errors });
+                        res.render('/', { user: errors });
                     }
                     req.session.user = usuarioALoguearse;
                     let userLogin = req.session.user;
                     console.log(req.session.user);
-                    res.redirect('/');
+                    res.render('/', {user : userLogin });
                 })
         } else {
             res.render('index', { user: errorsResult.errors })
         }
     },
+
+    // -----------------------------------------------------------------------------------------------
     createUser: (req, res) => { //creación del usuario!
         let errors = validationResult(req);
         console.log(validationResult(req));
         if (errors.isEmpty()) { //Si el valor es true, significa que no hay errores!
-            let user = {
-                id: req.body.id,
-                name: req.body.name,
-                surname: req.body.surname,
-                phone: req.body.phone,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10)
-            }
-            addUser(user);
-            res.render('index', { userData: req.session.user });
+
+            db.Usuario.create({
+                    name     : req.body.name,
+                    surname  : req.body.surname,
+                    phone    : req.body.phone,
+                    email    : req.body.email,
+                    password : bcrypt.hashSync(req.body.password, 10)
+                });
+            
+            console.log(user);
+            
+            // addUser(user);
+            res.send(user);
+            // res.render('index', { userData: req.session.user });
         } else {
             res.render('index', { errors: errors.errors });
         }
     },
+
+    // ---------------------------------------------------------------------------------------------
     newadmin: (req, res) => {
-        res.render('useradmin')
+        let errors = validationResult(req);
+        console.log(validationResult(req));
+        if (errors.isEmpty()) { //Si el valor es true, significa que no hay errores!
+
+            db.Cliente.create({
+                    username : req.body.username,
+                    cuit     : req.body.cuit,
+                    email    : req.body.email,
+                    password : bcrypt.hashSync(req.body.password, 10)
+                });
+            
+            console.log(user);
+            
+            // addUser(user);
+            res.send(user);
+            // res.render('index', { userData: req.session.user });
+        } else {
+            res.render('index', { errors: errors.errors });
+        }
     },
 }
 
@@ -85,47 +111,10 @@ module.exports = user;
 
 
 
-// <% if (userData != undefined) { %>
+
+
+// <% if (req.session.user != undefined) { %>
 //     <img alt="team" class="flex-shrink-0 rounded-lg w-8 h-8 object-cover object-center sm:mb-0 mb-4 " src="/images/mauri.png ">
-//    <p><%= userData.name %></p> 
+//    <p><%= req.session.user %></p> 
 //         <% } else { %> 
 // <%  } %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // let usuarioLogueado;
-            // let users = readJson();
-            // for (let i = 0; i < users.length; i++) {
-            //     if (users[i].email == req.body.email) {
-            //         if (bcrypt.compareSync(req.body.password, users[i].password)) {
-            //             var usuarioALoguearse = users[i];
-            //             req.session.usuarioLogueado = usuarioALoguearse;
-            //              usuarioLogueado= req.session.usuarioLogueado;
-            //             break;
-            //         }
-            //     }
-            // }
-            // if (usuarioALoguearse == undefined) {
-            //     let errorMessage = ['El Usuario no Existe'];
-            //     res.render('index', { userData: errorMessage })
-            // }
-            // console.log('El usuario logueado es : ' +  usuarioLogueado.name);
-            // res.render('index', { user: usuarioLogueado });
