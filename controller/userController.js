@@ -42,19 +42,22 @@ let user = {
                     let usuarioALoguearse;
                     if (bcrypt.compareSync(req.body.password, user[0].password)) {
                         usuarioALoguearse = user[0];
-                        console.log(user[0]);
-
-                    } else {
-                        let errors = ['El usuario no existe!'];
-                        res.render('/', { user: errors });
-                    }
+                        //console.log("EL USUARIO ES : "+ usuarioALoguearse[0] );
+                        // break;
+                    } 
+                    
                     req.session.user = usuarioALoguearse;
-                    let userLogin = req.session.user;
-                    console.log(req.session.user);
-                    res.render('/', {user : userLogin });
+                    console.log(req.session.user.name);
+                    res.redirect('/');
+                })
+                .catch(()=>{
+                    if ( usuarioALoguearse == undefined ){
+                        let errors = ['El usuario no existe!'];
+                        res.render('index', { errors: errors });
+                    }
                 })
         } else {
-            res.render('index', { user: errorsResult.errors })
+            res.render('index', { errors: errorsResult.errors })
         }
     },
 

@@ -54,6 +54,12 @@ router.post('/login', [
     check('email').isEmail().withMessage('Falta el email!'),
     check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
 ], user.processLogin);
+// LOGOUT----------------------------------------------------------------------
+
+router.post('/logout', ( req , res ) => {
+    req.session.destroy();
+    res.redirect('/');
+})
 
 // -----------------------------------------------------------
 router.get('/check', (req, res) => {

@@ -104,4 +104,10 @@
 
             </div>
         </div>
+        <% if(typeof user != 'undefined' ){ %>
+            <p>Hola <%= user%></p>
+            <form action="/user/logout" method="POST">
+            <button type="submit">cerrar sesión</button>
+           </form>
+          <% } %>
 </header>

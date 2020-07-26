@@ -10,10 +10,14 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <header>
+    
     <%- include('partials/headerHome.ejs') %>
+    
 </header>
 <body>
-     
+    <!-- <div id="session"> -->
+        
+    <!-- </div> -->
     <section class="text-gray-700 body-font " id="client">
         <div class="container px-5 py-24 mx-auto text-center mb-20 ">
             <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4 ">Nuestros E-Commerce
@@ -348,7 +352,22 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 "
     crossorigin="anonymous "></script>
 <script src="https://kit.fontawesome.com/2aa1bb4704.js " crossorigin="anonymous "></script>
-<script> if(user !== undefined){
-    alert('no logueado')} </script>
+<script> window.onload = function () {
+    
+    //log.addEventListener('click', ()=>{
+      //alert('tocaste');
+    //})
+    
+       let login=  document.getElementById('modalLogin');
+       let signup=  document.querySelector('.modal');
+
+     if (typeof user != 'undefined') {
+         //$('#modalLogin').modal( { show: false });
+        login.style.display="none";
+        signup.style.display="none";
+    }else { 
+         //$('#modalLogin').modal({ show: true }); 
+    }
+  };</script>
 
 </html>

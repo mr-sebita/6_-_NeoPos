@@ -1,7 +1,6 @@
-const fs = require('fs');
+const fs   = require('fs');
 const path = require('path');
-const db = require('../database/models');
-let sequelize = db.sequelize;
+const db   = require('../database/models');
 
 function readJson(filename) {
     let archivoJson = JSON.parse(fs.readFileSync(path.join(__dirname, '/../models/' + filename + '.json'), 'utf-8'));
@@ -11,7 +10,7 @@ function readJson(filename) {
 let shopController = {
     index: function(req, res, next) {
         let archivoJson = readJson('product');
-        console.log(req.session.usuarioLogueado);
+        // console.log(req.session.user);
         res.render('shop', { data: archivoJson });
     },
     indexdb: (req, res ) => {
