@@ -24,9 +24,10 @@ function addUser(user) {
     saveJson(users);
 }
 
-let user = {
+let userController = {
     archivo: path.join(__dirname, '/../models/' + 'user.json'),
     processLogin: (req, res) => {
+        console.log('processlogin');
         //1 . validation in fields
         //2 . validation in password field
         //3 . send messages
@@ -37,56 +38,58 @@ let user = {
                 where: {
                     email: req.body.email,
                 }
-            })
-                .then(user => {
-                    let usuarioALoguearse;
-                    if (bcrypt.compareSync(req.body.password, user[0].password)) {
-                        usuarioALoguearse = user[0];
-                        //console.log("EL USUARIO ES : "+ usuarioALoguearse[0] );
-                        // break;
-                    } 
-                    
-                    req.session.user = usuarioALoguearse;
-                    console.log(req.session.user.name);
-                    res.redirect('/');
+            }).then(userResultado => {
+                    console.log(userResultado);
+                    //if (bcrypt.compareSync(req.body.password, userResultado.dataValues.password)) {
+                    //    console.log("EL USUARIO ES : "+ userResultado.dataValues.name );
+                    //    req.session.user = userResultado.dataValues.password;
+                    //    console.log(req.session.user);
+                    //   // res.redirect('/');
+                    //    res.render('index', { userData: req.session.user });
+                    //} 
+                      console.log("EL USUARIO ES : "+ userResultado[0].dataValues.name );
+                        req.session.user = userResultado[0].dataValues;
+                        console.log(req.session.user);
+                        res.redirect('/shop');
+
                 })
                 .catch(()=>{
-                    if ( usuarioALoguearse == undefined ){
                         let errors = ['El usuario no existe!'];
                         res.render('index', { errors: errors });
-                    }
                 })
         } else {
             res.render('index', { errors: errorsResult.errors })
         }
     },
 
-    // -----------------------------------------------------------------------------------------------
-    createUser: (req, res) => { //creación del usuario!
+    createUser: (req, res) => { 
         let errors = validationResult(req); 
         console.log(validationResult(req));
-        if (errors.isEmpty()) { //Si el valor es true, significa que no hay errores!
-
+        if (errors.isEmpty()) { //if true -> no errors
             db.Usuario.create({
                     name     : req.body.name.trim(),
                     surname  : req.body.surname.trim(),
-                    phone    : req.body.phone.trim(),
                     email    : req.body.email.trim(),
                     password : bcrypt.hashSync(req.body.password, 10),
-                    category : 'usuario'
-                });
-            
-            console.log(user);
-            
-            // addUser(user);
-            res.send(user);
-            // res.render('index', { userData: req.session.user });
+                    avatar   : 'https://robohash.org/88.55.33.66', //create in the future a fetch
+                    carrito_idcarrito : '3'
+                }).then((userCreado)=>{
+                        console.log("EL USUARIO ES : "+ userCreado.name );
+                        //res.send(userCreado);
+                        req.session.user = userCreado;
+                        //console.log(req.session.user);
+                        res.redirect('/shop');
+                })
+                .catch(()=>{
+                        let errors = ['Error al registrarse!'];
+                        res.render('index', { errors: errors });
+                    
+                })
         } else {
             res.render('index', { errors: errors.errors });
         }
     },
 
-    // ---------------------------------------------------------------------------------------------
     newadmin: (req, res) => {
         let errors = validationResult(req);
         console.log(validationResult(req));
@@ -111,7 +114,7 @@ let user = {
     },
 }
 
-module.exports = user;
+module.exports = userController;
 
 
 

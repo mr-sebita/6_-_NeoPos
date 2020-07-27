@@ -1,20 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var user = require('../controller/userController');
+var userController = require('../controller/userController');
+//const productController = require('../controller/productController');
 let { check, validationResult, body } = require('express-validator');
-let guestMiddlewares = require('../middlewares/guestMiddlewares');
-let clientMiddlewares = require('../middlewares/clientMiddlewares');
-let fs = require('fs');
-let path = require('path');
-const { usuarioLogeado } = require('../controller/productController');
-let db= require( '../database/models' );
+//let guestMiddlewares = require('../middlewares/guestMiddlewares');
+//let clientMiddlewares = require('../middlewares/clientMiddlewares');
+//let fs = require('fs');
+//let path = require('path');
+//let db = require( '../database/models' );
 
-
-// REGISTRO USUARIO----------------------------
+ 
 router.post('/new', [
     check('name'),
     check('surname'),
-    check('email').isEmail().withMessage('Falta el email!'),
+    check('email').isEmail().withMessage('Ingrese un email válido para poder registrarse'),
     check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
     // body('email').custom((value) => {
     //         db.Usuario.findAll({
@@ -39,29 +38,25 @@ router.post('/new', [
     //     //     return true;
     //     // }
     // }).withMessage('EL USUARIO YA EXISTE')
-], user.createUser);
+], userController.createUser);
 
-// REGISTRO ADMINISTRADOR --------------------------------
 router.post('/newadmin',[
     check('name'),
     check('surname'),
     check('email').isEmail().withMessage('Falta el email!'),
     check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
-], user.newadmin);
+], userController.newadmin);
 
-// LOGIN-----------------------------------------------
 router.post('/login', [
     check('email').isEmail().withMessage('Falta el email!'),
     check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
-], user.processLogin);
-// LOGOUT----------------------------------------------------------------------
+], userController.processLogin);
 
 router.post('/logout', ( req , res ) => {
     req.session.destroy();
     res.redirect('/');
 })
 
-// -----------------------------------------------------------
 router.get('/check', (req, res) => {
     if (req.session.user == undefined) {
         res.send('NO ESTAS LOGUEADO');
