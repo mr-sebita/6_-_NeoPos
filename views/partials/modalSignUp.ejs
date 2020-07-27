@@ -17,7 +17,7 @@
             <div class="modal-body p-0">
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
-                        <form action="/user/new" method="POST">
+                        <form action="/user/new" id="signup" method="POST">
                             <div class="modal-body mx-2">
                                 <div class="form-group row">
                                     <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="nav-empresa" role="tabpanel" aria-labelledby="nav-empresa-tab">
-                        <form action="/user/newadmin" method="POST">
+                        <form id='signup' action="/user/newadmin" method="POST">
                             <div class="modal-body mx-2">
                                 <div class="form-group row">
                                     <label for="nombre" class="col-sm-2 col-form-label">CUIT</label>
