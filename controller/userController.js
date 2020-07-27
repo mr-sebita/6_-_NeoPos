@@ -68,10 +68,10 @@ let user = {
         if (errors.isEmpty()) { //Si el valor es true, significa que no hay errores!
 
             db.Usuario.create({
-                    name     : req.body.name,
-                    surname  : req.body.surname,
-                    phone    : req.body.phone,
-                    email    : req.body.email,
+                    name     : req.body.name.trim(),
+                    surname  : req.body.surname.trim(),
+                    phone    : req.body.phone.trim(),
+                    email    : req.body.email.trim(),
                     password : bcrypt.hashSync(req.body.password, 10),
                     category : 'usuario'
                 });

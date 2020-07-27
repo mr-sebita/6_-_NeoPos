@@ -73,7 +73,8 @@
                         </div>
                         <div class="container ">
 
-                            <form action=" " method="post ">
+                            
+                            <form action="/product/edit/<%= data.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                                 <div class="row ">
 
                                     <div class="col-lg-6 modal-body ">
@@ -90,13 +91,13 @@
                                     <div class="col-lg-3 col-md-6 ">
                                         <div class="modal-body ">
                                             <p>Titulo del producto</p>
-                                            <input class="form-control form-control-sm " type="text " placeholder="Nombre ">
+                                            <input class="form-control form-control-sm " name="title" type="text " placeholder="Nombre ">
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-6 modal-body">
                                         <div class=" ">
                                             <p>Precio</p>
-                                            <input class="form-control form-control-sm " type="number " placeholder="$ ">
+                                            <input class="form-control form-control-sm " name="price" type="number " placeholder="$ ">
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +107,7 @@
 
                                         <div class=" ">
                                             <p>Descripción</p>
-                                            <textarea class="form-control " aria-label="With textarea "></textarea>
+                                            <textarea class="form-control "name="description" aria-label="With textarea "></textarea>
                                         </div>
 
                                     </div>
@@ -117,17 +118,19 @@
 
                                             </div>
                                             <div class="col-6 ">
-                                                <form id="frmUploader " enctype="multipart/form-data " action="api/Upload/ " method="post ">
+                                                 <!-- <form id="frmUploader " enctype="multipart/form-data " action="api/Upload/ "
+                                                method="post "> -->
+                                                <input type="file" name="img" id="" style="visibility: visible;">
+                                                <!-- <label name='img'></label> -->
+                                                    <!-- <i class="fa fa-plus-square "></i> -->
+                                                    <!-- <input type="file" style="visibility: hidden;" name="img" /> -->
+                                                
 
-                                                    <label>
-                                                        <i class="fa fa-plus-square "></i>
-                                                       <input type="file" style="visibility: hidden;"/>
-                                                   </label>
+                                                <!-- <input type="file" style="display:none;" id="file" name="file" /> -->
 
-                                                    <input type="file" style="display:none;" id="file" name="file" />
+                                            <!-- </form> -->
+                                        </div>
 
-                                                </form>
-                                            </div>
                                         </div>
                                         <!--Carousel Wrapper-->
                                         <div id="carousel-thumb " class="carousel slide carousel-fade carousel-thumbnails " data-ride="carousel ">
@@ -145,23 +148,21 @@
                                             </div>
                                             <!--/.Slides-->
                                             <!--Controls-->
-                                            <a class="carousel-control-prev " href="#carousel-thumb " role="button " data-slide="prev ">
+                                            <!-- <a class="carousel-control-prev " href="#carousel-thumb " role="button " data-slide="prev ">
                                                 <span class="carousel-control-prev-icon " aria-hidden="true "></span>
                                                 <span class="sr-only ">Previous</span>
                                             </a>
                                             <a class="carousel-control-next " href="#carousel-thumb " role="button " data-slide="next ">
                                                 <span class="carousel-control-next-icon " aria-hidden="true "></span>
                                                 <span class="sr-only ">Next</span>
-                                            </a>
+                                            </a> -->
 
                                         </div>
                                         <!--/.Carousel Wrapper-->
 
-                                        <button type="button " class="btn btn-danger mt-2 ml-a mr-a ">Eliminar foto</button>
+                                        <button type="submit " class="btn btn-danger mt-2 ml-a mr-a ">Crear Producto</button>
                                     </div>
                                 </div>
-
-                                <input class=" " type="submit " value="Cargar Producto ">
                             </form>
                         </div>
                     </div>
