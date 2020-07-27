@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         avatar: {
            type: DataTypes.STRING 
         },
-        category: {
+        carrito_idcarrito: {
             type: DataTypes.STRING
         }
     };

@@ -158,7 +158,8 @@ let productController = {
         db.Product.findByPk(req.params.id)
             .then(function (resultados) {
                 if (resultados != undefined) {
-                    res.send(resultados);
+                  //  res.send(resultados);
+                    res.render('product', {data: resultados});
                 } else {
                     res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
                 }

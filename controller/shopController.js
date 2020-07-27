@@ -8,15 +8,15 @@ function readJson(filename) {
 }
 
 let shopController = {
-    index: function(req, res, next) {
+    shop: function(req, res, next) {
         let archivoJson = readJson('product');
         // console.log(req.session.user);
         res.render('shop', { data: archivoJson, user:req.session.user });
     },
-    indexdb: (req, res ) => {
+    shopdb: (req, res ) => {
         db.Product.findAll()
         .then(function(datosquery){
-         res.render('shop', { data: datosquery });
+         res.render('shop', { data: datosquery, user: req.session.user});
         //});
        // sequelize.query("SELECT * FROM products")
        //     .then(function(resultados){

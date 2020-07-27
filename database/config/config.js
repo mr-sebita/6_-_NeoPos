@@ -3,7 +3,7 @@ module.exports = {
     "username": "root",
     "password": "",
     "database": "neoposdb",
-    "host": "127.0.0.1",
+    "host": "35.192.56.243",
     "dialect": "mysql"
   },
   "test": {

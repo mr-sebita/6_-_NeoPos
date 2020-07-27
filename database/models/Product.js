@@ -22,9 +22,6 @@
         description: {
             type: DataTypes.STRING
         },
-        discount: {
-            type: DataTypes.STRING
-        },
         //clave foranea
         shop_idshop: {
            type: DataTypes.INTEGER 
