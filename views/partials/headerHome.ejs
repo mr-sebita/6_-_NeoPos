@@ -24,7 +24,13 @@
                     <%- include("./modalLogIn")%>
                     <%- include("./modalSignUp")%>
                 <% } %>
-                   
+     <% if(typeof userData != 'undefined' ){ %>
+      <p>Hola <%= userData.name%></p>
+      <form action="/user/logout" method="POST">
+      <button type="submit">Cerrar sesión</button>
+     </form>
+    <% } %>
+              
         </nav>
         
        
@@ -35,13 +41,7 @@
           <% } %> 
           <% } %>
     </div>
-    <% if(typeof userData != 'undefined' ){ %>
-      <p>Hola <%= user%></p>
-      <form action="/user/logout" method="POST">
-      <button type="submit">cerrar sesión</button>
-     </form>
-    <% } %>
-
+    
    
     
 </header>

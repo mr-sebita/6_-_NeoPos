@@ -1,7 +1,7 @@
-let inicio = {
+let indexController = {
     index: ( req , res , next  ) => {
-            res.render( 'index' );
+            res.render( 'index' ,{userData: req.session.user});
     }
 }
 
-module.exports = inicio;
+module.exports = indexController;

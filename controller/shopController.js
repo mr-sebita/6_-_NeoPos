@@ -17,13 +17,6 @@ let shopController = {
         db.Product.findAll()
         .then(function(datosquery){
          res.render('shop', { data: datosquery, user: req.session.user});
-        //});
-       // sequelize.query("SELECT * FROM products")
-       //     .then(function(resultados){
-       //         //use data
-       //         let datosquery = resultados[0];
-//     //           res.send(datosquery);
-       //         res.render('shop', { data: datosquery });
         });
     }
 };
