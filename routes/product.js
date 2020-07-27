@@ -4,7 +4,7 @@ let productController = require("../controller/productController");
 let clientMiddlewares = require( '../middlewares/clientMiddlewares' );
 
 
-router.get('/:id', productController.detail);
+router.get('/:id', productController.detaildb);
 router.get('/edit/:id', clientMiddlewares ,productController.detailEdit);        
 router.get('/create', clientMiddlewares , productController.newProduct);
 

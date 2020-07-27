@@ -23,7 +23,7 @@
             type: DataTypes.STRING
         },
         //clave foranea
-        cliente_idcliente: {
+        shop_idshop: {
            type: DataTypes.INTEGER 
         }
     };

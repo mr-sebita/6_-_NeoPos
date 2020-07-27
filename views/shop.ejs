@@ -31,28 +31,26 @@
                     <% for (item of data){ %>
                         <div class="col-12 col-sm-6 col-lg-6  col-xl-4 bg-product">
                             <section class="product-box">
-                                <a href="/product/<%=item.idproductos %>">
+                                <a href="/product/<%=item.idproducts %>">
                                     <figure class="product-box_image d-flex text-align-center justify-content-center">
                                         <img class="img-fluid" src=" <%=item.img %> " alt="imagen de producto">
                                     </figure>
                                 </a>
 
                                 <article class="product-box_data px-2 py-2">
-                                    <a href="/product/<%=item.idproductos %>">
                                         <p class="brand">
                                             <%= item.brand %>
                                         </p>
+                                    <a href="/product/<%=item.idproducts %>">
                                         <p class="title">
                                             <%=item.title %><br>
-                                                <a href="/product/<%=item.idproductos %>"><%=item.description%></a>
                                         </p>
                                     </a>
-                                    <span class="fullPrice">$ <%= item.price%>  </span>
-                                    <span>   </span>
-                                    <span class="discount"> -%<%= item.discount %></span>
-
+                                        <p>
+                                            <a href="/product/<%=item.idproducts %>"><%=item.description%></a>
+                                        </p>
                                     <h2 class="brand display-4">
-                                        $<%= (item.price *  (1 - (item.discount/100))).toFixed(2) %>
+                                        $<%= item.price %>
                                     </h2>   
                                     <div class="container">
                                         <div class="d-flex flex-row section-border pt-2">

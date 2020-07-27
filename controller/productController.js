@@ -39,7 +39,7 @@ let productController = {
         }
     },
     newProduct: (req, res, next) => {
-    res.render('productNew', { title: 'Creacion del Producto' });
+        res.render('productNew', { title: 'Creacion del Producto' });
     },
     createProduct: (req, res) => {
         let product = {
@@ -67,7 +67,7 @@ let productController = {
         // }
         let product = searchById(req.params.id); //conocemos el producto a editar
         console.log(product);
-        
+
         console.log('El usuario logueado es : ' + req.session.usuarioLogueado.name);
 
         if (product != null) {
@@ -113,20 +113,25 @@ let productController = {
         res.send('Borrado!!')
     },
     detaildb: (req, res, next) => {
+
         //let productById = searchById(req.params.id);
         //if (productById != null) {
         //db.Auto.findByPk(productById)
-         //   .then(function(resultados){
-                //use data
-          //      let datosquery = resultados;
-//                res.send(datosquery);
-           //     res.render('product', { data: datosquery });
-          //  })
-      //  } else {
-       //     res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
-       // }
-
-    }
+        //   .then(function(resultados){
+        //use data
+        //      let datosquery = resultados;
+        //                res.send(datosquery);
+        //     res.render('product', { data: datosquery });
+        //  })
+        db.Auto.findByPk(req.params.id)
+            .then(function (resultados) {
+                if (resultados != undefined) {
+                    res.send(resultados);
+                } else {
+                    res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
+                }
+            });
+        }
 }
 
 module.exports = productController;
