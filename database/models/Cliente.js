@@ -20,6 +20,9 @@
         },
         avatar: {
            type: DataTypes.STRING 
+        },
+        category: {
+            type: DataTypes.STRING
         }
     };
     let config = {

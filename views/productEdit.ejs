@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="container ">
-                        <form action="/product/edit/<%= data.id %>?_method=PUT" method="POST">
+                        <form action="/product/edit/<%= data.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                             <div class="row ">
 
                                 <div class="col-12 col-md-6 modal-body ">
@@ -73,13 +73,13 @@
                                         <div class="col-12 col-md-6 ">
                                             <!-- <form id="frmUploader " enctype="multipart/form-data " action="api/Upload/ "
                                                 method="post "> -->
+                                                <input type="file" name="img" id="" style="visibility: visible;">
+                                                <!-- <label name='img'></label> -->
+                                                    <!-- <i class="fa fa-plus-square "></i> -->
+                                                    <!-- <input type="file" style="visibility: hidden;" name="img" /> -->
+                                                
 
-                                                <label>
-                                                    <i class="fa fa-plus-square "></i>
-                                                    <input type="file" style="visibility: hidden;" />
-                                                </label>
-
-                                                <input type="file" style="display:none;" id="file" name="file" />
+                                                <!-- <input type="file" style="display:none;" id="file" name="file" /> -->
 
                                             <!-- </form> -->
                                         </div>
@@ -112,7 +112,7 @@
                                     </div>
                                     <!--/.Carousel Wrapper-->
 
-                                    <button type="button " class="btn btn-danger mt-2 ml-a mr-a ">Eliminar foto</button>
+                                    <!-- <button type="button " class="btn btn-danger mt-2 ml-a mr-a ">Eliminar foto</button> -->
                                 </div>
                             </div>
                             <div class=" section-border py-4 text-center ">
