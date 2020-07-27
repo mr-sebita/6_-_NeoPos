@@ -63,7 +63,7 @@ let user = {
 
     // -----------------------------------------------------------------------------------------------
     createUser: (req, res) => { //creación del usuario!
-        let errors = validationResult(req);
+        let errors = validationResult(req); 
         console.log(validationResult(req));
         if (errors.isEmpty()) { //Si el valor es true, significa que no hay errores!
 
@@ -72,7 +72,8 @@ let user = {
                     surname  : req.body.surname,
                     phone    : req.body.phone,
                     email    : req.body.email,
-                    password : bcrypt.hashSync(req.body.password, 10)
+                    password : bcrypt.hashSync(req.body.password, 10),
+                    category : 'usuario'
                 });
             
             console.log(user);
@@ -95,7 +96,8 @@ let user = {
                     username : req.body.username,
                     cuit     : req.body.cuit,
                     email    : req.body.email,
-                    password : bcrypt.hashSync(req.body.password, 10)
+                    password : bcrypt.hashSync(req.body.password, 10),
+                    categoy:'cliente'
                 });
             
             console.log(user);

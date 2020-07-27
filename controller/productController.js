@@ -33,7 +33,7 @@ let productController = {
     detail: (req, res, next) => {
         let productById = searchById(req.params.id);
         if (productById != null) {
-            res.render('product', { data: productById });
+            res.render('product', { data: productById, user:req.session.user });
         } else {
             res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
         }

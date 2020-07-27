@@ -11,7 +11,7 @@ let shopController = {
     index: function(req, res, next) {
         let archivoJson = readJson('product');
         // console.log(req.session.user);
-        res.render('shop', { data: archivoJson });
+        res.render('shop', { data: archivoJson, user:req.session.user });
     },
     indexdb: (req, res ) => {
         db.Product.findAll()
