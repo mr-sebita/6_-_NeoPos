@@ -34,12 +34,13 @@ let userController = {
         let errorsResult = validationResult(req);
         if (errorsResult.isEmpty()) {
             let usuarioALoguearse;
-            db.Usuario.findAll({
+            //TODO change a USUARIO model!
+            db.Cliente.findAll({
                 where: {
                     email: req.body.email,
                 }
             }).then(userResultado => {
-                console.log(userResultado);
+                //TODO finish this implementation
                 //if (bcrypt.compareSync(req.body.password, userResultado.dataValues.password)) {
                 //    console.log("EL USUARIO ES : "+ userResultado.dataValues.name );
                 //    req.session.user = userResultado.dataValues.password;
@@ -47,11 +48,11 @@ let userController = {
                 //   // res.redirect('/');
                 //    res.render('index', { userData: req.session.user });
                 //} 
-                console.log("EL USUARIO ES : " + userResultado[0].dataValues.name);
                 req.session.user = userResultado[0].dataValues;
-                console.log(req.session.user);
+                //TODO here there's an issue: improve the use of admin flag
+                req.session.admin = "true";
+                console.log(req.session.admin);
                 res.redirect('/shop');
-
             })
                 .catch(() => {
                     let errors = ['El usuario no existe!'];
@@ -61,7 +62,6 @@ let userController = {
             res.render('index', { errors: errorsResult.errors })
         }
     },
-
     createUser: (req, res) => {
         let errors = validationResult(req);
         console.log(validationResult(req));

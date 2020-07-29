@@ -8,7 +8,8 @@
     <title>Product</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/buttons.css">
@@ -16,58 +17,74 @@
 
 <body>
     <%- include("partials/headerShop")%>
-        <main>
-            <div class="container">
-                <section class="product-box">
-                    <div class="row">
-                        <div class="col-12 col-md-8 align-self-stretch ">
-                            <a href="">
-                                <!-- <figure class=""> -->
-                                    <img class="img-fluid " src="<%= data.img  %> " alt="imagen de producto">
-                                <!-- </figure> -->
-                            </a>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="d-flex flex column">
-                                <article class="product-box_data px-2 py-2">
-                                    <p class="brand">
-                                        <%= data.brand %>
-                                    </p>
-                                    <p class="title">
-                                        <%=data.title %> 
-                                    </p>
-                                    <p> 
-                                        <%=data.description%>
-                                    </p>
-                                    <h2 class="brand display-4">
-                                        $<%= data.price %>
-                                    </h2> 
-                                    <div class="container">
-                                        <div class="d-flex flex-row">
-                                            <div class="section-border">
-                                                <span class=""><i class="fas fa-truck fa-2x pr-3"></i></span>
-                                            </div>
-                                            <div class="d-flex justify-content-center"><b>FREE</b><br> Ahora te llega sin Cargo</div>
-                                        </div>
-                                    </div>
-                                    <div class=" section-border py-4 text-center d-flex flex-row justify-content-center ">
-                                        <input type="number" value="1" min="0" max="100" step="1" class="text-sm-center" />
-                                        <button class="btn-neo"><i class="fas fa-cart-plus fa-1x glow"></i></button>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-
+    <main>
+        <div class="container" style="margin-top: 150px;margin-bottom: 150px;">
+            <section class="product-box">
+                <div class="row">
+                    <div class="col-12 col-md-8 align-self-stretch ">
+                        <a href="">
+                            <!-- <figure class=""> -->
+                            <img class="img-fluid " src="<%= data.img  %> " alt="imagen de producto">
+                            <!-- </figure> -->
+                        </a>
                     </div>
-                </section>
-            </div>
-        </main>
-        <%- include("partials/footer2")%>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
+
+                    <div class="col-md-4">
+                        <div class="d-flex flex column">
+                            <article class="product-box_data px-2 py-2">
+                                <p class="brand">
+                                    <%= data.brand %>
+                                </p>
+                                <p class="title">
+                                    <%=data.title %>
+                                </p>
+                                <p>
+                                    <%=data.description%>
+                                </p>
+                                <h2 class="brand display-4">
+                                    $<%= data.price %>
+                                </h2>
+                                <% if(admin == "true") {%>
+                                <div class="container">
+                                    <a href="/edit/<%= data.idproducts %>"> <button type="submit "
+                                            class="btn btn-dark mt-2 ml-a mr-a ">Editar Producto</button>
+                                    </a>
+                                </div>
+                                <% }else{ %>
+                                <div class="container">
+                                    <div class="d-flex flex-row">
+                                        <div class="section-border">
+                                            <span class=""><i class="fas fa-truck fa-2x pr-3"></i></span>
+                                        </div>
+                                        <div class="d-flex justify-content-center"><b>FREE</b><br> Ahora te llega sin
+                                            Cargo</div>
+                                    </div>
+                                </div>
+                                <div class=" section-border py-4 text-center d-flex flex-row justify-content-center ">
+                                    <input type="number" value="1" min="0" max="100" step="1" class="text-sm-center" />
+                                    <button class="btn-neo"><i class="fas fa-cart-plus fa-1x glow"></i></button>
+                                </div>
+
+                                <% } %>
+                            </article>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+    <%- include("partials/footer2")%>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
 
 </body>
 
