@@ -21,17 +21,15 @@
                 <div class=" row ">
                     <div class="card-body col-12 ">
                         <div class="modal-header ">
-                            <h5 class="modal-title ">Editá : <%= data.title %> </h5>
+                            <h5 class="modal-title ">Editar producto : <%= data.title %> </h5>
                         </div>
                     </div>
                     <div class="container ">
-                        <form action="/product/edit/<%= data.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <form action="/product/edit/<%= data.idproducts %>?_method=PUT" method="POST" enctype="multipart/form-data">
                             <div class="row ">
-
                                 <div class="col-12 col-md-6 modal-body ">
-
                                     <p>Selecciona la categoria</p>
-                                    <select class="form-control form-control-md ">
+                                    <select class="form-control form-control-md " name="categoria">
                                         <option>Electronica</option>
                                         <option>Hogar</option>
                                         <option>Indumentaria</option>
@@ -42,14 +40,14 @@
                                 <div class="col-12 col-md-3 ">
                                     <div class="modal-body ">
                                         <p>Titulo del producto</p>
-                                        <input class="form-control form-control-sm " type="text "
+                                        <input class="form-control form-control-sm " type="text"
                                             value="<%= data.title %>" name="title">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 ">
                                     <div class="modal-body ">
                                         <p>Precio</p>
-                                        <input class="form-control form-control-sm " type="number "
+                                        <input class="form-control form-control-sm " type="number"
                                             value="<%= data.price %>" name="price">
                                     </div>
                                 </div>
@@ -57,7 +55,7 @@
 
                             <div class="row ">
                                 <div class="col-12 col-md-6 modal-body ">
-
+                                    //TODO search how the form fill the information
                                     <div class=" ">
                                         <p>Descripción</p>
                                         <textarea class="form-control " aria-label="With textarea "
@@ -84,43 +82,13 @@
                                             <!-- </form> -->
                                         </div>
                                     </div>
-                                    <!--Carousel Wrapper-->
-                                    <div id="carousel-thumb " class="carousel slide carousel-fade carousel-thumbnails "
-                                        data-ride="carousel ">
-                                        <!--Slides-->
-                                        <div class="carousel-inner " role="listbox ">
-                                            <div class="carousel-item active ">
-                                                <img class="d-block w-100 h-0 img-fluid "
-                                                    src='/images/<%= data.img %> '
-                                                    alt="First slide ">
-                                            </div>
-<!-- "https://previews.123rf.com/images/antkevyv/antkevyv1508/antkevyv150800081/44219251-c%C3%A1mara-signo-icono-agregar-la-imagen.jpg " -->
-                                        </div>
-                                        <!--/.Slides-->
-                                        <!--Controls-->
-                                        <a class="carousel-control-prev " href="#carousel-thumb " role="button "
-                                            data-slide="prev ">
-                                            <span class="carousel-control-prev-icon " aria-hidden="true "></span>
-                                            <span class="sr-only ">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next " href="#carousel-thumb " role="button "
-                                            data-slide="next ">
-                                            <span class="carousel-control-next-icon " aria-hidden="true "></span>
-                                            <span class="sr-only ">Next</span>
-                                        </a>
-
-                                    </div>
-                                    <!--/.Carousel Wrapper-->
-
                                     <!-- <button type="button " class="btn btn-danger mt-2 ml-a mr-a ">Eliminar foto</button> -->
                                 </div>
                             </div>
                             <div class=" section-border py-4 text-center ">
                                 <button type="submit"
                                      class="btn btn-success btn-lg btn-radius ml-3">Editar</button>
-
                            </div>
-                            <!-- <input class=" " type="submit " value="Cargar Producto "> -->
                         </form>
                     </div>
                 </div>

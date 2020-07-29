@@ -95,7 +95,6 @@ let userController = {
         let errors = validationResult(req);
         console.log(validationResult(req));
         if (errors.isEmpty()) { //if true -> no errors
-
             db.Cliente.create({
                 name: req.body.username,
                 email: req.body.email,

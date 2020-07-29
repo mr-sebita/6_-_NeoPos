@@ -39,7 +39,6 @@ let productController = {
             description: req.body.description.trim(),
             categoria: req.body.categoria.trim()
         });
-
         res.redirect('shop');
         // let product = {
         //     id: req.body.id,
@@ -68,36 +67,39 @@ let productController = {
         //console.log(product);
 
         // console.log('El usuario logueado es : ' + req.session.usuarioLogueado.name);
-
         //if (product != null) {
-        res.render('productEdit', { data: product });
+        //        res.render('productEdit', { data: product });
         //} else
         //    res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
-
+        db.Product.findByPk(req.params.id)
+            .then(function (productoEditar) {
+                if (productoEditar != undefined) {
+                    res.render('productEdit', { data: productoEditar, admin: req.session.admin });
+                } else {
+                    res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
+                }
+            });
     },
     edit: (req, res) => {
-
-        db.Product.update(
-            // Set Attribute values 
+        db.Product.update({
+            //img: req.body.img,
+            price: req.body.price.trim(),
+            title: req.body.title.trim(),
+            //brand: req.body.brand.trim(),
+            description: req.body.description.trim(),
+            categoria: req.body.categoria.trim()
+        },
             {
-                title: req.body.name,
-                price: req.body.price,
-                img: req.body.img,
-                description: req.body.description,
-                discount: req.bod.discount
-            },
-            // Where clause / criteria 
-            { _id: req.params.id }
-        ).success(function () {
-
-            console.log("Project updated successfully!");
-
-        }).error(function (err) {
-
-            console.log("Project update failed !");
-            //handle error here
-
-        });
+                /*  NO TE OLVIDES DE PONER EL WHERE EN EL UPDATE !!!!!*/
+                where: {
+                    id: req.params.id
+                }
+            }).success(function () {
+                console.log("Project updated successfully!");
+            }).error(function (err) {
+                console.log("Project update failed !");
+                //handle error here
+            });
         res.redirect('/shop');
         // let product = searchById(req.params.id); //conocemos el producto a editar
         // let products = readJson(); // traemos el json de productos, parseado con la función

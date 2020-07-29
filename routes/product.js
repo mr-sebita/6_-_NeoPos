@@ -17,13 +17,22 @@ var storage = multer.diskStorage({
   var upload = multer({ storage: storage });
 
 
-
+/*
+*
+* Product Creation routes
+* @param {route} route
+* @param {controller} controller method for that route
+*
+*/
 router.get('/create' , productController.newProduct);
 router.post('/create',upload.any() ,productController.createProduct);
+
 router.get('/:id', productController.detaildb);
+router.delete('/:id', productController.delete);
+
 router.get('/edit/:id' ,productController.detailEdit);
 router.put('/edit/:id', upload.any() ,productController.edit); 
-router.delete('/:id', productController.delete);
+
 
 module.exports = router;
 
