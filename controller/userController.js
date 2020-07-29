@@ -39,51 +39,52 @@ let userController = {
                     email: req.body.email,
                 }
             }).then(userResultado => {
-                    console.log(userResultado);
-                    //if (bcrypt.compareSync(req.body.password, userResultado.dataValues.password)) {
-                    //    console.log("EL USUARIO ES : "+ userResultado.dataValues.name );
-                    //    req.session.user = userResultado.dataValues.password;
-                    //    console.log(req.session.user);
-                    //   // res.redirect('/');
-                    //    res.render('index', { userData: req.session.user });
-                    //} 
-                      console.log("EL USUARIO ES : "+ userResultado[0].dataValues.name );
-                        req.session.user = userResultado[0].dataValues;
-                        console.log(req.session.user);
-                        res.redirect('/shop');
+                console.log(userResultado);
+                //if (bcrypt.compareSync(req.body.password, userResultado.dataValues.password)) {
+                //    console.log("EL USUARIO ES : "+ userResultado.dataValues.name );
+                //    req.session.user = userResultado.dataValues.password;
+                //    console.log(req.session.user);
+                //   // res.redirect('/');
+                //    res.render('index', { userData: req.session.user });
+                //} 
+                console.log("EL USUARIO ES : " + userResultado[0].dataValues.name);
+                req.session.user = userResultado[0].dataValues;
+                console.log(req.session.user);
+                res.redirect('/shop');
 
-                })
-                .catch(()=>{
-                        let errors = ['El usuario no existe!'];
-                        res.render('index', { errors: errors });
+            })
+                .catch(() => {
+                    let errors = ['El usuario no existe!'];
+                    res.render('index', { errors: errors });
                 })
         } else {
             res.render('index', { errors: errorsResult.errors })
         }
     },
 
-    createUser: (req, res) => { 
-        let errors = validationResult(req); 
+    createUser: (req, res) => {
+        let errors = validationResult(req);
         console.log(validationResult(req));
         if (errors.isEmpty()) { //if true -> no errors
             db.Usuario.create({
-                    name     : req.body.name.trim(),
-                    surname  : req.body.surname.trim(),
-                    email    : req.body.email.trim(),
-                    password : bcrypt.hashSync(req.body.password, 10),
-                    avatar   : 'https://robohash.org/88.55.33.66', //create in the future a fetch
-                    carrito_idcarrito : '3'
-                }).then((userCreado)=>{
-                        console.log("EL USUARIO ES : "+ userCreado.name );
-                        //res.send(userCreado);
-                        req.session.user = userCreado;
-                        //console.log(req.session.user);
-                        res.redirect('/shop');
-                })
-                .catch(()=>{
-                        let errors = ['Error al registrarse!'];
-                        res.render('index', { errors: errors });
-                    
+                name: req.body.name.trim(),
+                surname: req.body.surname.trim(),
+                email: req.body.email.trim(),
+                password: bcrypt.hashSync(req.body.password, 10),
+                avatar: 'https://robohash.org/88.55.33.66', //create in the future a fetch
+                carrito_idcarrito: '3'
+            }).then((userCreado) => {
+                console.log("EL USUARIO ES : " + userCreado.name);
+                //res.send(userCreado);
+                req.session.user = userCreado;
+                req.session.admin = false;
+                //console.log(req.session.user);
+                res.redirect('/shop');
+            })
+                .catch(() => {
+                    let errors = ['Error al registrarse!'];
+                    res.render('index', { errors: errors });
+
                 })
         } else {
             res.render('index', { errors: errors.errors });
@@ -93,21 +94,26 @@ let userController = {
     newadmin: (req, res) => {
         let errors = validationResult(req);
         console.log(validationResult(req));
-        if (errors.isEmpty()) { //Si el valor es true, significa que no hay errores!
+        if (errors.isEmpty()) { //if true -> no errors
 
             db.Cliente.create({
-                    username : req.body.username,
-                    cuit     : req.body.cuit,
-                    email    : req.body.email,
-                    password : bcrypt.hashSync(req.body.password, 10),
-                    categoy:'cliente'
-                });
-            
-            console.log(user);
-            
-            // addUser(user);
-            res.send(user);
-            // res.render('index', { userData: req.session.user });
+                name: req.body.username,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                avatar: 'https://robohash.org/88.55.33.66', //create in the future a fetch
+            }).then((adminCreado) => {
+                console.log("EL USUARIO ES : " + adminCreado.name);
+                //res.send(adminCreado);
+                req.session.user = adminCreado;
+                req.session.admin = true;
+                //console.log(req.session.user);
+                res.redirect('/shop');
+            })
+                .catch(() => {
+                    let errors = ['Error al registrarse!'];
+                    res.render('index', { errors: errors });
+
+                })
         } else {
             res.render('index', { errors: errors.errors });
         }
