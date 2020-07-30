@@ -7,8 +7,7 @@
             autoincrement: true
         },
         img: {
-            type: DataTypes.STRING,
-
+            type: DataTypes.STRING
         },
         price: {
             type: DataTypes.STRING
@@ -25,6 +24,9 @@
         //clave foranea
         shop_idshop: {
            type: DataTypes.INTEGER 
+        },
+        categoria: {
+            type: DataTypes.STRING
         }
     };
     let config = {

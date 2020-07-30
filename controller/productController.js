@@ -2,56 +2,43 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 
-function readJson() {
-    return JSON.parse(fs.readFileSync(productController.archivo, 'utf-8'));
-}
-function saveJson(productos) {
-    fs.writeFileSync(productController.archivo, JSON.stringify(productos, null, ' '));
-}
-function addProduct(producto) {
-    let productos = readJson();
-    productos.push(producto);
-    saveJson(productos);
-}
-function searchById(id) {
-    let archivoJson = readJson();
-    //console.log(req.params.id);
-    let productById = archivoJson.filter(product => product.id === id);
-    console.log(productById[0]);
 
-    if (typeof productById != "undefined" &&
-        productById != null &&
-        productById.length != null &&
-        productById.length > 0) {
-        return productById[0]
-    }
-}
-
+/*
+* Controlador de productos
+* @private
+*/
 let productController = {
-    archivo: path.join(__dirname, '/../models/' + 'product.json'),
     detail: (req, res, next) => {
         let productById = searchById(req.params.id);
         if (productById != null) {
-            res.render('product', { data: productById, user:req.session.user });
+            res.render('product', { data: productById, user: req.session.user });
         } else {
             res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
         }
     },
-    // CREACION PRODUCTO---------------------------------------------------------
+    detaildb: (req, res, next) => {
+        db.Product.findByPk(req.params.id)
+            .then(function (resultados) {
+                if (resultados != undefined) {
+                    res.render('product', { data: resultados, admin: req.session.admin });
+                } else {
+                    res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
+                }
+            });
+    },
     newProduct: (req, res, next) => {
         res.render('productNew', { title: 'Creacion del Producto' });
     },
-    // --------------------------------------------------------
     createProduct: (req, res) => {
-        console.log("Hola!");
+        console.log("creando producto");
         db.Product.create({
-            img         : req.body.img,
-            price       : req.body.price.trim(),
-            title       : req.body.title.trim(),
-            description : req.body.description.trim(),
-            discount    : req.bod.discount.trim()
+            img: req.body.img,
+            price: req.body.price.trim(),
+            title: req.body.title.trim(),
+            brand: req.body.brand.trim(),
+            description: req.body.description.trim(),
+            categoria: req.body.categoria.trim()
         });
-
         res.redirect('shop');
         // let product = {
         //     id: req.body.id,
@@ -76,39 +63,44 @@ let productController = {
         // } else {
         //     res.send(req.session.usuarioLogueado)
         // }
-        let product = searchById(req.params.id); //conocemos el producto a editar
-        console.log(product);
-        
+        //let product = searchById(req.params.id); //conocemos el producto a editar
+        //console.log(product);
+
         // console.log('El usuario logueado es : ' + req.session.usuarioLogueado.name);
-
-        if (product != null) {
-            res.render('productEdit', { data: product });
-        } else
-            res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
-
+        //if (product != null) {
+        //        res.render('productEdit', { data: product });
+        //} else
+        //    res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
+        db.Product.findByPk(req.params.id)
+            .then(function (productoEditar) {
+                if (productoEditar != undefined) {
+                    res.render('productEdit', { data: productoEditar, admin: req.session.admin });
+                } else {
+                    res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
+                }
+            });
     },
     edit: (req, res) => {
-
-        db.Product.update(
-            // Set Attribute values 
-                  { title       : req.body.name,
-                    price       : req.body.price,
-                    img         : req.body.img,
-                    description : req.body.description,
-                    discount    : req.bod.discount },
-            // Where clause / criteria 
-                   { _id : req.params.id }
-           ).success(function() { 
-          
-               console.log("Project updated successfully!");
-          
-           }).error(function(err) { 
-          
-               console.log("Project update failed !");
-               //handle error here
-          
-           });
-           res.redirect('/shop');
+        db.Product.update({
+            //img: req.body.img,
+            price: req.body.price.trim(),
+            title: req.body.title.trim(),
+            //brand: req.body.brand.trim(),
+            description: req.body.description.trim(),
+            categoria: req.body.categoria.trim()
+        },
+            {
+                /*  NO TE OLVIDES DE PONER EL WHERE EN EL UPDATE !!!!!*/
+                where: {
+                    id: req.params.id
+                }
+            }).success(function () {
+                console.log("Project updated successfully!");
+            }).error(function (err) {
+                console.log("Project update failed !");
+                //handle error here
+            });
+        res.redirect('/shop');
         // let product = searchById(req.params.id); //conocemos el producto a editar
         // let products = readJson(); // traemos el json de productos, parseado con la función
         // console.log(product);
@@ -143,28 +135,7 @@ let productController = {
         nuevoArray = products.filter(prod => prod.id != product.id);
         saveJson(nuevoArray);
         res.send('Borrado!!')
-    },
-    detaildb: (req, res, next) => {
-
-        //let productById = searchById(req.params.id);
-        //if (productById != null) {
-        //db.Auto.findByPk(productById)
-        //   .then(function(resultados){
-        //use data
-        //      let datosquery = resultados;
-        //                res.send(datosquery);
-        //     res.render('product', { data: datosquery });
-        //  })
-        db.Product.findByPk(req.params.id)
-            .then(function (resultados) {
-                if (resultados != undefined) {
-                  //  res.send(resultados);
-                    res.render('product', {data: resultados});
-                } else {
-                    res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
-                }
-            });
-        }
+    }
 }
 
 module.exports = productController;

@@ -16,7 +16,7 @@ let shopController = {
     shopdb: (req, res ) => {
         db.Product.findAll()
         .then(function(datosquery){
-         res.render('shop', { data: datosquery, user: req.session.user});
+         res.render('shop', { data: datosquery, user: req.session.user, admin: req.session.admin});
         });
     }
 };

@@ -6,11 +6,8 @@
             primaryKey: true,
             autoincrement: true
         },
-        username: {
+        name: {
             type: DataTypes.STRING 
-        },
-        cuit: {
-            type: DataTypes.STRING
         },
         email: {
             type: DataTypes.STRING
@@ -21,9 +18,6 @@
         avatar: {
            type: DataTypes.STRING 
         },
-        category: {
-            type: DataTypes.STRING
-        }
     };
     let config = {
         tableName: "cliente",
