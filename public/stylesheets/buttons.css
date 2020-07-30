@@ -1,7 +1,7 @@
 /*======= 3. BUTTONS STYLES  =======*/
 
 .btn-radius {
-    border-radius: 20px !important;
+    border-radius: 12px !important;
 }
 
 .btn {
@@ -21,9 +21,6 @@
     padding: 11px 25px;
 }
 
-.btn-lg {
-    padding: 18px 49px;
-}
 
 .btn-xs {
     font-size: 10px;

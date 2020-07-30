@@ -19,6 +19,7 @@
 <body>
 
     <%- include("partials/headerShop")%>
+<<<<<<< HEAD
     <main>
         <!-- <div class="d-none d-lg-block  icon-bar">
             <a class="active" href="#"><i class="fa fa-home"></i></a>
@@ -55,6 +56,26 @@
             </div>
         </div>
 
+=======
+        <main>
+            <!-- WRAP SIDE BAR
+            <div class="d-none d-lg-block  icon-bar">
+                <a class="active" href="#"><i class="fa fa-home"></i></a>
+                <a href="#"><i class="fa fa-search"></i></a>
+                <a href="/product/4"><i><img src="/images/mouse.jpg" alt="comprahecha" class="img-thumbnail" width="50px"></i></a>
+                <a href="./buy"><i class="fas fa-handshake-o "></i></a>
+            </div>-->
+            <div class="container">
+                <div class="row display-flex">
+                    <% for (item of data){ %>
+                        <div class="col-12 col-sm-6 col-lg-4  col-xl-3 bg-product">
+                            <section class="product-box">
+                                <a href="/product/<%=item.idproducts %>">
+                                    <figure class="product-box_image d-flex text-align-center justify-content-center">
+                                        <img class="img-fluid" src=" <%=item.img %> " alt="imagen de producto">
+                                    </figure>
+                                </a>
+>>>>>>> a0a5edd1d9537ebec72ab2a9b8b1b75fea623e00
 
 
     </main>
