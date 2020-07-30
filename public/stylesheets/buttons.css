@@ -64,9 +64,9 @@
 
 .btn-success {
     background: #05ac50;
-    background: -moz-linear-gradient(-45deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
+    /*background: -moz-linear-gradient(-45deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
     background: -webkit-linear-gradient(-45deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
-    background: linear-gradient(135deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
+    background: linear-gradient(135deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);*/
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#05ac50', endColorstr='#05ac50', GradientType=1);
     background-size: 400% 400%;
     -webkit-animation: AnimationName 3s ease infinite;
