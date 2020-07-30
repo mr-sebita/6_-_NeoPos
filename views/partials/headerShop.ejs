@@ -53,15 +53,18 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
                                 <img class="logo-circle" src="<%= user.avatar %>" alt="">
                                 Hola! <%= user.name%>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Perfil</a>
                                 <a class="dropdown-item" href="#">Cambiar contraseña</a>
-                                <form action="/user/logout" method="POST">
-                                    <button type="submit">Logout</button>
-                                </form>
+                                <a class="dropdown-item">
+                                    <form action="/user/logout" method="POST">
+                                        <button type="submit">Logout</button>
+                                    </form>
+                                </a>
                             </div>
                         </li>
                         <% } %>
