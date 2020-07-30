@@ -81,6 +81,7 @@ let productController = {
             });
     },
     edit: (req, res) => {
+            console.log(req.body.id);
         db.Product.update({
             //img: req.body.img,
             price: req.body.price.trim(),
@@ -92,15 +93,17 @@ let productController = {
             {
                 /*  NO TE OLVIDES DE PONER EL WHERE EN EL UPDATE !!!!!*/
                 where: {
-                    id: req.params.id
+                    idproducts: req.params.id
                 }
-            }).success(function () {
-                console.log("Project updated successfully!");
-            }).error(function (err) {
-                console.log("Project update failed !");
-                //handle error here
-            });
-        res.redirect('/shop');
+            }).then(function(){
+                    res.redirect('/shop');
+            })
+           // .success(function () {
+           //     console.log("Project updated successfully!");
+           // }).error(function (err) {
+           //     console.log("Project update failed !");
+           //     //handle error here
+           // });
         // let product = searchById(req.params.id); //conocemos el producto a editar
         // let products = readJson(); // traemos el json de productos, parseado con la función
         // console.log(product);
