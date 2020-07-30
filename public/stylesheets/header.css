@@ -8,3 +8,39 @@
     border-radius: 40%;
     width: 200px;
 }
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #f1F7EE !important;
+    width: 100%;
+}
+
+#menuNav a {
+    color: black;
+    font-weight: bold;
+}
+
+.navegador-principal {
+    background-color: rgba(65, 65, 65, 0.8);
+}
+
+.logo:hover {
+    color: #34A410 !important;
+}
+
+a:hover {
+    color: #34A410 !important;
+}
+
+
+.class-logo img {
+    width: 80%;
+    border-radius: 100px;
+}
+
+.list-nav {
+    border: 1px solid;
+}
