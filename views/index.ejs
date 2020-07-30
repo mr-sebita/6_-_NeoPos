@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <header>
-    
+
     <%- include('partials/headerHome.ejs') %>
-    
+
 </header>
+
 <body>
-     <section class="text-gray-700 body-font ">
+    <section class="text-gray-700 body-font ">
         <div class="container mx-auto flex px-5 py-5 md:flex-row flex-col items-center ">
             <div
                 class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center ">
@@ -22,14 +23,14 @@
                     <br class="hidden lg:inline-block ">todos los E-Commerce
                 </h1>
                 <p class="mb-8 leading-relaxed ">Tu Stock y tu
-                    Punto de venta integrados.  </p>
+                    Punto de venta integrados. </p>
             </div>
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 ">
                 <img class="object-cover object-center rounded " alt="hero " src="/images/logoAuxiliarNeopos.svg ">
             </div>
         </div>
     </section>
-   
+
     <section class="text-gray-700 body-font " id="client">
         <div class="container px-5 py-24 mx-auto text-center mb-20 ">
             <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4 ">Nuestros E-Commerce
@@ -68,7 +69,7 @@
             </div>
         </div>
     </section>
-        <section class="text-gray-700 body-font module-cards " id="eco">
+    <section class="text-gray-700 body-font module-cards " id="eco">
         <div class="container px-5 py-24 mx-auto ">
             <div class="text-center mb-20 ">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4 ">Nuestro Ecosistema</h1>
@@ -333,21 +334,21 @@
     crossorigin="anonymous "></script>
 <script src="https://kit.fontawesome.com/2aa1bb4704.js " crossorigin="anonymous "></script>
 <script> window.onload = function () {
-    
-    //log.addEventListener('click', ()=>{
-      //alert('tocaste');
-    //})
-    
-       let login=  document.getElementById('modalLogin');
-       let signup=  document.querySelector('.modal');
 
-     if (typeof user != 'undefined') {
-         //$('#modalLogin').modal( { show: false });
-        login.style.display="none";
-        signup.style.display="none";
-    }else { 
-         //$('#modalLogin').modal({ show: true }); 
-    }
-  };</script>
+        //log.addEventListener('click', ()=>{
+        //alert('tocaste');
+        //})
+
+        let login = document.getElementById('modalLogin');
+        let signup = document.querySelector('.modal');
+
+        if (typeof user != 'undefined') {
+            //$('#modalLogin').modal( { show: false });
+            login.style.display = "none";
+            signup.style.display = "none";
+        } else {
+            //$('#modalLogin').modal({ show: true }); 
+        }
+    };</script>
 
 </html>

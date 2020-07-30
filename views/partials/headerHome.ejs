@@ -1,47 +1,42 @@
-<header class="text-gray-700 body-font" style="z-index:100; background-color: white">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <a href="/"><img class="logo-circle" src="/images/logoAuxiliarNeopos.svg" alt=""></a>
-           <!-- <a href="/"><span class="ml-3 text-xl">Neo Pos</span></a> -->
-        </a>
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <a href="/" class="mr-5 hover:text-gray-900">Home</a>
-            <a href="#eco" class="mr-5 hover:text-gray-900">Ecosistema</a>
-            <a href="#team" class="mr-5 hover:text-gray-900">Nuestro Equipo</a>
-            <a href="#client" class="mr-5 hover:text-gray-900">E-Commerce de Nuestros Clientes</a>
-            <%  if(typeof userData === 'undefined' ){%> 
-                        <button class="inline-flex items-center bg-gray-200 border-0 mr-2 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base md:mt-0" data-toggle="modal" data-target="#modalLogin">Ingresa
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
-                        <button class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base md:mt-0" data-toggle="modal" data-target="#modalSignUp">Registrate
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
-                  
-                    <%- include("./modalLogIn")%>
-                    <%- include("./modalSignUp")%>
-                <% } %>
-     <% if(typeof userData != 'undefined' ){ %>
-      <p>Hola <%= userData.name%></p>
-      <form action="/user/logout" method="POST">
-      <button type="submit">Cerrar sesión</button>
-     </form>
-    <% } %>
-              
-        </nav>
-        
-       
-
-    <% if( typeof errors != 'undefined') { %> 
-      <% for( error of errors) { %>
-          <p><%= error.msg %> </p>
-          <% } %> 
+<header class="" style="z-index:100; position:sticky; top:0; background-color: var(--gainsboro);width: 100%;" >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/"><img class="" src="/images/logoAuxiliarNeopos.svg" alt="" style="width: 25vh;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+      
+        <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#eco">Ecosistema</a>
+        <a class="nav-item nav-link" href="#team">Nuestro equipo</a>
+        <a class="nav-item nav-link" href="#client" tabindex="-1" aria-disabled="true">Navega un mundo de E-commerce</a>
+        <%  if(typeof userData === 'undefined' ){%>
+         <button
+            class="inline-flex items-center  border-0 mr-2 py-1 px-3 rounded  md:mt-0"
+            data-toggle="modal" data-target="#modalLogin">Ingresa
+          </button>
+          <button
+            class="inline-flex items-center border-0 py-1 px-3 rounded md:mt-0"
+            data-toggle="modal" data-target="#modalSignUp">Registrate
+          </button>
+          <%- include("./modalLogIn")%>
+          <%- include("./modalSignUp")%>
           <% } %>
+          <% if(typeof userData != 'undefined' ){ %>
+          <p>Hola <%= userData.name%></p>
+          <form action="/user/logout" method="POST">
+            <button type="submit">Cerrar sesión</button>
+          </form>
+          <% } %>
+        </nav>
+        <% if( typeof errors != 'undefined') { %>
+        <% for( error of errors) { %>
+        <p><%= error.msg %> </p>
+        <% } %>
+        <% } %>
+      </div>
     </div>
-    
-   
-    
+  </nav>
+
 </header>
