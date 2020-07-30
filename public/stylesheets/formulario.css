@@ -1,0 +1,98 @@
+/* -------------------------------------------------FORMULARIO------------------------------------------------------- */
+
+
+
+.main-brand {
+    font-family: var(--alternative-font-family), sans-serif;
+    font-size: 24px;
+}
+
+.header-tincho {
+    background-image: url(../images/banner-2.jpg);
+    min-height: 700px;
+    width: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+#menuNav a {
+    color: white;
+}
+
+.navegador-principal {
+    background-color: rgba(65, 65, 65, 0.8);
+}
+
+.logo:hover {
+    color: #34A410 !important;
+}
+
+a:hover {
+    color: #34A410 !important;
+}
+
+a {
+    color: black;
+}
+
+.cont-registro {
+    text-align: end;
+}
+
+.registros {
+    color: white;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.title-informat {
+    padding: 5px;
+    padding-top: 10px;
+}
+
+.img-banner h1 {
+    background-color: rgba(65, 65, 65, 0.1);
+    display: inline-block;
+    margin-bottom: 5vh;
+}
+
+.img-banner p {
+    /* background-color: rgba(65, 65, 65, 0.1); */
+    font-weight: bold;
+}
+
+.title-informat {
+    background-color: white;
+    padding: 20px;
+    margin: 80px 0;
+    border-radius: 10px;
+}
+
+.title-informat h4 {
+    margin-top: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(65, 65, 65, 0.8);
+    padding-bottom: 10px;
+}
+
+.title-informat i {
+    font-size: 45px;
+    color: #34A410;
+    margin-bottom: 10px;
+}
+
+.title-informat p {
+    margin: 0;
+    height: 0;
+    transition: 300ms;
+    overflow: hidden;
+}
+
+.title-informat:hover p {
+    height: auto;
+    margin-top: 15px;
+}

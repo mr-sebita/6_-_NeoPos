@@ -1,0 +1,37 @@
+
+/* Barra lateral 
+    --quick-silver: hsla(27, 5%, 65%, 1);
+    --cultured: hsla(0, 0%, 96%, 1);
+    --gainsboro: hsla(0, 0%, 88%, 1);
+    --turquoise: hsla(168, 69%, 86%, 1);
+    --eerie-black: hsla(0, 5%, 8%, 1);*/
+
+    .icon-bar {
+        z-index: 1;
+        position: fixed;
+        top: 0px;
+        bottom: 30px;
+        left: 0px;
+        height: 60vh;
+        margin-top: 20vh;
+        background-color: var(--gainsboro);
+    }
+    
+    .icon-bar a {
+        display: block;
+        text-align: center;
+        padding: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: all 0.3s ease;
+        color: white;
+        font-size: 16px;
+    }
+    
+    .icon-bar a:hover {
+        background-color: var(--eerie-black);
+    }
+    
+    
+    /* Barra lateral */
+    

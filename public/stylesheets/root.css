@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,500;0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800;900&display=swap');
+
+:root {
+     /* CSS fonts */
+    --base-font-family: 'Roboto', sans-serif;
+    /* CSS colors */
+    --gray: #595959;
+    --green: #39b54a;
+    --quick-silver: hsla(27, 5%, 65%, 1);
+    --cultured: hsla(0, 0%, 96%, 1);
+    --gainsboro: hsla(0, 0%, 88%, 1);
+    --turquoise: hsla(168, 69%, 86%, 1);
+    --eerie-black: hsla(0, 5%, 8%, 1);
+    /*SOFT UI DIMENSIONS*/
+    --radio-boton:
+    --radio-card:
+}
+
+/* || NOTA: COMO USAR VARIABLES CSS */
+/*
+--Definicion
+:root {
+  --my-color: red
+}
+--Uso en el codigo
+body {
+  color: var(--my-color)
+}
+*/
+
+/* || ESTILOS GLOBALES */
+
+body {
+    font-family: var(--base-font-family), sans-serif;
+}

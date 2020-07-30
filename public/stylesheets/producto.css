@@ -1,0 +1,52 @@
+.brand {
+    color: var(--green);
+    font-family: var(--secondary-font-family), sans-serif;
+    font-weight: 500;
+    font-size: 20pt;
+}
+
+.title {
+    font-size: 16pt;
+    font-weight:bold ;
+    line-height: 29px;
+    letter-spacing: -0.047em;
+    height: 50px;
+    border-bottom: 1px var(--light-gray) solid;
+}
+
+.fullPrice {
+    color: var(--gray);
+    text-decoration: line-through;
+}
+
+div.delivery b {
+    font-size: 21px;
+    line-height: 49px;
+    padding-right: 13px;
+}
+
+.section-border {
+    border-top: 1px var(--light-gray) solid;
+}
+
+.fa-truck {
+    color: var(--light-blue);
+}
+
+span.red {
+    position: relative;
+    font-size: 12px;
+    background: var(--green);
+    border-radius: 1em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.2em;
+    margin-left: 2px;
+    bottom: 10px;
+    text-align: center;
+    width: 1.2em;
+}
+
