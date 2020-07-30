@@ -71,11 +71,12 @@ let userController = {
                 surname: req.body.surname.trim(),
                 email: req.body.email.trim(),
                 password: bcrypt.hashSync(req.body.password, 10),
-                avatar: 'https://robohash.org/88.55.33.66', //create in the future a fetch
+                avatar: 'https://robohash.org/'+ req.body.name+'?set=set3', 
                 carrito_idcarrito: '3'
             }).then((userCreado) => {
                 console.log("EL USUARIO ES : " + userCreado.name);
                 //res.send(userCreado);
+                console.log(userCreado.avatar)
                 req.session.user = userCreado;
                 req.session.admin = false;
                 //console.log(req.session.user);
