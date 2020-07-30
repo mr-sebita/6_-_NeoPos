@@ -1,0 +1,22 @@
+footer {
+    background-color: #f1F7EE !important;
+    z-index: 1 !important;
+    color: black;
+  }
+  .footer h4{
+       font-weight: bold;
+  }
+  .help a {
+    color: black;
+  }
+  
+  footer img {
+    width: 100%;
+  }
+  
+  .footer-final {
+    border-top: 1px solid white;
+    background-color: black;
+    color: white;
+  }
+  

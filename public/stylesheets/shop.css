@@ -1,0 +1,73 @@
+
+.dark {
+    background-color: var(--light-blue);
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-item {
+    flex-shrink: 1;
+}
+
+.navbar-light .navbar-nav .active>.nav-link {
+    color: var(--green)
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--eerie-black)
+}
+
+.navbar-nav i {
+    margin-right: 10px;
+    width: 15px;
+}
+
+.product-box {
+    margin: 1rem 0rem;
+    background-color: white;
+    padding: 1em;
+    border-radius: 17px;
+    box-shadow: -2px -2px 8px 0px rgba(149, 149, 165, 0.2), 3px 3px 8px 0px rgba(84, 84, 92, 0.4);
+    height: 80vh;
+}
+
+.product-box_image {
+    height: 285px;
+}
+
+.bg-product {
+}
+
+.qty-input {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.btn-neo {
+    /* margin-left: 15px; */
+    align-items: center;
+    min-width: 50px;
+    min-height: 40px;
+    max-height: 40px;
+    /* padding: 15px; */
+    background: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    color: var(--gray);
+    letter-spacing: 2px;
+    box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 399ms ease-in-out;
+}
+
+.btn-neo:focus {
+    outline: 0 !important;
+}
+
+.btn-neo:active {
+    box-shadow: inset 5px 5px 10px rgba(55, 84, 170, 0.15), inset -7px -7px 10px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
+    text-shadow: 0px 0px 5px rgb(30, 212, 45);
+    transition: text-shadow 199ms ease-in-out;
+}
