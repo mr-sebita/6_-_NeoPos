@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,500;0,700;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800;900&display=swap');
+
 
 /* || NOTA: COMO USAR VARIABLES CSS */
 /*
@@ -41,13 +40,15 @@ h1,
 h2,
 h3,
 h4,
-p,
 a,
+p,
 span,
 body {
     font-family: var(--base-font-family), sans-serif;
     font-weight: 300;
+    color: var(--eeire-black);
 }
+
 
 i{
   color: var(--turquoise);
@@ -61,12 +62,15 @@ i{
   width: 200px;
 }
 
+.btn,
 .btn-outline-success,
 .btn-success{
   background-color: var(--turquoise);
   color:#FFF;
   border-color: var(--turquoise);
 }
+
+.btn:hover,
 .btn-outline-success:hover,
 .btn-success:hover{
   background-color: #1D967E;

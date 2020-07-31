@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,10 +21,11 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                 <% for (item of data){ %>
                 <div class="col mb-4">
+                    
                     <div class="card h-100">
-                        <img src="<%= item.img %>" class="card-img-top img-thumbnail" style="height:260px" alt="...">
+                        <a class="text-decoration-none" href="/product/<%=item.idproducts%>"><img src="<%= item.img %>" class="card-img-top img-thumbnail" style="height:260px" alt="..."></a>
                         <div class="card-body h-100">
-                            <h5 class="card-title"><%= item.title %></h5>
+                            <a class="text-decoration-none" href="/product/<%=item.idproducts%>"><h5 class="card-title"><%= item.title %></h5></a>
                             <p class="card-text"><%= item.description %></p>
                         </div>
                         <div class="card-text d-flex justify-content-center pb-2">
