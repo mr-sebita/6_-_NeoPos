@@ -7,77 +7,76 @@
     <title>Registrate</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-    <%- include("partials/headerSignupLogin")%>
-        <main>
-            <section class="container">
-                <article class="row">
-                    <div class="col-12 title-form mt-5">
-                        <p class="title-p">Completá tus datos
-                            <p>
-                                <a href="/user/newadmin" class="ancla-ctaempresa">Creá una cuenta de empresa</a>
+    <header>
+        <%- include('partials/headerHome.ejs') %>
+    </header>
+    <main>
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-8 col-md-6 col-lg-4 mx-auto mt-5">
+                    <div class="card">
+                        <div class="row card-header d-flex justify-content-between bg-success text-white">
+                            <div class=" col-12 form-group">
+                                <h3 class="text-center">Registrate como cliente!</h3>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class=" col-12 form-group">
+                                <small><a href="/user/registerAdmin" class="text-decoration-none text-center text-white"> O creá una
+                                        cuenta para armar tu negocio!!</a></small>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST" action="/user/newadmin">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" placeholder="Nombre" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="surname" placeholder="Apellido">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="email@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="password" placeholder="password">
+                                </div>
+                                <div class="form-group input-group">
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input" id="inputGroupFile04">
+                                      <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-success btn-block">
+                                        Registrate
+                                    </button>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="col-12 mt-3 p-4 text-form  ">
-                        <% if( typeof errors != 'undefined') { %>
-                            <% for(error of errors){ %>
-                                <ul style="color: red;"> <%= error.msg %> </ul>
-                                <% } %> 
-                            <% } %>  
-                        <form  action="/user/new" method="POST" class="row">
-                            <div class="form-group col-12 col-md-6 row pb-3">
-                                <label for="name" class="col-1"><i class="fas fa-user col-2"></i></label>
-                                <input type="text" class="form-control col-11" id="name" aria-describedby="textHelp" placeholder="Nombre" name="name">
-                            </div>
-                            <div class="form-group col-12 col-md-6 row pb-3">
-                                <label for="surname" class="col-1"><i class="fas fa-user col-2"></i></label>
-                                <input type="text" class="form-control col-11" id="surname" aria-describedby="textHelp" placeholder="Apellido" name="surname">
-                            </div>
-
-                            <div class="form-group col-12 col-md-6 row pb-3">
-                                <label for="phone" class="col-1"><i class="fas fa-mobile-alt"></i></label>
-                                <input type="number" class="form-control col-11" id="phone" aria-describedby="textHelp" placeholder="Teléfono" name="phone">
-                            </div>
-                            <div class="form-group col-12 col-md-6 row pb-3">
-                                <label for="email" class="col-1"><i class="fas fa-envelope-square"></i></label>
-                                <input type="email" class="form-control col-11" id="email" aria-describedby="emailHelp" placeholder="email" name="email">
-                            </div>
-                            <div class="form-group col-12 col-md-6 row pb-3">
-                                <label for="password" class="col-1"><i class="fas fa-unlock-alt"></i></label>
-                                <input type="password" class="form-control col-11" id="password" placeholder="contraseña" name="password">
-                            </div>
-                            <div class="form-group col-12 col-md-6">
-
-                            </div>
-                            <button type="submit" class="btn  col-12 col-md-6 color-btn " target="blank">Crear
-                                        Cuenta</button>
-                            <small class="col-12 col-md-6">Al registrarme, declaro que soy mayor de edad y acepto los
-                                        Términos y condiciones y las Políticas de privacidad.</small>
-                        </form>
-                    </div>
-                    <div class="col-12 col-md-3 mt-5 logo-fondo">
-                    </div>
-                    <!-- <div class="col-12 col-md-3 mt-5 bg-light p-4 text-form ">
-                         <div class="form-group form-check img">
-                              <img class="mr-4" src="./images/person.png" alt="">
-                              <label for="foto">Foto</label>
-                             <input type="file" id="foto" name="foto"><br><br>
-                         </div>
-                    </div> -->
-                </article>
-            </section>
-        </main>
-
-        <%- include("partials/footer2")%>
+                </div>
+            </div>
+        </div>
+    </main>
 
 
 
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

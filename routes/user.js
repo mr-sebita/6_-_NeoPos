@@ -9,7 +9,15 @@ let { check, validationResult, body } = require('express-validator');
 //let path = require('path');
 //let db = require( '../database/models' );
 
- 
+router.get( '/login' , userController.login);
+router.post('/login',
+ [
+    check('email').isEmail().withMessage('Falta el email!'),
+    check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
+    
+ ], userController.processLogin);
+
+ router.get( '/register' , userController.user);
 router.post('/new', [
     check('name'),
     check('surname'),
@@ -40,6 +48,7 @@ router.post('/new', [
     // }).withMessage('EL USUARIO YA EXISTE')
 ], userController.createUser);
 
+router.get( '/registerAdmin' , userController.registerAdmin);
 router.post('/newadmin',[
     check('name'),
     check('surname'),
@@ -47,10 +56,7 @@ router.post('/newadmin',[
     check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
 ], userController.newadmin);
 
-router.post('/login', [
-    check('email').isEmail().withMessage('Falta el email!'),
-    check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
-], userController.processLogin);
+
 
 router.post('/logout', ( req , res ) => {
     req.session.destroy();

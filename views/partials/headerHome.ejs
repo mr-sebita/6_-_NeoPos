@@ -12,16 +12,12 @@
         <a class="nav-item nav-link" href="#team">Nuestro equipo</a>
         <a class="nav-item nav-link" href="#client" tabindex="-1" aria-disabled="true">Navega un mundo de E-commerce</a>
         <%  if(typeof userData === 'undefined' ){%>
-         <button
-            class="inline-flex items-center  border-0 mr-2 py-1 px-3 rounded  md:mt-0"
-            data-toggle="modal" data-target="#modalLogin">Ingresa
-          </button>
-          <button
-            class="inline-flex items-center border-0 py-1 px-3 rounded md:mt-0"
-            data-toggle="modal" data-target="#modalSignUp">Registrate
-          </button>
-          <%- include("./modalLogIn")%>
-          <%- include("./modalSignUp")%>
+          <a href="/user/login"><button class="inline-flex items-center  border-0 mr-2 py-1 px-3 rounded  md:mt-0">
+              Ingresá
+          </button></a>
+          <a href="/user/registerAdmin"><button class="inline-flex items-center border-0 py-1 px-3 rounded md:mt-0">
+            Registrate
+          </button></a>
           <% } %>
           <% if(typeof userData != 'undefined' ){ %>
           <p>Hola <%= userData.name%></p>

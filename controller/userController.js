@@ -26,6 +26,9 @@ function addUser(user) {
 
 let userController = {
     archivo: path.join(__dirname, '/../models/' + 'user.json'),
+    login: ( req , res ) => {
+        res.render( 'login' );
+    },
     processLogin: (req, res) => {
         console.log('processlogin');
         //1 . validation in fields
@@ -79,6 +82,16 @@ let userController = {
             res.render('index', { errors: errorsResult.errors })
         }
     },
+    user: ( req , res ) => {
+        
+// <!-- <% //if( typeof errors != 'undefined') { %>
+// <% //for(error of errors){ %>
+//     <ul style="color: red;"> <%= //error.msg %> </ul>
+//     <%// } %> 
+// <%// } %>  
+// <form  action="/user/new" method="POST" class="row"> -->
+        res.render( 'user' );
+    },
     createUser: (req, res) => {
         let errors = validationResult(req);
         console.log(validationResult(req));
@@ -108,7 +121,9 @@ let userController = {
             res.render('index', { errors: errors.errors });
         }
     },
-
+    registerAdmin: ( req , res )=> {
+            res.render('useradmin');
+    },
     newadmin: (req, res) => {
         let errors = validationResult(req);
         console.log(validationResult(req));
