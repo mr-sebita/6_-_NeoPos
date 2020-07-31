@@ -18,10 +18,10 @@ body {
     --base-font-family: 'Roboto', sans-serif;
 
     /* CSS colors */
-    --quick-silver: hsla(27, 5%, 65%, 1);
-    --cultured: hsla(0, 0%, 96%, 1);
-    --gainsboro: hsla(0, 0%, 88%, 1);
-    --turquoise: hsla(168, 69%, 86%, 1);
+    --quick-silver: rgb(160,160,156);
+    --cultured: rgb(225,225,225);
+    --gainsboro: rgb(224,224,224);
+    --turquoise: rgb(68, 219, 188);
     --eerie-black: hsla(0, 5%, 8%, 1);
 
     /*SOFT UI DIMENSIONS*/
@@ -39,11 +39,21 @@ body {
 
 
 /* || ESTILOS GLOBALES */
-
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+span,
 body {
     font-family: var(--base-font-family), sans-serif;
+    font-weight: 300;
 }
 
+i{
+  color: var(--turquoise);
+}
 
 
 /* || ESTILOS GENERALES */
