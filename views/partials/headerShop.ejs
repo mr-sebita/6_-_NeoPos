@@ -1,89 +1,51 @@
-<header style="z-index:100;position: sticky; top: 0; background-color: white">
-    <div class="container-fluid">
-        <div class="row d-flex justify-content-between p-3">
-            <!-- LOGO -->
-            <div class="col-4 col-md-6 col-lg-2 inline-flex align-self-center">
-                <a href="/"><img class="logo-circle" src="/images/logoAuxiliarNeopos.svg" alt=""></a>
-            </div>
-            <!-- SEARCH -->
-            <div class="col-8 col-md-6 col-lg-5 d-flex align-items-center justify-content-center">
-                <form class="form-inline">
-                    <input class="form-control fluid" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success p-2 ml-0 " type="submit"><i
-                            class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <!-- CART -->
-            <div class="col-4 col-lg-2 d-flex align-items-center justify-content-center">
-                <a class="navbar-brand" href="/cart"><i class="fa fa-shopping-cart"></i><span class="red">3</span></a>
-            </div>
+<header class="" style="z-index:100; position:sticky; top:0; background-color: var(--gainsboro);width: 100%;" >
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="/"><img class="" src="/images/logoAuxiliarNeopos.svg" alt="" style="width: 25vh;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <% if( typeof user == 'undefined' ){ %>
+            <li class="nav-item">
+                <button
+                    class="inline-flex items-center  border-0 mr-2 py-1 px-3  md:mt-0"
+                    data-toggle="modal" data-target="#modalLogin">Ingresa
 
-            <!-- NAV -->
-            <nav class=" col-4 col-lg-2 justify-content-center  navbar navbar-expand-lg ">
-                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
-                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i class="fas fa-grip-lines" style="color:white"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <% if( typeof user == 'undefined' ){ %>
-                        <li class="nav-item">
-                            <button
-                                class="inline-flex items-center bg-gray-200 border-0 mr-2 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base md:mt-0"
-                                data-toggle="modal" data-target="#modalLogin">Ingresa
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </li>
-                        <li class="nav-item">
-                            <button
-                                class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base md:mt-0"
-                                data-toggle="modal" data-target="#modalSignUp">Registrate
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </li>
+            </li>
+            <li class="nav-item">
+                <button
+                    class="inline-flex items-center  border-0 py-1 px-3 md:mt-0"
+                    data-toggle="modal" data-target="#modalSignUp">Registrate
+                </button>
+            </li>
 
-                        <% }else{%>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="logo-circle" src="<%= user.avatar %>" alt="">
-                                Hola! <%= user.name%>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Perfil</a>
-                                <a class="dropdown-item" href="#">Cambiar contraseña</a>
-                                <a class="dropdown-item">
-                                    <form action="/user/logout" method="POST">
-                                        <button type="submit">Logout</button>
-                                    </form>
-                                </a>
-                            </div>
-                        </li>
-                        <% } %>
-                    </ul>
+            <% }else{%>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="logo-circle" src="<%= user.avatar %>" alt="">
+                    Hola! <%= user.name%>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Perfil</a>
+                    <a class="dropdown-item" href="#">Cambiar contraseña</a>
+                    <a class="dropdown-item">
+                        <form action="/user/logout" method="POST">
+                            <button type="submit">Cerrar Sesión</button>
+                        </form>
+                    </a>
                 </div>
-            </nav>
-        </div>
+            </li>
+            <% } %>
+        </ul>
+      <span class="navbar-text">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+      </span>
     </div>
+  </nav>
 </header>
-
-
-
-
-
-<!-- 
- <form class="form-inline d-flex justify-content-center md-form form-sm">
-    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-        aria-label="Search">
-    <div class="input-group-append">
-        <span class="input-group-text " id="basic-text1"><i class="fas fa-search text-grey"
-                aria-hidden="true"></i></span>
-    </div>
-</form> -->

@@ -1,7 +1,7 @@
 /*======= 3. BUTTONS STYLES  =======*/
 
 .btn-radius {
-    border-radius: 12px !important;
+    border-radius: var(--radio-boton);
 }
 
 .btn {

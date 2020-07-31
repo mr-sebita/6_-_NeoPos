@@ -2,22 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,500;0,700;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;800;900&display=swap');
 
-:root {
-     /* CSS fonts */
-    --base-font-family: 'Roboto', sans-serif;
-    /* CSS colors */
-    --gray: #595959;
-    --green: #39b54a;
-    --quick-silver: hsla(27, 5%, 65%, 1);
-    --cultured: hsla(0, 0%, 96%, 1);
-    --gainsboro: hsla(0, 0%, 88%, 1);
-    --turquoise: hsla(168, 69%, 86%, 1);
-    --eerie-black: hsla(0, 5%, 8%, 1);
-    /*SOFT UI DIMENSIONS*/
-    --radio-boton:
-    --radio-card:
-}
-
 /* || NOTA: COMO USAR VARIABLES CSS */
 /*
 --Definicion
@@ -26,12 +10,50 @@
 }
 --Uso en el codigo
 body {
-  color: var(--my-color)
+  color: var(--turquoise)
 }
 */
+:root {
+     /* CSS fonts */
+    --base-font-family: 'Roboto', sans-serif;
+
+    /* CSS colors */
+    --quick-silver: hsla(27, 5%, 65%, 1);
+    --cultured: hsla(0, 0%, 96%, 1);
+    --gainsboro: hsla(0, 0%, 88%, 1);
+    --turquoise: hsla(168, 69%, 86%, 1);
+    --eerie-black: hsla(0, 5%, 8%, 1);
+
+    /*SOFT UI DIMENSIONS*/
+    --radio-boton: 12px;
+    --radio-card: 17px;
+
+    /*TAMANIO DE FUENTE*/
+    --fuente-media:10px;
+    --fuente-grande:32pt;
+    --fuente-chica:8pt;
+    --fuente-media-chica:9pt;
+    --fuente-media-grande:18pt;
+}
+
+
 
 /* || ESTILOS GLOBALES */
 
 body {
     font-family: var(--base-font-family), sans-serif;
 }
+
+
+
+/* || ESTILOS GENERALES */
+
+.logo-neopos-header {
+  border-radius: 40%;
+  width: 200px;
+}
+
+
+
+/* || ESTILOS PARTICULARES */
+/* Estilos particulares ubicados en cada archivo css correspondiente */
