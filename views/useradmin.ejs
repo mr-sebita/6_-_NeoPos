@@ -11,113 +11,72 @@
           rel="stylesheet">
      <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-
 <body>
+     <header>
+          <%- include('partials/headerHome.ejs') %> 
+     </header>
      <main>
           <div class="container p-4">
                <div class="row">
-                   <div class="col-8 col-md-6 col-lg-4 mx-auto mt-5">
-                       <div class="card">
-                           <div class="card-header text-center bg-success text-white">
-                               Registrate como vendedor!
-                           </div>
-                           <div class="card-body">
-                               <form method="POST" action="/user/newadmin">
-                                   <div class="form-group">
-                                       <input type="email" class="form-control" name="email" placeholder="email@email.com"
-                                           autofocus>
-                                   </div>
-                                   <div class="form-group">
-                                       <input type="password" class="form-control" name="password" placeholder="password">
-                                   </div>
-                                   <div class="form-group">
-                                   </div>
-                                   <div class="form-group">
-                                       <button class="btn btn-success btn-block">
-                                           Registrate
-                                       </button>
+                    <div class="col-8 col-md-6 col-lg-4 mx-auto mt-5">
+                         <div class="card">
+                              <div class="row card-header d-flex justify-content-between bg-success text-white">
+                                   <div class=" col-12 form-group">
+                                        <h3 class="text-center">Registrate como vendedor!</h3>
                                    </div>
                                    <div class="dropdown-divider"></div>
-                               </form>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-          <section class="container">
-               <article class="row">
-                    <div class="col-12 title-form mt-5">
-                         <p class="title-p">Completá tus datos<p>
-                         <a href="/user/new" class="ancla-ctaempresa">Creá una cuenta personal</a>
+                                   <div class=" col-12 form-group">
+                                        <small><a href="/user/register" class="text-decoration-none text-center text-white"> O creá una
+                                                  cuenta para comprar lo que quieras!!</a></small>
+                                   </div>
+                              </div>
+                              <div class="card-body">
+                                   <form method="POST" action="/user/newadmin">
+                                        <div class="form-group">
+                                             <input type="text" class="form-control" name="name"
+                                                  placeholder="Nombre" autofocus>
+                                        </div>
+                                        <div class="form-group">
+                                             <input type="email" class="form-control" name="email"
+                                                  placeholder="email@email.com" >
+                                        </div>
+                                        <div class="form-group">
+                                             <input type="password" class="form-control" name="password"
+                                                  placeholder="password">
+                                        </div>
+                                        <div class="form-group input-group">
+                                             <div class="custom-file">
+                                               <input type="file" class="custom-file-input" id="inputGroupFile04">
+                                               <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                             </div>
+                                         </div>
+                                        <div class="form-group">
+                                             <button class="btn btn-success btn-block">
+                                                  Registrate
+                                             </button>
+                                        </div>
+                                        <div class="dropdown-divider"></div>
+                                   </form>
+                              </div>
+                         </div>
                     </div>
-                         <div class="col-12 mt-3 p-4 text-form  ">
-                              <form method="POST" action="/user/newadmin" class="row">
-                                   <div class="form-group col-12 col-md-6 row">
-                                        <label for="cuit" class="col-1"><i class="fas fa-briefcase"></i></label>
-                                        <input type="number" class="form-control col-11" id="cuit" aria-describedby="textHelp"
-                                             placeholder="CUIT" required name="cuit">
-                                        <small id="textHelp" class="form-text text-muted col-12">Nunca compartiremos tus datos
-                                             con
-                                             nadie.</small>
-                                   </div>
-                                   <div class="form-group col-12 col-md-6 row">
-                                        <label for="razonsocial" class="col-1"><i class="fas fa-briefcase"></i></label>
-                                        <input type="text" class="form-control col-11" id="razonsocial" aria-describedby="textHelp"
-                                             placeholder="Razón Social" required name="razonsocial">
-                                        <small id="textHelp" class="form-text text-muted col-12">Nunca compartiremos tus datos
-                                             con nadie.</small>
-                                   </div>
-                                   <div class="form-group col-12 col-md-6 row">
-                                        <label for="email" class="col-1"><i class="fas fa-envelope-square"></i></label>
-                                        <input type="email" class="form-control col-11" id="email" aria-describedby="emailHelp"
-                                             placeholder="email" required name="email">
-                                        <small id="emailHelp" class="form-text text-muted col-12">Nunca compartiremos tus datos
-                                             con
-                                             nadie.</small>
-                                   </div>
-                                   <div class="form-group col-12 col-md-6 row">
-                                        <label for="password" class="col-1"><i class="fas fa-unlock-alt"></i></label>
-                                        <input type="password" class="form-control col-11" id="password"
-                                             placeholder="contraseña" required minlength="6" maxlength="15"
-                                             name="password">
-                                        <small id="emailHelp" class="form-text text-muted col-12">Usá entre 6 y 15
-                                             caracteres.</small>
-                                   </div>
-                                   <div class="form-group col-12 col-md-6">
-
-                                   </div>
-                                   <button type="submit" class="btn  col-12 col-md-6 color-btn " target="blank">Crear
-                                        Cuenta</button>
-                                   <small class="col-12 col-md-6">Al registrarme, declaro que soy mayor de edad y acepto los
-                                        Términos y condiciones y las Políticas de privacidad.</small>
-                              </form>
-                         </div>
-                         <div class="col-12 col-md-3 mt-5 logo-fondo">
-                         </div>
-                         <!-- <div class="col-12 col-md-3 mt-5 bg-light p-4 text-form ">
-                         <div class="form-group form-check img">
-                              <img class="mr-4" src="./images/person.png" alt="">
-                              <label for="foto">Foto</label>
-                             <input type="file" id="foto" name="foto"><br><br>
-                         </div>
-                    </div> -->
-               </article>
-          </section>
-     </main>
+               </div>
+          </div>
+     </main>  
      <footer>
 
      </footer>
 
 
      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-     crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-     crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-     crossorigin="anonymous"></script>
+          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+          crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+          crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -17,6 +17,7 @@ router.post('/login',
     
  ], userController.processLogin);
 
+ router.get( '/register' , userController.user);
 router.post('/new', [
     check('name'),
     check('surname'),
