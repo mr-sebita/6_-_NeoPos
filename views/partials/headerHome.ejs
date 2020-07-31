@@ -1,4 +1,4 @@
-<header class="" style="z-index:100; position:sticky; top:0; background-color: var(--gainsboro);width: 100%;" >
+<header class="" style="border-bottom:1px solid var(--turquoise);z-index:100; position:sticky; top:0; background-color: var(--gainsboro);width: 100%;" >
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="/"><img class="" src="/images/logoAuxiliarNeopos.svg" alt="" style="width: 25vh;"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,12 +12,9 @@
         <a class="nav-item nav-link" href="#team">Nuestro equipo</a>
         <a class="nav-item nav-link" href="#client" tabindex="-1" aria-disabled="true">Navega un mundo de E-commerce</a>
         <%  if(typeof userData === 'undefined' ){%>
-          <a href="/user/login"><button class="inline-flex items-center  border-0 mr-2 py-1 px-3 rounded  md:mt-0">
-              Ingresá
-          </button></a>
-          <a href="/user/registerAdmin"><button class="inline-flex items-center border-0 py-1 px-3 rounded md:mt-0">
-            Registrate
-          </button></a>
+          <a href="/user/login"><button  class="btn btn-sm" style="margin-left: 20px; margin-right: 15px;">Ingresa</button></a>
+          <a href="/user/registerAdmin"><button  class="btn btn-sm">Registrate</button></a>
+
           <% } %>
           <% if(typeof userData != 'undefined' ){ %>
           <p>Hola <%= userData.name%></p>
