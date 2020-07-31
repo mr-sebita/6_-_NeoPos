@@ -36,8 +36,6 @@ body {
     --fuente-media-grande:18pt;
 }
 
-
-
 /* || ESTILOS GLOBALES */
 h1,
 h2,
@@ -63,7 +61,17 @@ i{
   width: 200px;
 }
 
-
-
+.btn-outline-success,
+.btn-success{
+  background-color: var(--turquoise);
+  color:#FFF;
+  border-color: var(--turquoise);
+}
+.btn-outline-success:hover,
+.btn-success:hover{
+  background-color: #1D967E;
+  color:#FFF;
+  border-color: var(--turquoise);
+}
 /* || ESTILOS PARTICULARES */
 /* Estilos particulares ubicados en cada archivo css correspondiente */
