@@ -9,9 +9,6 @@ module.exports = (sequelize, DataTypes) => {
         name: {
             type: DataTypes.STRING 
         },
-        surname: {
-            type: DataTypes.STRING
-        },
         email: {
             type: DataTypes.STRING
         },
@@ -21,12 +18,15 @@ module.exports = (sequelize, DataTypes) => {
         avatar: {
            type: DataTypes.STRING 
         },
+        grupo: {
+            type: DataTypes.STRING
+        },
         carrito_idcarrito: {
             type: DataTypes.STRING
         }
     };
     let config = {
-        tableName: "usuario",
+        tableName: "users",
         timestamps: false
     };
     
