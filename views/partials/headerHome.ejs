@@ -1,35 +1,55 @@
-<header class="" style="border-bottom:1px solid var(--turquoise);z-index:100; position:sticky; top:0; background-color: var(--gainsboro);width: 100%;" >
+<header class=""
+  style="border-bottom:1px solid var(--turquoise);z-index:100; position:sticky; top:0; background-color: var(--gainsboro);width: 100%;">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="/"><img class="" src="/images/logoAuxiliarNeopos.svg" alt="" style="width: 25vh;"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a href="/"><img class="" src="/images/logoAuxiliarNeopos.svg" alt="" style="width: 25vh;margin-right: 15px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-      
+
         <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="#eco">Ecosistema</a>
         <a class="nav-item nav-link" href="#team">Nuestro equipo</a>
         <a class="nav-item nav-link" href="#client" tabindex="-1" aria-disabled="true">Navega un mundo de E-commerce</a>
-        <%  if(typeof userData === 'undefined' ){%>
-          <a href="/user/login"><button  class="btn btn-sm" style="margin-left: 20px; margin-right: 15px;">Ingresa</button></a>
-          <a href="/user/registerAdmin"><button  class="btn btn-sm">Registrate</button></a>
-
-          <% } %>
-          <% if(typeof userData != 'undefined' ){ %>
-          <p>Hola <%= userData.name%></p>
-          <form action="/user/logout" method="POST">
-            <button type="submit">Cerrar sesión</button>
-          </form>
-          <% } %>
-        </nav>
-        <% if( typeof errors != 'undefined') { %>
-        <% for( error of errors) { %>
-        <p><%= error.msg %> </p>
-        <% } %>
+        <%  if(typeof user === 'undefined' ){%>
+        <a href="/user/login"><button class="btn btn-sm"
+            style="margin-left: 20px; margin-right: 15px;">Ingresa</button></a>
+        <a href="/user/registerAdmin"><button class="btn btn-sm">Registrate</button></a>
         <% } %>
       </div>
     </div>
+      <% if(typeof user != 'undefined' ){ %>
+      <span class="nav-item dropdown  ">
+        <a class="nav-link " id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <div class="dropdown-toggle ">
+            <img class="img-fluid rounded-circle border " style="width: 10vh;margin-right: 60px;"
+              src="<%= user.avatar %>" alt="">
+          </div>
+
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <h6 class="dropdown-header">Hola <%= user.name%>!</h6>
+          <a class="dropdown-item" href="/profile">Perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item">
+            <form action="/user/logout" method="POST">
+              <button class="btn btn-success" type="submit">Cerrar Sesión</button>
+            </form>
+          </a>
+        </div>
+      </span>
+      <% } %>
+
+      <% if( typeof errors != 'undefined') { %>
+      <% for( error of errors) { %>
+      <p><%= error.msg %> </p>
+      <% } %>
+      <% } %>
+
   </nav>
 
 </header>

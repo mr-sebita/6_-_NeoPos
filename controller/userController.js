@@ -42,7 +42,7 @@ let userController = {
                 where: {
                     email: req.body.email
                 }
-            }).then(userResultado => {
+            }).then(adminResultado => {
                 //TODO finish this implementation
                 //if (bcrypt.compareSync(req.body.password, userResultado.dataValues.password)) {
                 //    console.log("EL USUARIO ES : "+ userResultado.dataValues.name );
@@ -55,29 +55,14 @@ let userController = {
                     req.session.user = adminResultado[0].dataValues;
                 }
                 //TODO here there's an issue: improve the use of admin flag
-                if (req.session.admin == "false" || typeof req.session.admin == 'undefined') {
+               // if (req.session.admin == "false" || typeof req.session.admin == 'undefined') {
                     req.session.admin = "true";
                     console.log("se logeo un admin");
                     console.log(req.session.admin);
                     res.redirect('/shop');
-                }
+               // }
             });
-            // I NEED TO DO A SECOND QUERY WITH SEQUELIZE
-            db.Usuario.findAll({
-                where: {
-                    email: req.body.email
-                }
-            }).then(userResultado => {
-                if (typeof userResultado != 'undefined') {
-                    req.session.user = userResultado[0].dataValues;
-                }
 
-                if (req.session.admin == "true" || typeof req.session.admin == 'undefined') {
-                    req.session.admin = "false";
-                    console.log("se logeo un usuario");
-                    res.redirect('/shop');
-                }
-            })
         } else {
             res.render('index', { errors: errorsResult.errors })
         }

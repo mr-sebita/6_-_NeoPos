@@ -20,7 +20,7 @@ let productController = {
         db.Product.findByPk(req.params.id)
             .then(function (resultados) {
                 if (resultados != undefined) {
-                    res.render('product', { data: resultados, admin: req.session.admin });
+                    res.render('product', { data: resultados,user: req.session.user, admin: req.session.admin });
                 } else {
                     res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
                 }
@@ -74,7 +74,7 @@ let productController = {
         db.Product.findByPk(req.params.id)
             .then(function (productoEditar) {
                 if (productoEditar != undefined) {
-                    res.render('productEdit', { data: productoEditar, admin: req.session.admin });
+                    res.render('productEdit', { data: productoEditar, user: req.session.user, admin: req.session.admin });
                 } else {
                     res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
                 }

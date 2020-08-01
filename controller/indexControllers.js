@@ -1,6 +1,6 @@
 let indexController = {
     index: ( req , res , next  ) => {
-            res.render( 'index' ,{userData: req.session.user});
+            res.render( 'index' ,{user : req.session.user});
     }
 }
 
