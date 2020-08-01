@@ -17,12 +17,11 @@
 <body>
     <%- include("partials/headerShop")%>
 
-    <main>
+    <main style="margin-top: 50px;">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                 <% for (item of data){ %>
-                <div class="col mb-4">
-                    
+                <div class="col mb-4">    
                     <div class="card h-100">
                         <a class="text-decoration-none" href="/product/<%=item.idproducts%>"><img src="<%= item.img %>" class="card-img-top img-thumbnail" style="height:260px" alt="..."></a>
                         <div class="card-body h-100">
