@@ -11,6 +11,7 @@ const path = require('path');
 let bcrypt = require('bcrypt');
 let { check, validationResult, body } = require('express-validator');
 const db = require('../database/models');
+const shopCheckAdminMiddleware = require('../middlewares/shopCheckAdminMiddleware');
 
 /**
  * UserController
@@ -47,9 +48,9 @@ let userController = {
                 where: {
                     email: req.body.email
                 }
-            }).then(adminResult => {
-                console.log(adminResult);
-                if (typeof adminResult != 'undefined') {
+            }).then(userResult => {
+                console.log(userResult);
+                if (typeof userResult != 'undefined') {
                     //#TODO crypto verificacion !!
                     // if (bcrypt.compareSync(req.body.password, userResultado.dataValues.password)) {
                     //     req.session.user = userResultado.dataValues.password;
@@ -58,17 +59,19 @@ let userController = {
                     // } 
 
                     /* assign user and properties to Session Variable*/
-                    req.session.user = adminResult.dataValues;
-                    if (adminResult.dataValues.grupo == 'user') { req.session.grupo = adminResult.dataValues.grupo };
-                    if (adminResult.dataValues.grupo == 'admin') { req.session.grupo = adminResult.dataValues.grupo };
+                    req.session.user = userResult.dataValues;
+                    let userLogin = req.session.user;
+                    
+                    if (req.session.user.grupo == 'admin') {
+                        let type = 'admin';
+                        res.render('shop', { user: userLogin, typeUser: type });
+                    } else {
+                        let type = 'user';
+                        res.redirect('shop',{ user: userLogin, typeUser: type });
+                    }
                 }
-                //TODO !! here there's an issue: improve the use of admin flag
-                // if (req.session.admin == "false" || typeof req.session.admin == 'undefined') {
-                req.session.admin = "true";
-                res.redirect('/shop');
-                // }
+                res.redirect('/');
             });
-
         } else {
             res.render('index', { errors: errorsResult.errors })
         }

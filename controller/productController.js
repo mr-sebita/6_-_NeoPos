@@ -1,12 +1,25 @@
+/**
+* Controlador de productos
+* @private
+*
+*/
+
+/**
+ * Modules
+ */
+
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 
+/**
+ * Producto Controller
+ * 
+ * @detail
+ * @productnew
+ * 
+ */
 
-/*
-* Controlador de productos
-* @private
-*/
 let productController = {
     detail: (req, res, next) => {
         let productById = searchById(req.params.id);

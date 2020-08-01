@@ -15,6 +15,17 @@
 </header>
 
 <body>
+    <!-- show errors -->
+    <% if(typeof errors != 'undefined'){ %>
+        <p style="color: red;">ERROR</p>
+    <ul>
+        <% for(var i = 0; i < errors.length; i++) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= errors[i].msg %> 
+        </div>
+        <% } %>
+    </ul>
+    <% } %>
     <section>
         <div class="container mx-auto  p-5  items-center ">
             <div class="row">
@@ -24,8 +35,9 @@
             </div>
             <div class="row">
                 <div class="col ">
-                <a href="/"><img class="img-fluid" src="/images/logoAuxiliarNeopos.svg" alt="" style="width: 75vh;"></a>
-            </div>
+                    <a href="/"><img class="img-fluid" src="/images/logoAuxiliarNeopos.svg" alt=""
+                            style="width: 75vh;"></a>
+                </div>
             </div>
         </div>
     </section>
@@ -41,16 +53,16 @@
                         </div>
                         <h3>Envíos</h3>
                     </div>
-                        <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
+                    <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
                 </div>
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                         <div class="features-icons-icon d-flex">
-                            <i class="fas fa-dolly fa-5x m-auto" ></i>
+                            <i class="fas fa-dolly fa-5x m-auto"></i>
                         </div>
                         <h3>Punto de venta</h3>
                     </div>
-                        <p class="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
+                    <p class="lead mb-0">Featuring the latest build of the new Bootstrap 4 framework!</p>
                 </div>
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-0 mb-lg-3">
@@ -72,7 +84,8 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <a href="/shop"><img class="img-fluid rounded-circle mb-3" src="/images/carefour.png" alt=""></a>
+                        <a href="/shop"><img class="img-fluid rounded-circle mb-3" src="/images/carefour.png"
+                                alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-2">
