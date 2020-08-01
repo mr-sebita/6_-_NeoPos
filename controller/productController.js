@@ -40,6 +40,7 @@ let productController = {
             categoria: req.body.categoria.trim()
         });
         res.redirect('shop');
+        //comentarios
         // let product = {
         //     id: req.body.id,
         //     price: req.body.price,
