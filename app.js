@@ -18,6 +18,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+var app = express();
 
 /**
  * Application Modules
@@ -27,17 +28,15 @@ var userRouter = require('./routes/user');
 var productRouter = require('./routes/product');
 var cartRouter = require('./routes/cart');
 var shopRouter = require('./routes/shop');
-var app = express();
 
 /**
- * Methods
+ * Http Methods tools
  */
 const methodOverride = require('method-override');
 
 /**
- * Middlewares
+ * Middlewares on application
  */
-
 
 
 /**
@@ -69,7 +68,7 @@ app.use(function(req, res, next) {
 
 /**
  * Error Handler
- */
+ */    
 app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;

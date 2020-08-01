@@ -1,4 +1,9 @@
+
+const fs = require('fs');
+
+
 function readJson() {
+
     return JSON.parse(fs.readFileSync(productController.archivo, 'utf-8'));
 }
 function saveJson(productos) {
