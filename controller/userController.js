@@ -44,7 +44,7 @@ let userController = {
         */
         let errorsResult = validationResult(req);
         if (errorsResult.isEmpty()) {
-            db.Cliente.findOne({
+            db.Usuario.findOne({
                 where: {
                     email: req.body.email
                 }
@@ -105,7 +105,7 @@ let userController = {
     registerAdmin: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) { //if true -> no errors
-            db.Cliente.create({
+            db.Usuario.create({
                 name: req.body.username,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
