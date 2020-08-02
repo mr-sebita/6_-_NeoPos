@@ -20,8 +20,8 @@ let cart = {
         console.log(req.session.usuarioLogueado);
         res.render('cart', { title: 'Neo Pos carrito',user: req.session.user });
     },
-    addPProduct: ( req , res , next ) => {
-        let cart     = req.session.cart;
+    addProduct: ( req , res , next ) => {
+        let cart        = req.session.cart;
         let idproducts  = req.params.id;
         db.Product.findByPk( idproducts )
         .then( ( product ) => {
@@ -41,13 +41,13 @@ let cart = {
                         cart.push( productInCart );
                         console.log(cart);
                     }else{
-                        let productInCart = cart[ positionProduct ];
+                        let productInCart        = cart[ positionProduct ];
                         productInCart.quantity   = productInCart.quantity + 1;
                         productInCart.priceTotal = productInCart.price * productInCart.quantity;
                         cart[ positionProduct ]  = productInCart;
                     }
             }
-            res.render('cart' , { data: product , user: req.session.user });
+            res.render('cart' , { data: cart , user: req.session.user });
         });
 
         
