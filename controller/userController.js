@@ -31,7 +31,7 @@ let userController = {
     admin: (req, res) => {
         res.render('useradmin');
     },
-    login: (req, res) => {
+    getLogin: (req, res) => {
         res.render('login');
     },
 
@@ -44,7 +44,7 @@ let userController = {
         */
         let errorsResult = validationResult(req);
         if (errorsResult.isEmpty()) {
-            db.Usuario.findOne({
+            db.User.findOne({
                 where: {
                     email: req.body.email
                 }
@@ -57,29 +57,27 @@ let userController = {
                     //    // res.redirect('/');
                     //     res.render('index', { userData: req.session.user });
                     // } 
-
                     /* assign user and properties to Session Variable*/
-                    req.session.user = userResult.dataValues;
+                    req.session.user = userResult;
                     let userLogin = req.session.user;
                     
-                    if (req.session.user.grupo == 'admin') {
-                        let type = 'admin';
-                        res.render('shop', { user: userLogin, typeUser: type });
+                    if (userLogin.grupo == 'admin') {
+                      let type = 'admin';
+                      res.render('index', { user: userLogin, typeUser: type });
                     } else {
                         let type = 'user';
-                        res.redirect('shop',{ user: userLogin, typeUser: type });
+                        res.redirect('index',{ user: userLogin, typeUser: type });
                     }
                 }
-                res.redirect('/');
             });
         } else {
-            res.render('index', { errors: errorsResult.errors })
+            res.render('login', { errors: errorsResult.errors })
         }
     },
     registerUser: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) { //if true -> no errors
-            db.Usuario.create({
+            db.User.create({
                 name: req.body.name.trim(),
                 surname: req.body.surname.trim(),
                 email: req.body.email.trim(),
@@ -105,7 +103,7 @@ let userController = {
     registerAdmin: (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) { //if true -> no errors
-            db.Usuario.create({
+            db.User.create({
                 name: req.body.username,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
