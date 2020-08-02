@@ -21,7 +21,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-8">
-
                         <table class="table table-hover table-sm">
                             <thead>
                                 <tr>
@@ -30,34 +29,21 @@
                                     <th scope="col">Producto</th>
                                     <th scope="col">Descripcion</th>
                                     <th scope="col">Precio</th>
-                                    <th scope="col">Promo</th>
                                     <th scope="col">Importe</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody> 
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>1</td>
                                     <td>
-                                        <a href="#" class="cart-card-image"> <img class="cart-image-product"
-                                                src="/images/product_reloj.jpg" style="width: 20%"> </a>
+                                        <a href="#" class="cart-card-image" > <img id="imgZoom" class="cart-image-product"
+                                                src="<%= data.img %>" style="width: 20%"> </a>
+                                        <%= data.title %> 
                                     </td>
-                                    <td>Reloj smart</td>
-                                    <td>$5000</td>
-                                    <td>2x1</td>
-                                    <td>$500</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>1</td>
-                                    <td>
-                                        <a href="#" class="cart-card-image"> <img class="cart-image-product"
-                                                src="/images/notebook.jpg" style="width: 20%"> </a>
-                                    </td>
-                                    <td>Reloj smart</td>
-                                    <td>$5000</td>
-                                    <td>2x1</td>
-                                    <td>$500</td>
+                                    <td> <%= data.description %> </td>
+                                    <td> $ <%= data.price %> </td>
+                                    <td> $ <%= data.price %> </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -86,7 +72,7 @@
                                     /* Opera */
                                 }
                             </style>
-                            <img class="card-img-top zoom" src="/images/product_reloj.jpg" alt="">
+                            <img class="card-img-top zoom" id="imgLook" alt="">
                             <div class="dropdown-divider mr-3 ml-3"></div>
                             <div class="card-body">
                                 <h3 class="card-title text-center">Reloj Smart</h3>
@@ -117,6 +103,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script> 
+        let imgZoom= document.getElementById('imgZoom');
+            imgZoom.addEventListener('click', () => {
+                alert(imgZoom);
+                console.log(imgZoom);
+                let imgLook = document.getElementsByClassName('card').innerHTML = imgZoom;
+            })
+    </script>
 
 </body>
 

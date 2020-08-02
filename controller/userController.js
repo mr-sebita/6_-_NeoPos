@@ -58,6 +58,10 @@ let userController = {
                     //     res.render('index', { userData: req.session.user });
                     // } 
                     /* assign user and properties to Session Variable*/
+                    if ( req.session.cart == undefined ){
+                        req.session.cart = [];
+                        console.log( 'HOLA ACA ESTA EL CARRITO ' + req.session.cart );
+                    }
                     req.session.user = userResult;
                     let userLogin = req.session.user;
                     
