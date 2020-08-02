@@ -16,7 +16,7 @@ var { check, validationResult, body } = require('express-validator');
 /**
  * User CRUD
  */
-router.get('/login', userController.login);
+router.get('/login', userController.getLogin);
 router.post('/login', [
     /* Express Validator - Check middleware*/
     check('email').isEmpty().isEmail().withMessage('Coloque su E-mail'),
@@ -36,7 +36,7 @@ router.post('/registerUser', [
     check('password').isEmpty().isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
 ], userController.registerUser);
 
-router.get('/registerAdmin', userController.registerAdmin);
+router.get('/registerAdmin', userController.admin);
 router.post('/registerAdmin', [
     /* Express Validator - Check middleware */
     check('name').isEmpty().withMessage('Es necesario un nombre'),

@@ -31,7 +31,7 @@ let userController = {
     admin: (req, res) => {
         res.render('useradmin');
     },
-    login: (req, res) => {
+    getLogin: (req, res) => {
         res.render('login');
     },
 
