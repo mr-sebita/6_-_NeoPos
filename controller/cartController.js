@@ -6,7 +6,7 @@ let cart = {
         console.log(req.session.usuarioLogueado);
         res.render('cart', { title: 'Neo Pos carrito', user: req.session.user });
     },
-    addPProduct: (req, res, next) => {
+    addProduct: (req, res, next) => {
         let cart = req.session.cart;
         db.Product.findByPk(req.params.id)
             .then((productFound) => {

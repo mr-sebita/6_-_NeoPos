@@ -125,32 +125,31 @@ let userController = {
             res.render('index', { errors: errors.errors });
         }
     },
-    userDetail: (req, res) =>{
+    userDetail: ( req , res , next ) =>{
         res.render('profile', {user: req.session.user});
     },
     userEditProfile: (req, res) => {
+        console.log(req.params.id);
         res.render('profileEdit', {user: req.session.user});
     },
-    userEdit: (req, res) => {
-        let errors = validationResult(req);
-        if (errors.isEmpty()) { //if true -> no errors
-            db.User.update({
-                name: req.body.name,
-                email: req.body.email,
-                //password: bcrypt.hashSync(req.body.password, 10),
-                //avatar: 'https://robohash.org/88.55.33.66', //create in the future a fetch
-                //grupo: 'admin'
-            }).then(()=>{
-                res.render('/');
+    userEdit: ( req , res , next ) => {
+        db.User.update(
+        {
+            name         : req.body.name ,
+        }, {
+            where :{
+                idusuario: req.params.id,
+            }})
+        db.User.findOne({
+            where: {
+                idusuario : req.params.id 
             }
-            )
-           .catch(() => {
-                    let errors = ['Error al modificar!'];
-                    res.render('index', { errors: errors });
-                })
-        } else {
-            res.render('index', { errors: errors.errors });
-        }
+        })
+            .then( (user) => {
+                req.session.user = user.dataValues;
+                console.log(req.session.user);
+                res.redirect('/user/detail');
+            })
     }
 }
 

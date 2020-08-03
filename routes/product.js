@@ -1,8 +1,13 @@
-var express = require('express');
-var router = express.Router();
-let productController = require("../controller/productController");
-const multer  = require('multer');
-let path= require( 'path' );
+var express                  = require('express');
+var router                   = express.Router();
+let productController        = require("../controller/productController");
+const multer                 = require('multer');
+let path                     = require( 'path' );
+/*
+* Middlewares
+*/
+var guestMiddlewares         = require( '../middlewares/guestMiddlewares' );
+let administratorMiddlewares = require( '../middlewares/administratorMiddlewares' );
 
 
 var storage = multer.diskStorage({
@@ -24,13 +29,13 @@ var storage = multer.diskStorage({
 * @param {controller} controller method for that route
 *
 */
-router.get('/create' , productController.newProduct);
+router.get( '/create' , productController.newProduct);
 router.post('/create',upload.any() ,productController.createProduct);
 
 router.get('/:id', productController.detaildb);
-router.delete('/:id', productController.delete);
+router.delete('/:id', guestMiddlewares , administratorMiddlewares , productController.delete);
 
-router.get('/edit/:id' ,productController.detailEdit);
+router.get('/edit/:id' , guestMiddlewares , administratorMiddlewares , productController.detailEdit );
 router.put('/edit/:id', upload.any() ,productController.edit); 
 
 

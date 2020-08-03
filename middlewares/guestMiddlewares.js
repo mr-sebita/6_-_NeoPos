@@ -1,11 +1,10 @@
 function guestMiddlewares( req , res , next ){
-    if ( req.session.user.grupo == admin ){
-        let admin= req.session.user;
-        res.render('shop', {admin : admin});
-        next();
+    /*
+    * Revisa si el usuario está logueado, en caso contrario redirecciona al login
+    */
+    if ( req.session.user === undefined ){
+        res.redirect('/user/login')
     }else{
-        let user= req.session.user;
-        res.redirect('shop', {user : user});
         next();
     }
 } 
