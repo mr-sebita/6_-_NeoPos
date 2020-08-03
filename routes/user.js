@@ -12,6 +12,7 @@ var router = express.Router();
 var userController = require('../controller/userController');
 var path = require('path');
 var { check, validationResult, body } = require('express-validator');
+const { user } = require('../controller/userController');
 
 /**
  * User CRUD
@@ -43,5 +44,13 @@ router.post('/registerAdmin', [
     check('email').isEmail().withMessage('Ingrese un email válido para poder registrarse'),
     check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
 ], userController.registerAdmin);
+
+router.get('/detail', userController.userDetail);
+router.get('/edit/:id', userController.userEditProfile);
+router.put('/edit/:id',[
+    /* Express Validator - Check middleware */
+    check('name'),
+    //check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
+], userController.userEdit);
 
 module.exports = router;
