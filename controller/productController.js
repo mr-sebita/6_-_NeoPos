@@ -33,7 +33,7 @@ let productController = {
             });
     },
     newProduct: (req, res, next) => {
-        res.render('productNew', { title: 'Creacion del Producto' });
+        res.render('productNew', { title: 'Creacion del Producto' ,user: req.session.user, admin: req.session.admin });
     },
     createProduct: (req, res) => {
         console.log("creando producto");

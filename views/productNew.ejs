@@ -4,19 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
+    <title>Agregá un producto</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="stylesheet" href="/stylesheets/buttons.css">
+    <link rel="stylesheet" href="/stylesheets/root.css">
 </head>
 
 <body>
     <%- include("partials/headerShop")%>
     <main>
-        <div class="container" style="margin-top: 100px;">
+        <div class="container">
             <section class="product-box">
                 <div class=" row ">
                     <div class="card-body col-12 ">
@@ -27,8 +26,8 @@
                     <div class="container ">
                         <form action="/product/create" method="POST" enctype="multipart/form-data">
                             <div class="row ">
-                                <div class="col-12 col-md-6 modal-body ">
-                                    <div class="modal-body">
+                                <div class="col-12 col-md-6 ">
+                                    <div class="mt-3">
                                         <p>Selecciona la categoria</p>
                                         <select class="form-control form-control-md " name="categoria">
                                             <option value="cElectronica">Electronica</option>
@@ -37,26 +36,33 @@
                                             <option value="cVarias">Otro</option>
                                         </select>
                                     </div>
-                                    <div class="modal-body ">
+                                    <div class="mt-3 ">
                                         <p>Titulo del producto</p>
                                         <input class="form-control form-control-md " type="text " placeholder="Nombre "
                                             name="title">
                                     </div>
-                                    <div class="modal-body">
-                                        <p>Descripción</p>
-                                        <textarea class="form-control " aria-label="With textarea "
-                                            name="description"></textarea>
-                                    </div>
-                                    <div class="modal-body ">
+                                    <div class="mt-3 ">
                                         <p>Precio</p>
                                         <input class="form-control form-control-md " type="number " placeholder="$ "
                                             name="price">
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6 modal-body ">
-                                    <p>Carga tus imagenes </p>
-                                    <input type="file" name="img" id="" style="visibility: visible">
-                                    <button type="submit " class="btn btn-dark mt-2 ml-a mr-a ">Crear Producto</button>
+                                <div class="col-12 col-md-6">
+                                    <div class="mt-3">
+                                        <p>Sube una imagen</p>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="img"
+                                                id="inputGroupFile04">
+                                            <label class="custom-file-label" for="inputGroupFile04">Choose
+                                                file</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-3">
+                                        <p>Descripción</p>
+                                        <textarea class="form-control " aria-label="With textarea "
+                                            name="description"></textarea>
+                                    </div>
                                 </div>
                             </div>
                     </div>
