@@ -25,6 +25,7 @@ let productController = {
         db.Product.findByPk(req.params.id)
             .then(function (resultados) {
                 if (resultados != undefined) {
+                    console.log(resultados);
                     res.render('product', { data: resultados,user: req.session.user, admin: req.session.admin });
                 } else {
                     res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
@@ -37,12 +38,12 @@ let productController = {
     createProduct: (req, res) => {
         console.log("creando producto");
         db.Product.create({
-            img: req.body.img,
-            price: req.body.price.trim(),
-            title: req.body.title.trim(),
-            brand: req.body.brand.trim(),
-            description: req.body.description.trim(),
-            categoria: req.body.categoria.trim()
+            img         : req.files[0].filename,
+            price       : req.body.price.trim(),
+            title       : req.body.title.trim(),
+            brand       : req.body.brand.trim(),
+            description : req.body.description.trim(),
+            categoria   : req.body.categoria.trim()
         });
         res.redirect('shop');
         //comentarios
@@ -90,7 +91,7 @@ let productController = {
             console.log('HOLA');
             console.log(req.files[0]);
         db.Product.update({
-            // img         : req.files[0].filename,
+            img         : '/images/' + req.files[0].filename,
             price       : req.body.price.trim(),
             title       : req.body.title.trim(),
             //brand: req.body.brand.trim(),
