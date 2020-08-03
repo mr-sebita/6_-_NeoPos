@@ -88,7 +88,7 @@ let productController = {
     },
     edit: ( req , res , next ) => {
             console.log('HOLA');
-            console.log(req.files[0].filename);
+            console.log(req.files[0]);
         db.Product.update({
             // img         : req.files[0].filename,
             price       : req.body.price.trim(),
