@@ -21,14 +21,6 @@ const db = require('../database/models');
  */
 
 let productController = {
-    detail: (req, res, next) => {
-        let productById = searchById(req.params.id);
-        if (productById != null) {
-            res.render('product', { data: productById, user: req.session.user });
-        } else {
-            res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
-        }
-    },
     detaildb: (req, res, next) => {
         db.Product.findByPk(req.params.id)
             .then(function (resultados) {

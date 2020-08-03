@@ -58,19 +58,19 @@ let userController = {
                     //     res.render('index', { userData: req.session.user });
                     // } 
                     /* assign user and properties to Session Variable*/
-                    if ( req.session.cart == undefined ){
-                        req.session.cart = [];
-                        console.log( 'HOLA ACA ESTA EL CARRITO ' + req.session.cart );
-                    }
                     req.session.user = userResult;
                     let userLogin = req.session.user;
-                    
+                    if (req.session.cart == undefined) {
+                        req.session.cart = [];
+                        console.log('HOLA ACA ESTA EL CARRITO ' + req.session.cart);
+                    }
+
                     if (userLogin.grupo == 'admin') {
-                      let type = 'admin';
-                      res.render('index', { user: userLogin, typeUser: type });
+                        let type = 'admin';
+                        res.render('index', { user: userLogin, typeUser: type });
                     } else {
                         let type = 'user';
-                        res.redirect('index',{ user: userLogin, typeUser: type });
+                        res.redirect('index', { user: userLogin, typeUser: type });
                     }
                 }
             });
@@ -116,8 +116,7 @@ let userController = {
                 req.session.user = adminCreate;
                 req.session.admin = true;
                 res.redirect('/shop');
-            })
-                .catch(() => {
+            }).catch(() => {
                     let errors = ['Error al registrarse!'];
                     res.render('index', { errors: errors });
 
@@ -126,6 +125,33 @@ let userController = {
             res.render('index', { errors: errors.errors });
         }
     },
+    userDetail: (req, res) =>{
+        res.render('profile', {user: req.session.user});
+    },
+    userEditProfile: (req, res) => {
+        res.render('profileEdit', {user: req.session.user});
+    },
+    userEdit: (req, res) => {
+        let errors = validationResult(req);
+        if (errors.isEmpty()) { //if true -> no errors
+            db.User.update({
+                name: req.body.name,
+                email: req.body.email,
+                //password: bcrypt.hashSync(req.body.password, 10),
+                //avatar: 'https://robohash.org/88.55.33.66', //create in the future a fetch
+                //grupo: 'admin'
+            }).then(()=>{
+                res.render('/');
+            }
+            )
+           .catch(() => {
+                    let errors = ['Error al modificar!'];
+                    res.render('index', { errors: errors });
+                })
+        } else {
+            res.render('index', { errors: errors.errors });
+        }
+    }
 }
 
 module.exports = userController;

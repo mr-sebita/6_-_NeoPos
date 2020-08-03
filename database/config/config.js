@@ -1,6 +1,6 @@
 module.exports = {
   "development": {
-    "username": "root",
+    "username": "tincho",
     "password": "YvpgjseY5cCHKNJ",
     "database": "neoposdb",
     "host": "35.192.56.243",
