@@ -21,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
         grupo: {
             type: DataTypes.STRING
         },
+        shop_idshop:{
+            type: DataTypes.INTEGER
+        },
         carrito_idcarrito: {
             type: DataTypes.STRING
         }
