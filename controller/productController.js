@@ -86,15 +86,16 @@ let productController = {
                 }
             });
     },
-    edit: (req, res) => {
-            console.log(req.body.id);
+    edit: ( req , res , next ) => {
+            console.log('HOLA');
+            console.log(req.files[0].filename);
         db.Product.update({
-            //img: req.body.img,
-            price: req.body.price.trim(),
-            title: req.body.title.trim(),
+            // img         : req.files[0].filename,
+            price       : req.body.price.trim(),
+            title       : req.body.title.trim(),
             //brand: req.body.brand.trim(),
-            description: req.body.description.trim(),
-            categoria: req.body.categoria.trim()
+            description : req.body.description.trim(),
+            categoria   : req.body.categoria.trim()
         },
             {
                 /*  NO TE OLVIDES DE PONER EL WHERE EN EL UPDATE !!!!!*/

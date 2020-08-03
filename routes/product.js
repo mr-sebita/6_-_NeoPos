@@ -10,16 +10,18 @@ var guestMiddlewares         = require( '../middlewares/guestMiddlewares' );
 let administratorMiddlewares = require( '../middlewares/administratorMiddlewares' );
 
 
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'public/images')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-  })
-   
-  var upload = multer({ storage: storage });
+var storage = multer.diskStorage(
+  {
+      destination: function (req, file, cb) {
+              cb(null, 'public/images')
+      },
+      filename: function (req, file, cb) {
+              cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+      }
+}
+);
+ 
+var upload = multer({ storage: storage });
 
 
 /*
@@ -29,14 +31,14 @@ var storage = multer.diskStorage({
 * @param {controller} controller method for that route
 *
 */
-router.get( '/create' , productController.newProduct);
+router.get( '/create' , guestMiddlewares , administratorMiddlewares , productController.newProduct);
 router.post('/create',upload.any() ,productController.createProduct);
 
 router.get('/:id', productController.detaildb);
-router.delete('/:id', guestMiddlewares , administratorMiddlewares , productController.delete);
+router.delete('/:id', administratorMiddlewares , productController.delete);
 
 router.get('/edit/:id' , guestMiddlewares , administratorMiddlewares , productController.detailEdit );
-router.put('/edit/:id', upload.any() ,productController.edit); 
+router.post('/edit/:id', upload.any() ,productController.edit); 
 
 
 module.exports = router;

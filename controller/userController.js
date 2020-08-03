@@ -86,6 +86,9 @@ let userController = {
                 email: req.body.email.trim(),
                 password: bcrypt.hashSync(req.body.password, 10),
                 avatar: 'https://robohash.org/' + req.body.name + '?set=set3',
+                /*
+                * REGISTRO POR USUARIO NO DEBERIA GENERAR ID SHOP
+                */
                 carrito_idcarrito: '3',
                 grupo: 'user'
             }).then((userCreate) => {
@@ -110,6 +113,9 @@ let userController = {
                 name: req.body.username,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
+                /*
+                * DEBERIA GENERAR ID DE SHOP PARA CONECTARLO CON SU LUGAR DE COMPRA
+                */
                 avatar: 'https://robohash.org/88.55.33.66', //create in the future a fetch
                 grupo: 'admin'
             }).then((adminCreate) => {
@@ -125,7 +131,7 @@ let userController = {
             res.render('index', { errors: errors.errors });
         }
     },
-    userDetail: ( req , res , next ) =>{
+    userDetail: ( req , res , next      ) =>{
         res.render('profile', {user: req.session.user});
     },
     userEditProfile: (req, res) => {

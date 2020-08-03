@@ -7,13 +7,13 @@
 /**
  * Modulos Node
  */
-var express = require('express');
-var router = express.Router();
-var userController = require('../controller/userController');
-var path = require('path');
+var express                           = require('express');
+var router                            = express.Router();
+var userController                    = require('../controller/userController');
+var path                              = require('path');
 var { check, validationResult, body } = require('express-validator');
-const { user } = require('../controller/userController');
-var guestMiddlewares = require( '../middlewares/guestMiddlewares' );
+const { user }                        = require('../controller/userController');
+var guestMiddlewares                  = require( '../middlewares/guestMiddlewares' );
 
 /**
  * User CRUD

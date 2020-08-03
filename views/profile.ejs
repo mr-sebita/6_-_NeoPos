@@ -20,6 +20,7 @@
         <div class="container" style="margin-top: 150px;margin-bottom: 150px;">
             <section class="product-box">
                 <div class="row">
+                    <% if( user.grupo == 'user') { %>
                     <div class="col-12 col-md-8 ">
                         <a href="">
                             <!-- <figure class=""> -->
@@ -31,21 +32,39 @@
                         <div class="">
                             <article class="product-box_user px-2 py-2">
                                 <p class="brand">
-                                    <h3><%= user.name %></h3>
+                                <h3><%= user.name %></h3>
                                 </p>
                                 <p class="title">
-                                   <h4><%=user.email %></h4> 
+                                <h4><%=user.email %></h4>
                                 </p>
                                 <div class="container">
                                     <a href="/user/edit/<%= user.idusuario %> ">
-                                    <button class="btn btn-success">Editar</button>
+                                        <button class="btn btn-success">Editar</button>
                                     </a>
                                 </div>
-                            </div>
-                            </article>
+                        </div>
+                        </article>
+                    </div>
+                    <% } else { %>
+                    <div class="col-12 col-md-4 ">
+                        <div class="row">
+                            <a class="col-12" href="">
+                                <!-- <figure class=""> -->
+                                <img class="img-fluid " src="<%= user.avatar %> " alt="imagen de producto">
+                                <!-- </figure> -->
+                            </a>
+                            <a href= "/user/edit/<%= user.idusuario %> "class="col-12 btn btn-success mt-4">
+                                <h4> Editar Perfil </h4>
+                            </a>
+                            <a class="col-12 btn btn-success mt-4">
+                                <h4> Agregar Producto </h4>
+                            </a>
                         </div>
                     </div>
-
+                    <div class="col-12 col-md-8 text-center mt-3 ">
+                        <h3> LISTADO DE PRODUCTOS </h3>
+                    </div>
+                    <% } %>
                 </div>
             </section>
         </div>
