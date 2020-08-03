@@ -83,7 +83,6 @@ let userController = {
         if (errors.isEmpty()) { //if true -> no errors
             db.User.create({
                 name: req.body.name.trim(),
-                surname: req.body.surname.trim(),
                 email: req.body.email.trim(),
                 password: bcrypt.hashSync(req.body.password, 10),
                 avatar: 'https://robohash.org/' + req.body.name + '?set=set3',
