@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": "",
+    "username": "mauric",
+    "password": "YvpgjseY5cCHKNJ",
     "database": "neoposdb",
     "host": "35.192.56.243",
     "dialect": "mysql"

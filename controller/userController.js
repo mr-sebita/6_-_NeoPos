@@ -58,19 +58,19 @@ let userController = {
                     //     res.render('index', { userData: req.session.user });
                     // } 
                     /* assign user and properties to Session Variable*/
-                    if ( req.session.cart == undefined ){
-                        req.session.cart = [];
-                        console.log( 'HOLA ACA ESTA EL CARRITO ' + req.session.cart );
-                    }
                     req.session.user = userResult;
                     let userLogin = req.session.user;
-                    
+                    if (req.session.cart == undefined) {
+                        req.session.cart = [];
+                        console.log('HOLA ACA ESTA EL CARRITO ' + req.session.cart);
+                    }
+
                     if (userLogin.grupo == 'admin') {
-                      let type = 'admin';
-                      res.render('index', { user: userLogin, typeUser: type });
+                        let type = 'admin';
+                        res.render('index', { user: userLogin, typeUser: type });
                     } else {
                         let type = 'user';
-                        res.redirect('index',{ user: userLogin, typeUser: type });
+                        res.redirect('index', { user: userLogin, typeUser: type });
                     }
                 }
             });
