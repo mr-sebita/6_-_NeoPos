@@ -22,7 +22,5 @@ module.exports = (sequelize, DataTypes) => {
     };
     
     const Shop = sequelize.define(alias, cols, config);
-    
-    
     return Shop;
 }

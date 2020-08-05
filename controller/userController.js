@@ -44,6 +44,7 @@ let userController = {
         */
         let errorsResult = validationResult(req);
         if (errorsResult.isEmpty()) {
+            console.log('Here');
             db.User.findOne({
                 where: {
                     email: req.body.email
@@ -70,7 +71,7 @@ let userController = {
                         res.render('index', { user: userLogin, typeUser: type });
                     } else {
                         let type = 'user';
-                        res.redirect('index', { user: userLogin, typeUser: type });
+                        res.render('index', { user: userLogin, typeUser: type });
                     }
                 }
             });
@@ -97,9 +98,8 @@ let userController = {
                 req.session.admin = false;
                 res.redirect('/shop');
             })
-                .catch(() => {
-                    let errors = ['Error al registrarse!'];
-                    res.render('index', { errors: errors });
+                .catch((catchedErrors) => {
+                    res.render('index', { errors: catchedErrors });
 
                 })
         } else {
@@ -116,42 +116,43 @@ let userController = {
                 /*
                 * DEBERIA GENERAR ID DE SHOP PARA CONECTARLO CON SU LUGAR DE COMPRA
                 */
-                avatar: 'https://robohash.org/88.55.33.66', //create in the future a fetch
+                avatar: 'https://robohash.org/' + req.body.name,
+                carrito_idcarrito:'NULL',
+                shop_idshop: '3',
                 grupo: 'admin'
             }).then((adminCreate) => {
                 req.session.user = adminCreate;
                 req.session.admin = true;
                 res.redirect('/shop');
-            }).catch(() => {
-                    let errors = ['Error al registrarse!'];
-                    res.render('index', { errors: errors });
-
-                })
+            }).catch((catchedErrors) => {
+                res.render('index', { errors: catchedErrors });
+            })
         } else {
             res.render('index', { errors: errors.errors });
         }
     },
-    userDetail: ( req , res , next      ) =>{
-        res.render('profile', {user: req.session.user});
+    userDetail: (req, res, next) => {
+        res.render('profile', { user: req.session.user });
     },
     userEditProfile: (req, res) => {
         console.log(req.params.id);
-        res.render('profileEdit', {user: req.session.user});
+        res.render('profileEdit', { user: req.session.user });
     },
-    userEdit: ( req , res , next ) => {
+    userEdit: (req, res, next) => {
         db.User.update(
-        {
-            name         : req.body.name ,
-        }, {
-            where :{
-                idusuario: req.params.id,
-            }})
-        db.User.findOne({
+            {
+                name: req.body.name,
+            }, {
             where: {
-                idusuario : req.params.id 
+                idusuario: req.params.id,
             }
         })
-            .then( (user) => {
+        db.User.findOne({
+            where: {
+                idusuario: req.params.id
+            }
+        })
+            .then((user) => {
                 req.session.user = user.dataValues;
                 console.log(req.session.user);
                 res.redirect('/user/detail');
