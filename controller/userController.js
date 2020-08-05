@@ -48,8 +48,10 @@ let userController = {
             db.User.findOne({
                 where: {
                     email: req.body.email
-                }
+                },
+                include: [{ associaton: "shops" }]
             }).then(userResult => {
+                // console.log( userResult.shops)
                 console.log(userResult);
                 if (typeof userResult != 'undefined') {
                     //#TODO crypto verificacion !!

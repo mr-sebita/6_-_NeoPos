@@ -21,9 +21,6 @@ module.exports = (sequelize, DataTypes) => {
         grupo: {
             type: DataTypes.STRING
         },
-        shop_idshop:{
-            type: DataTypes.INTEGER
-        },
         carrito_idcarrito: {
             type: DataTypes.STRING
         }
@@ -34,5 +31,11 @@ module.exports = (sequelize, DataTypes) => {
     };
     
     const Usuario = sequelize.define(alias, cols, config);
+    Usuario.associate=  ( models ) =>{
+        Usuario.belongsTo( models.Shop ,  {
+            as: 'shops',
+            foreignKey: 'shop_idshop'
+        })
+    }
     return Usuario;
 }
