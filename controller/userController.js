@@ -73,6 +73,7 @@ let userController = {
                         let type = 'user';
                         res.render('index', { user: userLogin, typeUser: type });
                     }
+                }
             });
         } else {
             res.render('login', { errors: errorsResult.errors })
@@ -116,7 +117,7 @@ let userController = {
                 * DEBERIA GENERAR ID DE SHOP PARA CONECTARLO CON SU LUGAR DE COMPRA
                 */
                 avatar: 'https://robohash.org/' + req.body.name,
-                carrito_idcarrito:'NULL',
+                carrito_idcarrito: 'NULL',
                 shop_idshop: '3',
                 grupo: 'admin'
             }).then((adminCreate) => {
