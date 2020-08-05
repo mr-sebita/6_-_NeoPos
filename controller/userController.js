@@ -120,15 +120,23 @@ let userController = {
                 */
                 avatar: 'https://robohash.org/' + req.body.name,
                 carrito_idcarrito: 'NULL',
-                shop_idshop: '3',
-                grupo: 'admin'
-            }).then((adminCreate) => {
-                req.session.user = adminCreate;
-                req.session.admin = true;
-                res.redirect('/shop');
-            }).catch((catchedErrors) => {
-                res.render('index', { errors: catchedErrors });
-            })
+                //shop_idshop: '3',
+                grupo: 'admin',
+                usershop: {
+                    shop_name: 'Tu primer tienda',
+                    shop_logo: 'Tu Logo',
+                    shop_banner: 'Tu banner'
+                }
+            },
+                {
+                    include: usershop,
+                }).then((adminCreate) => {
+                    req.session.user = adminCreate;
+                    req.session.admin = true;
+                    res.redirect('/shop');
+                }).catch((catchedErrors) => {
+                    res.render('index', { errors: catchedErrors });
+                })
         } else {
             res.render('index', { errors: errors.errors });
         }
