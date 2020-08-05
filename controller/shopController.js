@@ -19,7 +19,11 @@ const db   = require('../database/models');
  */
 let shopController = {
     shopdb: (req, res ) => {
-        db.Product.findAll()
+        db.Product.findAll({
+            where: {
+                shop_idshop: 1
+            }
+        })
         .then((datosquery)=> {
          res.render('shop', { data: datosquery, user: req.session.user});
         });

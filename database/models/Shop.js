@@ -1,4 +1,3 @@
-let UserModel = require('./User');
 
 module.exports = (sequelize, DataTypes) => {
     let alias = "Shop";
@@ -26,20 +25,13 @@ module.exports = (sequelize, DataTypes) => {
 
     const Shop = sequelize.define(alias, cols, config);
 
-//    Shop.associate = function () {
-//        Shop.hasOne({
-//            as: "user",
-//            foreignKey: "user_iduser"
-//        })
-//    };
-//
-//
-//        Shop.belongTo({
-//            as: "user",
-//            foreignKey: "shop_idshop"
-//        })
-//    };
-//
+    Shop.associate = function (models) {
+        Shop.belongsTo(models.User,{
+            as: "user",
+            foreignKey: "shop_idshop"
+        })
+    };
+
 
 
     return Shop;
