@@ -65,14 +65,8 @@ let userController = {
                         console.log('HOLA ACA ESTA EL CARRITO ' + req.session.cart);
                     }
 
-                    if (userLogin.grupo == 'admin') {
-                        let type = 'admin';
-                        res.render('index', { user: userLogin, typeUser: type });
-                    } else {
-                        let type = 'user';
-                        res.redirect('index', { user: userLogin, typeUser: type });
+                        res.render('index', { user: userLogin });
                     }
-                }
             });
         } else {
             res.render('login', { errors: errorsResult.errors })
