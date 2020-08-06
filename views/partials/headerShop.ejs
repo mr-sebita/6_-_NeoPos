@@ -7,16 +7,16 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
+            <% if( typeof user == 'undefined' ){ %>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <% if( typeof user == 'undefined' ){ %>
                 <li class="nav-item">
                     <button class="btn btn-sm" style="margin-left: 20px; margin-right: 15px;">Ingresa</button>
                 </li>
                 <li class="nav-item">
                     <button class="btn btn-sm">Registrate</button>
                 </li>
-                <% } %>
             </ul>
+            <% } %>
             <div class="navbar-text" style="margin-right: 30px;">
                 <form class="form-inline">
                     <input class="form-control " type="search" aria-label="Search">
@@ -25,6 +25,7 @@
                 </form>
             </div>
         </div>
+        <% if( typeof user != 'undefined' ){ %>
         <div class="nav-item dropdown  ">
             <a class="nav-link " id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -44,5 +45,6 @@
                 </a>
             </div>
         </div>
+        <% } %>
     </nav>
 </header>

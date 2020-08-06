@@ -20,17 +20,14 @@ const db = require('../database/models');
 let shopController = {
     shopdb: (req, res) => {
         db.Product.findAll({
-            //include: [{
-              //  association: "userShop",
                 where: {
-                    shop_idshop: req.session.user.idusuario
+                    shop_idshop: req.params.id
                 }
-            }//]
-        //}
+            }
         )
-            .then((datosquery) => {
+        .then((datosquery) => {
                 console.log('before render');
-                res.render('shop', { data: datosquery, user: req.session.user });
+                res.render('shop', { data: datosquery, shop: datosquery[0].shopProduct.shop_banner   ,user: req.session.user });
             });
     }
 };

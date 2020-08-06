@@ -14,24 +14,21 @@
     <header>
         <%- include('partials/headerHome.ejs') %>
     </header>
-   <!-- show errors -->
-    <% if(typeof errors != 'undefined'){ %>
-        <p style="color: red;">ERROR</p>
-    <ul>
-        <% for(var i = 0; i < errors.length; i++) { %>
-        <div class="alert alert-danger" role="alert">
-            <%= errors[i].msg %> 
-        </div>
-        <% } %>
-    </ul>
-    <% } %>
-
+    <!-- show errors -->
     <div class="container p-4">
+        <% if(typeof errors != 'undefined'){ %>
+        <ul>
+            <% for(var i = 0; i < errors.length; i++) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= errors[i].msg %>
+            </div>
+            <% } %>
+        </ul>
+        <% } %>
         <div class="row">
             <div class="col-8 col-md-6 col-lg-4 mx-auto mt-5">
                 <div class="card">
                     <div class="card-header text-center" style="background-color: var(--turquoise);">
-                        
                     </div>
                     <div class="card-body">
                         <form action="/user/login" method="POST">
@@ -42,7 +39,7 @@
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="password">
                             </div>
-   
+
                             <div class="form-group">
                                 <button class="btn btn-success btn-block">
                                     Ingresa
