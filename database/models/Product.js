@@ -34,7 +34,13 @@
     };
     
     const Product = sequelize.define(alias, cols, config);
-    
+   
+    Product.associate = function(models){
+        Product.belongsTo(models.Shop,{
+            as: "shopProduct",
+            foreignkey: "shop_idshop"
+        }
+    }
     
     return Product;
 }
