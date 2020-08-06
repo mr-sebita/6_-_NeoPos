@@ -48,9 +48,12 @@ let userController = {
             db.User.findOne({
                 where: {
                     email: req.body.email
-                },
-                include: [{ associaton: "shops" }]
-            }).then(userResult => {
+                    },
+                include: [{
+                    association: "userShop",
+                }]
+            }
+            ).then(userResult => {
                 // console.log( userResult.shops)
                 console.log(userResult);
                 if (typeof userResult != 'undefined') {
@@ -122,21 +125,21 @@ let userController = {
                 carrito_idcarrito: 'NULL',
                 shop_idshop: '3',
                 grupo: 'admin'
-            //    usershop: {
-            //        shop_name: 'Tu primer tienda',
-            //        shop_logo: 'Tu Logo',
-            //        shop_banner: 'Tu banner'
-            //    }
-            //},
-            //    {
-            //        include: usershop,
-                }).then((adminCreate) => {
-                    req.session.user = adminCreate;
-                    req.session.admin = true;
-                    res.redirect('/shop');
-                }).catch((catchedErrors) => {
-                    res.render('index', { errors: catchedErrors });
-                })
+                //    usershop: {
+                //        shop_name: 'Tu primer tienda',
+                //        shop_logo: 'Tu Logo',
+                //        shop_banner: 'Tu banner'
+                //    }
+                //},
+                //    {
+                //        include: usershop,
+            }).then((adminCreate) => {
+                req.session.user = adminCreate;
+                req.session.admin = true;
+                res.redirect('/shop');
+            }).catch((catchedErrors) => {
+                res.render('index', { errors: catchedErrors });
+            })
         } else {
             res.render('index', { errors: errors.errors });
         }

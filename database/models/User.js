@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define(alias, cols, config);
 
     User.associate = function (models) {
-        User.hasOne(models.Shop,{
+        User.belongsTo(models.Shop,{
             as: "userShop",
             foreignKey: "shop_idshop"
         });

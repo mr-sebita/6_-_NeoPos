@@ -7,9 +7,9 @@
 /**
  * Modules
  */
-const fs   = require('fs');
+const fs = require('fs');
 const path = require('path');
-const db   = require('../database/models');
+const db = require('../database/models');
 
 /**
  * shopController
@@ -18,15 +18,20 @@ const db   = require('../database/models');
  * 
  */
 let shopController = {
-    shopdb: (req, res ) => {
+    shopdb: (req, res) => {
         db.Product.findAll({
-            where: {
-                shop_idshop: 1
-            }
-        })
-        .then((datosquery)=> {
-         res.render('shop', { data: datosquery, user: req.session.user});
-        });
+            //include: [{
+              //  association: "userShop",
+                where: {
+                    shop_idshop: req.session.user.idusuario
+                }
+            }//]
+        //}
+        )
+            .then((datosquery) => {
+                console.log('before render');
+                res.render('shop', { data: datosquery, user: req.session.user });
+            });
     }
 };
 

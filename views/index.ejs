@@ -17,11 +17,11 @@
 <body>
     <!-- show errors -->
     <% if(typeof errors != 'undefined'){ %>
-        <p style="color: red;">ERROR</p>
+    <p style="color: red;">ERROR</p>
     <ul>
         <% for(var i = 0; i < errors.length; i++) { %>
         <div class="alert alert-danger" role="alert">
-            <%= errors[i].msg %> 
+            <%= errors[i].msg %>
         </div>
         <% } %>
     </ul>
@@ -82,86 +82,38 @@
         <div class="container p-5">
             <h2 class="mb-5">Nuestros E-commerce desarrollados</h2>
             <div class="row">
-                <div class="col-lg-2">
-                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <a href="/shop"><img class="img-fluid rounded-circle mb-3" src="/images/carefour.png"
-                                alt=""></a>
+                <div class="col-lg-4">
+                    <div class=" mx-auto mb-5 mb-lg-0">
+                        <a href="/shop/1">
+                            <div class="features-icons-icon d-flex">
+                                <i class="fas fa-gifts fa-5x  m-auto " style="color: var(--eerie-black);"></i>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src="/images/carefour.png" alt="">
+                <div class="col-lg-4">
+                    <div class=" mx-auto mb-5 mb-lg-0">
+                        <a href="/shop/2">
+                            <div class="features-icons-icon d-flex">
+                                <i class="fas fa-store-alt fa-5x  m-auto " style="color: var(--eerie-black);"></i>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3 " src="/images/carefour.png" alt="">
+                <div class="col-lg-4">
+                    <div class=" mx-auto mb-5 mb-lg-0">
+                        <a href="/shop/3">
+                            <div class="features-icons-icon d-flex">
+                                <i class="fas fa-shopping-basket fa-5x  m-auto " style="color: var(--eerie-black);"></i>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src="/images/carefour.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src="/images/carefour.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src="/images/carefour.png" alt="">
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials text-center bg-light">
-        <div class="container p-5">
-            <div class="flex flex-col text-center w-full mb-20 ">
-                <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest ">Nuestro Equipo</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base ">Nuestro equipo esta formado por los mejores
-                    profesionales en cada Area (Diseño, Imagen Corporativa, Desarrollo Web y Ventas) Asi podemos
-                    ayudarte a mejorar cada aspecto de tu negocio y acompañarte en tu crecimiento</p>
-            </div>
-            <h2 class="mb-5">What people are saying...</h2>
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class=" mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3 p-3" src="/images/mauri.png" alt="">
-                        <h5>Margaret E.</h5>
-                        <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class=" mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3 p-3" src="/images/tincho.png" alt="">
-                        <h5>Fred S.</h5>
-                        <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of
-                            super nice landing pages."</p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class=" mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3 p-3" src="/images/jesu.png" alt="">
-                        <h5>Sarah W.</h5>
-                        <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to
-                            us!"</p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class=" mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3 p-3" src="/images/seba.png" alt="">
-                        <h5>Sarah W.</h5>
-                        <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to
-                            us!"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <%- include("partials/footer2")%>
 </body>

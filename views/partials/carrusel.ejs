@@ -1,0 +1,45 @@
+    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="10000">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                    <div class="card h-100 ">
+                        <img src="<%= data[0].img %>" class="card-img-top img-thumbnail" style="height:260px" alt="...">
+                        <div class="card-body h-100">
+                            <h5 class="card-title"><%= data[0].title %></h5>
+                            <p class="card-text"><%= data[0].description %></p>
+                        </div>
+                    </div>
+                    <% for ( let j = 1 ; j < 4 ; j++){ %>
+                        <div class="card h-100 ">
+                            <img src="<%= data[j].img %>" class="card-img-top img-thumbnail" style="height:260px" alt="...">
+                            <div class="card-body h-100">
+                                <h5 class="card-title"><%= data[j].title %></h5>
+                                <p class="card-text"><%= data[j].description %></p>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+            </div> 
+            <div class="carousel-item" data-interval="10000">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                    <% for ( let j = 4 ; j < 8 ; j++){ %>
+                    <div class="card h-100 ">
+                        <img src="<%= data[j].img %>" class="card-img-top img-thumbnail" style="height:260px" alt="...">
+                        <div class="card-body h-100">
+                            <h5 class="card-title"><%= data[j].title %></h5>
+                            <p class="card-text"><%= data[j].description %></p>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>

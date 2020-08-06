@@ -21,13 +21,12 @@
         description: {
             type: DataTypes.STRING
         },
-        // categoria: {
-        //     type: DataTypes.STRING
-        // }
-        //clave foranea
-        // shop_idshop: {
-        //    type: DataTypes.INTEGER 
-        // }
+         categoria: {
+             type: DataTypes.STRING
+         },
+        shop_idshop: {
+            type: DataTypes.INTEGER 
+         }
     };
     let config = {
         tableName: "products",

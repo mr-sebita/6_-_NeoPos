@@ -25,12 +25,13 @@ module.exports = (sequelize, DataTypes) => {
 
     const Shop = sequelize.define(alias, cols, config);
 
-    Shop.associate = function (models) {
-        Shop.belongsTo(models.User,{
-            as: "user",
-            foreignKey: "shop_idshop"
-        })
-    };
+    /*TODO evaluar si es necesario */
+    //Shop.associate = function (models) {
+    //    Shop.belongsTo(models.User,{
+    //        as: "user",
+    //        foreignKey: "shop_idshop"
+    //    })
+    //};
 
 
 
