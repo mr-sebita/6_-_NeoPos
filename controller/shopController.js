@@ -22,12 +22,15 @@ let shopController = {
         db.Product.findAll({
                 where: {
                     shop_idshop: req.params.id
-                }
+                },
+                include: [{
+                    association: "shopProduct",
+                }]
             }
         )
         .then((datosquery) => {
-                console.log('before render');
-                res.render('shop', { data: datosquery, shop: datosquery[0].shopProduct.shop_banner   ,user: req.session.user });
+                console.log(datosquery);
+                res.render('shop', { data: datosquery ,user: req.session.user });
             });
     }
 };
