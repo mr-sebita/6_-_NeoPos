@@ -54,32 +54,26 @@ let userController = {
                 }]
             }
             ).then(userResult => {
-                // console.log( userResult.shops)
-                console.log(userResult);
-                if (typeof userResult != 'undefined') {
-                    //#TODO crypto verificacion !!
-                    // if (bcrypt.compareSync(req.body.password, userResultado.dataValues.password)) {
-                    //     req.session.user = userResultado.dataValues.password;
-                    //    // res.redirect('/');
-                    //     res.render('index', { userData: req.session.user });
-                    // } 
-                    /* assign user and properties to Session Variable*/
+                //#TODO crypto verificacion !!
+                if (bcrypt.compareSync(req.body.password, userResult.dataValues.password)) {
+
                     req.session.user = userResult;
                     let userLogin = req.session.user;
+
                     if (req.session.cart == undefined) {
                         req.session.cart = [];
-                        console.log('HOLA ACA ESTA EL CARRITO ' + req.session.cart);
                     }
+                    res.render('index', { user: userLogin });
 
-                    if (userLogin.grupo == 'admin') {
-                        let type = 'admin';
-                        res.render('index', { user: userLogin, typeUser: type });
-                    } else {
-                        let type = 'user';
-                        res.render('index', { user: userLogin, typeUser: type });
-                    }
+                } else {
+                    let errors = [{ msg: 'Contraseña incorrecta' }];
+                    res.render('login', { errors: errors });
                 }
-            });
+            })
+                .catch(error => {
+                    let errors = [{ msg: 'El email no existe' }];
+                    res.render('login', { errors: errors })
+                })
         } else {
             res.render('login', { errors: errorsResult.errors })
         }
