@@ -17,16 +17,15 @@
 <body>
     <%- include("partials/headerShop")%>
     <main>
-        <div class="container-fluid" style ="background-image: url('<%=data[0].shopProduct.shop_banner%>'); background-size: cover;background-repeat: no-repeat;">
+        <div class="container-fluid banner"
+            style="background-image: url('<%=data[0].shopProduct.shop_banner%>');height:300px;">
             <img class="img-fluid rounded m-5" src="<%=data[0].shopProduct.shop_logo%>" style="height:150px;">
             <span style="font-size:30pt;font-weight: bold;"><%=data[0].shopProduct.shop_name%></span>
         </div>
         <%- include("partials/carrusel")%>
         <div class="container">
-            <h2 class="border-bottom mb-3">Electrónica</h2>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                 <% for (item of data){ %>
-                <% if( item.categoria == 'electronica'){ %>
                 <div class="col mb-4">
                     <div class="card h-100">
                         <a class="text-decoration-none" href="/product/<%=item.idproducts%>"><img src="<%= item.img %>"
@@ -35,38 +34,13 @@
                             <a class="text-decoration-none" href="/product/<%=item.idproducts%>">
                                 <h5 class="card-title"><%= item.title %></h5>
                             </a>
-                            <p class="card-text"><%= item.description %></p>
-                            <h2 class="card-text">$<%= item.price %></h2>
+                            <h2 class="card-text ">$<%= item.price %></h2>
                         </div>
-                        <div class="card-text d-flex justify-content-center pb-2">
+                        <div class="card-footer  d-flex justify-content-center pb-2">
                             <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
                         </div>
                     </div>
                 </div>
-                <% } %>
-                <%}%>
-            </div>
-            <h2 class="border-bottom mb-3 " >Indumentaria</h2>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                <% for (item of data){ %>
-                <% if( item.categoria == 'Indumentaria'){ %>
-                <div class="col mb-4">
-                    <div class="card h-100">
-                        <a class="text-decoration-none" href="/product/<%=item.idproducts%>"><img src="<%= item.img %>"
-                                class="card-img-top img-thumbnail" style="height:260px" alt="..."></a>
-                        <div class="card-body h-100">
-                            <a class="text-decoration-none" href="/product/<%=item.idproducts%>">
-                                <h5 class="card-title"><%= item.title %></h5>
-                            </a>
-                            <p class="card-text"><%= item.description %></p>
-                            <h2 class="card-text">$<%= item.price %></h2>
-                        </div>
-                        <div class="card-text d-flex justify-content-center pb-2">
-                            <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
-                        </div>
-                    </div>
-                </div>
-                <% } %>
                 <%}%>
             </div>
         </div> 
