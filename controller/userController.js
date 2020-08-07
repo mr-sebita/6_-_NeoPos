@@ -86,23 +86,20 @@ let userController = {
                 email: req.body.email.trim(),
                 password: bcrypt.hashSync(req.body.password, 10),
                 avatar: 'https://robohash.org/' + req.body.name + '?set=set3',
-                /*
-                * REGISTRO POR USUARIO NO DEBERIA GENERAR ID SHOP
-                */
                 carrito_idcarrito: '3',
                 grupo: 'user'
             }).then((userCreate) => {
-                //res.send(userCreate);
+                console.log(userCreate);
                 req.session.user = userCreate;
                 req.session.admin = false;
-                res.redirect('/shop');
+               // res.redirect('/');
+                res.render('index', { user: userCreate });
             })
                 .catch((catchedErrors) => {
                     res.render('index', { errors: catchedErrors });
-
                 })
         } else {
-            res.render('index', { errors: errors.errors });
+            res.render('useradmin', { errors: errors.errors });
         }
     },
     registerAdmin: (req, res) => {
@@ -130,7 +127,7 @@ let userController = {
             }).then((adminCreate) => {
                 req.session.user = adminCreate;
                 req.session.admin = true;
-                res.redirect('/shop');
+               res.render('index', { user: adminCreate });
             }).catch((catchedErrors) => {
                 res.render('index', { errors: catchedErrors });
             })
