@@ -60,11 +60,15 @@ let userController = {
                     req.session.user = userResult;
                     let userLogin = req.session.user;
 
+                    if(userResult.grupo == 'admin'){
+                        req.session.admin = true;
+                    }else{
+                        req.session.admin = false;
+                    }
                     if (req.session.cart == undefined) {
                         req.session.cart = [];
                     }
                     res.render('index', { user: userLogin });
-
                 } else {
                     let errors = [{ msg: 'Contraseña incorrecta' }];
                     res.render('login', { errors: errors });
