@@ -30,7 +30,7 @@
                             <a href="/user/edit/<%= user.idusuario %> " class="col-12 btn btn-success mt-4">
                                 <h4> Editar Perfil </h4>
                             </a>
-                            <a class="col-12 btn btn-success mt-4">
+                            <a href="/product/create" class="col-12 btn btn-success mt-4">
                                 <h4> Agregar Producto </h4>
                             </a>
                         </div>
@@ -41,7 +41,6 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">Imagen</th>
                                         <th scope="col">Título</th>
                                         <th scope="col">Editar/Borrar</th>
@@ -50,12 +49,11 @@
                                 <tbody>
                                     <% for( item of data ){ %>
                                     <tr>
-                                        <th scope="row">1 </th>
                                         <td><img src="<%= item.img %>"class="img-fluid img-thumbnail" alt=""></td>
                                         <td><%= item.title %></td>
                                         <td>
-                                            <button type="button" class="btn btn-success btn-sm mt-2">Editá</button>
-                                            <button type="button" class="btn btn-success btn-sm mt-2">Borrá</button>
+                                            <a href="/product/edit/<%= item.idproducts   %>"><button type="button" class="btn btn-success btn-sm mt-2">Editá</button></a>
+                                            <a href="/product/delete/<%= item.idproducts %>"><button type="button" class="btn btn-success btn-sm mt-2">Borrá</button></a>
                                         </td>
                                     </tr>
                                     <% } %>
