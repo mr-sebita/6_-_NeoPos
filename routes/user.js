@@ -14,7 +14,7 @@ var path                              = require('path');
 var { check, validationResult, body } = require('express-validator');
 const { user }                        = require('../controller/userController');
 var guestMiddlewares                  = require( '../middlewares/guestMiddlewares' );
-
+let administratorMiddlewares          = require( '../middlewares/administratorMiddlewares')
 /**
  * User CRUD
  */
@@ -46,7 +46,9 @@ router.post('/registerAdmin', [
     check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener como mínimo 8 caracteres'),
 ], userController.registerAdmin);
 
+router.get('/detail/:id' , guestMiddlewares , administratorMiddlewares , userController.adminDetail );
 router.get('/detail', guestMiddlewares ,userController.userDetail);
+
 router.get('/edit/:id', userController.userEditProfile);
 router.post('/edit/:id', guestMiddlewares ,[
                         /*Express Validator - Check middleware */

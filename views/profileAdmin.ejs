@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/root.css">
+
+</head>
+
+<body>
+    <%- include("partials/headerShop")%>
+    <main>
+        <div class="container">
+            <section class="product-box ">
+                <div class="row">
+                    <div class="col-12 col-md-2  mt-5 ">
+                        <div class="row">
+                            <a class="col-12" href="">
+                                <!-- <figure class=""> -->
+                                <img class="img-fluid " src="<%= user.avatar %> " alt="imagen de producto">
+                                <!-- </figure> -->
+                            </a>
+                            <a href="/user/edit/<%= user.idusuario %> " class="col-12 btn btn-success mt-4">
+                                <h4> Editar Perfil </h4>
+                            </a>
+                            <a class="col-12 btn btn-success mt-4">
+                                <h4> Agregar Producto </h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-9 ml-2  mt-5">
+                        <h3 class="text-center border-bottom"> LISTADO DE PRODUCTOS </h3>
+                        <div class="table-responsive-sm">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Título</th>
+                                        <th scope="col">Editar/Borrar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for( item of data ){ %>
+                                    <tr>
+                                        <th scope="row">1 </th>
+                                        <td><img src="<%= item.img %>"class="img-fluid img-thumbnail" alt=""></td>
+                                        <td><%= item.title %></td>
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-sm mt-2">Editá</button>
+                                            <button type="button" class="btn btn-success btn-sm mt-2">Borrá</button>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <%- include("partials/footer2")%>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
