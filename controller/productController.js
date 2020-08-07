@@ -19,6 +19,19 @@ const db = require('../database/models');
  * @productnew
  * 
  */
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const formatPrice = (price,discount) => {
+    let priceDot;
+    if (discount == undefined) {
+        priceDot = toThousand(price.toFixed(2));
+    } else {
+        priceDot = toThousand((price*(1-(discount/100))).toFixed(2));
+    }
+    let first = priceDot.slice(0,-3);
+    let last = priceDot.slice(-3);
+    let lastReplaced = last.replace(".", ",");
+    return `$ ${first}${lastReplaced}`;
+};
 
 let productController = {
     detaildb: (req, res, next) => {
@@ -26,7 +39,7 @@ let productController = {
             .then(function (resultados) {
                 if (resultados != undefined) {
                     console.log(resultados);
-                    res.render('product', { data: resultados,user: req.session.user, admin: req.session.admin });
+                    res.render('product', {formatPrice, data:  resultados,user: req.session.user, admin: req.session.admin });
                 } else {
                     res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });
                 }
