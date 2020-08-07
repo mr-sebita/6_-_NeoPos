@@ -32,20 +32,16 @@ const formatPrice = (price,discount) => {
  * 
  */
 let shopController = {
-    shopdb: (req, res) => {
-        db.Product.findAll({
+    shopdb: async (req, res) => {
+        let datosquery = await db.Product.findAll({
                 where: {
                     shop_idshop: req.params.id
                 },
                 include: [{
                     association: "shopProduct",
                 }]
-            }
-        )
-        .then((datosquery) => {
-                console.log(datosquery);
-                res.render('shop', { formatPrice , data: datosquery ,user: req.session.user });
-            });
+            })
+        res.render('shop', { formatPrice , data: datosquery ,user: req.session.user });
     }
 };
 
