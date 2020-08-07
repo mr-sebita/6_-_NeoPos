@@ -36,7 +36,7 @@ let userController = {
     },
 
     /*  POST */
-    login: (req, res) => {
+    login: async ( req , res ) => {
         /*
         *1 . validation on form fields
         *2 . validation on password field
@@ -48,7 +48,7 @@ let userController = {
             db.User.findOne({
                 where: {
                     email: req.body.email
-                    },
+                },
                 include: [{
                     association: "userShop",
                 }]
@@ -68,7 +68,8 @@ let userController = {
                     if (req.session.cart == undefined) {
                         req.session.cart = [];
                     }
-                    res.render('index', { user: userLogin });
+                    res.redirect('/');
+
                 } else {
                     let errors = [{ msg: 'Contraseña incorrecta' }];
                     res.render('login', { errors: errors });
@@ -96,7 +97,7 @@ let userController = {
                 console.log(userCreate);
                 req.session.user = userCreate;
                 req.session.admin = false;
-               // res.redirect('/');
+                // res.redirect('/');
                 res.render('index', { user: userCreate });
             })
                 .catch((catchedErrors) => {
@@ -131,7 +132,7 @@ let userController = {
             }).then((adminCreate) => {
                 req.session.user = adminCreate;
                 req.session.admin = true;
-               res.render('index', { user: adminCreate });
+                res.render('index', { user: adminCreate });
             }).catch((catchedErrors) => {
                 res.render('index', { errors: catchedErrors });
             })
@@ -139,7 +140,19 @@ let userController = {
             res.render('index', { errors: errors.errors });
         }
     },
-    userDetail: (req, res, next) => {
+    adminDetail: async (req, res, next) => {
+        let products = await db.Product.findAll({
+            where: {
+                shop_idshop: req.params.id
+            },
+            include: [{
+                association: "shopProduct",
+            }]
+        })
+        console.log(products);
+        res.render('profileAdmin', { user: req.session.user , data : products});
+    },
+    userDetail: async (req, res, next) => {
         res.render('profile', { user: req.session.user });
     },
     userEditProfile: (req, res) => {
