@@ -36,8 +36,28 @@
             <div class="row">
                 <div class="col ">
                     <a href="/"><img class="img-fluid" src="/images/logoAuxiliarNeopos.svg" alt=""
-                            style="width: 75vh;"></a>
+                            style="width: 50vh;"></a>
                 </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="text-center bg-light">
+        <div class="container p-5">
+            <h2 class="mb-5">Nuestros E-commerce desarrollados</h2>
+            <div class="row">
+                <% for( shop of shops ){ %> 
+                <div class="col-lg-4">
+                    <div class=" mx-auto mb-5 mb-lg-0">
+                        <a href="/shop/<%= shop.idshop %> " class="text-decoration-none">
+                            <picture>
+                                <img src="<%= shop.shop_logo %> " style="width: 20vh;height:20vh" class="img-fluid img-thumbnail" alt="">
+                            </picture> 
+                            <h3><%= shop.shop_name %> </h3>
+                        </a>
+                    </div>
+                </div>
+                <% } %> 
             </div>
         </div>
     </section>
@@ -77,26 +97,6 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="text-center bg-light">
-        <div class="container p-5">
-            <h2 class="mb-5">Nuestros E-commerce desarrollados</h2>
-            <div class="row">
-                <% for( shop of shops ){ %> 
-                <div class="col-lg-4">
-                    <div class=" mx-auto mb-5 mb-lg-0">
-                        <a href="/shop/<%= shop.idshop %> " class="text-decoration-none">
-                            <picture>
-                                <img src="<%= shop.shop_logo %> " style="width: 20vh;height:20vh" class="img-fluid img-thumbnail" alt="">
-                            </picture> 
-                            <h3><%= shop.shop_name %> </h3>
-                        </a>
-                    </div>
-                </div>
-                <% } %> 
-            </div>
-        </div>
-    </section>
 
 
     <%- include("partials/footer2")%>
