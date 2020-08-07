@@ -1,6 +1,10 @@
+const db = require('../database/models');
+
 let indexController = {
-    index: ( req , res , next  ) => {
-            res.render( 'index' ,{user : req.session.user});
+    index: async ( req , res , next  ) => {
+        let shops = await db.Shop.findAll() 
+        console.log(shops);
+            res.render( 'index' ,{ user : req.session.user , shops: shops });
     }
 }
 

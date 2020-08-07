@@ -37,11 +37,21 @@
                             <h2 class="card-text ">$<%= item.price %></h2>
                         </div>
                         <div class="card-footer  d-flex justify-content-center pb-2">
+                            <% if( typeof user !== 'undefined'){ %>
+                                <% if( user.grupo == 'admin'){ %>
+                                    <% if( user.shop_idshop == data[0].shopProduct.idshop){ %> 
+                                    <a href="/product/<%= item.idproducts %> " class="btn btn-success">Editá</a>
+                                    <% }else{ %>
+                                        <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
+                                    <% } %> 
+                                <% } %>
+                            <% }else { %> 
                             <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
+                            <% } %>
                         </div>
                     </div>
                 </div>
-                <%}%>
+                <%}%>        
             </div>
         </div> 
     </main>

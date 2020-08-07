@@ -82,34 +82,18 @@
         <div class="container p-5">
             <h2 class="mb-5">Nuestros E-commerce desarrollados</h2>
             <div class="row">
+                <% for( shop of shops ){ %> 
                 <div class="col-lg-4">
                     <div class=" mx-auto mb-5 mb-lg-0">
-                        <a href="/shop/1">
-                            <div class="features-icons-icon d-flex">
-                                <i class="fas fa-gifts fa-5x  m-auto " style="color: var(--eerie-black);"></i>
-                            </div>
+                        <a href="/shop/<%= shop.idshop %> " class="text-decoration-none">
+                            <picture>
+                                <img src="<%= shop.shop_logo %> " style="width: 20vh;height:20vh" class="img-fluid img-thumbnail" alt="">
+                            </picture> 
+                            <h3><%= shop.shop_name %> </h3>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class=" mx-auto mb-5 mb-lg-0">
-                        <a href="/shop/2">
-                            <div class="features-icons-icon d-flex">
-                                <i class="fas fa-store-alt fa-5x  m-auto " style="color: var(--eerie-black);"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class=" mx-auto mb-5 mb-lg-0">
-                        <a href="/shop/3">
-                            <div class="features-icons-icon d-flex">
-                                <i class="fas fa-shopping-basket fa-5x  m-auto " style="color: var(--eerie-black);"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                <% } %> 
             </div>
         </div>
     </section>
