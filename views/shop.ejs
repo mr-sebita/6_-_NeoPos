@@ -40,7 +40,7 @@
                             <% if( typeof user !== 'undefined'){ %>
                                 <% if( user.grupo == 'admin'){ %>
                                     <% if( user.shop_idshop == data[0].shopProduct.idshop){ %> 
-                                    <a href="/product/<%= item.idproducts %> " class="btn btn-success">Editá</a>
+                                    <a href="/product/edit/<%= item.idproducts %> " class="btn btn-success">Editá</a>
                                     <% }else{ %>
                                         <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
                                     <% } %> 

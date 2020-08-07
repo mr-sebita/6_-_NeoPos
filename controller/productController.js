@@ -36,7 +36,7 @@ const formatPrice = (price, discount) => {
 let productController = {
     detaildb: async (req, res, next) => {
         let product = await db.Product.findByPk(req.params.id)
-        if (product != undproductefined) {
+        if ( product != undefined ) {
             res.render('product', { formatPrice, data: product, user: req.session.user, admin: req.session.admin });
         } else {
             res.render('productNotExist', { data: req.protocol + '://' + req.get('host') + req.originalUrl });

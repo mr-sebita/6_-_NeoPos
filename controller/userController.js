@@ -36,7 +36,7 @@ let userController = {
     },
 
     /*  POST */
-    login: (req, res) => {
+    login: async ( req , res ) => {
         /*
         *1 . validation on form fields
         *2 . validation on password field
@@ -63,7 +63,7 @@ let userController = {
                     if (req.session.cart == undefined) {
                         req.session.cart = [];
                     }
-                    res.render('index', { user: userLogin });
+                    res.redirect('/');
 
                 } else {
                     let errors = [{ msg: 'Contraseña incorrecta' }];
