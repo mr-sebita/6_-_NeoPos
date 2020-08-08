@@ -28,16 +28,11 @@ var userRouter = require('./routes/user');
 var productRouter = require('./routes/product');
 var cartRouter = require('./routes/cart');
 var shopRouter = require('./routes/shop');
-
+var cookieMiddlewares= require( './middlewares/cookieMiddlewares' );
 /**
  * Http Methods tools
  */
 const methodOverride = require('method-override');
-
-/**
- * Middlewares on application
- */
-
 
 /**
  * Applications Setup
@@ -45,13 +40,19 @@ const methodOverride = require('method-override');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+/**
+ * Middlewares on application
+ */
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-app.use(session({ secret: 'Secreto!!' }));
+app.use(session({ secret: 'Secreto!!', resave: false,saveUninitialized: true}));
+app.use( cookieMiddlewares );
+
+
 
 /**
  * Routes
