@@ -95,7 +95,7 @@ let userController = {
             res.render('useradmin', { errors: errors.errors });
         }
     },
-    registerAdmin: (req, res, next) => {
+    registerAdmin:async  (req, res, next) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) { //if true -> no errors
             db.User.create({
@@ -103,16 +103,8 @@ let userController = {
                 email: req.body.email.trim(),
                 password: bcrypt.hashSync(req.body.password, 10),
                 avatar: 'https://robohash.org/' + req.body.name + '?set=set3',
-                carrito_idcarrito: '4',
-                grupo: 'admin',
-                Shop: { //nombre de la tabla
-                        shop_name: 'Tu primer tienda',
-                        shop_logo: 'Tu Logo',
-                        shop_banner: 'Tu banner'
-                    }
-                },
-                    {
-                        include: [User.association]//nombre de la assoociation
+                carrito_idcarrito: '3',
+                grupo: 'admin'
             }).then((userCreate) => {
                 console.log(userCreate);
                 req.session.user = userCreate;
@@ -125,45 +117,45 @@ let userController = {
             res.render('useradmin', { errors: errors.errors });
         }
     },
-    adminDetail: async (req, res, next) => {
-        let products = await db.Product.findAll({
-            where: {
-                shop_idshop: req.params.id
-            },
-            include: [{
-                association: "shopProduct",
-            }]
-        })
-        console.log(products);
-        res.render('profileAdmin', { user: req.session.user, data: products });
-    },
+adminDetail: async (req, res, next) => {
+    let products = await db.Product.findAll({
+        where: {
+            shop_idshop: req.params.id
+        },
+        include: [{
+            association: "shopProduct",
+        }]
+    })
+    console.log(products);
+    res.render('profileAdmin', { user: req.session.user, data: products });
+},
     userDetail: async (req, res, next) => {
         res.render('profile', { user: req.session.user });
     },
-    userEditProfile: (req, res) => {
-        console.log(req.params.id);
-        res.render('profileEdit', { user: req.session.user });
-    },
-    userEdit: (req, res, next) => {
-        db.User.update(
-            {
-                name: req.body.name,
-            }, {
-            where: {
-                idusuario: req.params.id,
+        userEditProfile: (req, res) => {
+            console.log(req.params.id);
+            res.render('profileEdit', { user: req.session.user });
+        },
+            userEdit: (req, res, next) => {
+                db.User.update(
+                    {
+                        name: req.body.name,
+                    }, {
+                    where: {
+                        idusuario: req.params.id,
+                    }
+                })
+                db.User.findOne({
+                    where: {
+                        idusuario: req.params.id
+                    }
+                })
+                    .then((user) => {
+                        req.session.user = user.dataValues;
+                        console.log(req.session.user);
+                        res.redirect('/user/detail');
+                    })
             }
-        })
-        db.User.findOne({
-            where: {
-                idusuario: req.params.id
-            }
-        })
-            .then((user) => {
-                req.session.user = user.dataValues;
-                console.log(req.session.user);
-                res.redirect('/user/detail');
-            })
-    }
 }
 
 module.exports = userController;
