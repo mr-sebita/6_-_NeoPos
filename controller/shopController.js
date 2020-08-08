@@ -42,6 +42,12 @@ let shopController = {
                 }]
             })
         res.render('shop', { formatPrice , data: datosquery ,user: req.session.user });
+    },
+    createShop: ( req , res , next ) => {
+        res.render( 'createShop ' );
+    },
+    saveShop: ( req , res , next ) => {
+        res.send('Hola');
     }
 };
 
