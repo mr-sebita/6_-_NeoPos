@@ -36,7 +36,7 @@ let userController = {
     },
 
     /*  POST */
-    login: async ( req , res ) => {
+    login: async (req, res) => {
         /*
         *1 . validation on form fields
         *2 . validation on password field
@@ -54,22 +54,12 @@ let userController = {
                 }]
             }
             ).then(userResult => {
-                //#TODO crypto verificacion !!
                 if (bcrypt.compareSync(req.body.password, userResult.dataValues.password)) {
-
                     req.session.user = userResult;
-                    let userLogin = req.session.user;
-
-                    if(userResult.grupo == 'admin'){
-                        req.session.admin = true;
-                    }else{
-                        req.session.admin = false;
-                    }
                     if (req.session.cart == undefined) {
                         req.session.cart = [];
                     }
                     res.redirect('/');
-
                 } else {
                     let errors = [{ msg: 'Contraseña incorrecta' }];
                     res.render('login', { errors: errors });
@@ -83,7 +73,7 @@ let userController = {
             res.render('login', { errors: errorsResult.errors })
         }
     },
-    registerUser: (req, res) => {
+    registerUser: (req, res, next) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) { //if true -> no errors
             db.User.create({
@@ -96,9 +86,7 @@ let userController = {
             }).then((userCreate) => {
                 console.log(userCreate);
                 req.session.user = userCreate;
-                req.session.admin = false;
-                // res.redirect('/');
-                res.render('index', { user: userCreate });
+                res.redirect('/');
             })
                 .catch((catchedErrors) => {
                     res.render('index', { errors: catchedErrors });
@@ -107,37 +95,34 @@ let userController = {
             res.render('useradmin', { errors: errors.errors });
         }
     },
-    registerAdmin: (req, res) => {
+    registerAdmin: (req, res, next) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) { //if true -> no errors
             db.User.create({
-                name: req.body.username,
-                email: req.body.email,
+                name: req.body.name.trim(),
+                email: req.body.email.trim(),
                 password: bcrypt.hashSync(req.body.password, 10),
-                /*
-                * DEBERIA GENERAR ID DE SHOP PARA CONECTARLO CON SU LUGAR DE COMPRA
-                */
-                avatar: 'https://robohash.org/' + req.body.name,
-                carrito_idcarrito: 'NULL',
-                shop_idshop: '3',
-                grupo: 'admin'
-                //    usershop: {
-                //        shop_name: 'Tu primer tienda',
-                //        shop_logo: 'Tu Logo',
-                //        shop_banner: 'Tu banner'
-                //    }
-                //},
-                //    {
-                //        include: usershop,
-            }).then((adminCreate) => {
-                req.session.user = adminCreate;
-                req.session.admin = true;
-                res.render('index', { user: adminCreate });
-            }).catch((catchedErrors) => {
-                res.render('index', { errors: catchedErrors });
+                avatar: 'https://robohash.org/' + req.body.name + '?set=set3',
+                carrito_idcarrito: '4',
+                grupo: 'admin',
+                Shop: { //nombre de la tabla
+                        shop_name: 'Tu primer tienda',
+                        shop_logo: 'Tu Logo',
+                        shop_banner: 'Tu banner'
+                    }
+                },
+                    {
+                        include: [User.association]//nombre de la assoociation
+            }).then((userCreate) => {
+                console.log(userCreate);
+                req.session.user = userCreate;
+                res.redirect('/');
             })
+                .catch((catchedErrors) => {
+                    res.render('index', { errors: catchedErrors });
+                })
         } else {
-            res.render('index', { errors: errors.errors });
+            res.render('useradmin', { errors: errors.errors });
         }
     },
     adminDetail: async (req, res, next) => {
@@ -150,7 +135,7 @@ let userController = {
             }]
         })
         console.log(products);
-        res.render('profileAdmin', { user: req.session.user , data : products});
+        res.render('profileAdmin', { user: req.session.user, data: products });
     },
     userDetail: async (req, res, next) => {
         res.render('profile', { user: req.session.user });

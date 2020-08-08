@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         },
         carrito_idcarrito: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true
         }
     };
     let config = {
@@ -43,6 +44,6 @@ module.exports = (sequelize, DataTypes) => {
         });
     };
 
-
+    
     return User;
 }

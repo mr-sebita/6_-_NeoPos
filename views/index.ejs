@@ -15,17 +15,7 @@
 </header>
 
 <body>
-    <!-- show errors -->
-    <% if(typeof errors != 'undefined'){ %>
-    <p style="color: red;">ERROR</p>
-    <ul>
-        <% for(var i = 0; i < errors.length; i++) { %>
-        <div class="alert alert-danger" role="alert">
-            <%= errors[i].msg %>
-        </div>
-        <% } %>
-    </ul>
-    <% } %>
+    <%- include('partials/errorsRender.ejs') %>
     <section>
         <div class="container mx-auto  p-5  items-center ">
             <div class="row">
