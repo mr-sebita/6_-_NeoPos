@@ -54,7 +54,16 @@ let productController = {
             description: req.body.description,
             shop_idshop: req.session.user.shop_idshop
         });
-        res.redirect('/user/detail/'+ req.session.user.idusuario);
+        let products = await db.Product.findAll({
+            where: {
+                shop_idshop: req.session.user.shop_idshop
+            },
+            include: [{
+                association: "shopProduct",
+            }]
+        })
+        console.log(products);
+        res.render('profileAdmin', { user: req.session.user, data: products });
     },
     detailEdit: async (req, res) => {
         let productoEditar = await db.Product.findByPk(req.params.id)

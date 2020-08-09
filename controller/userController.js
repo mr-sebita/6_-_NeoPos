@@ -59,7 +59,7 @@ let userController = {
                     let userLogin = req.session.user;
                     console.log(req.body.recordame);
                     if (req.body.recordame === 'on') {
-                        res.cookie('recordame', userLogin.dataValues.email, { maxAge: 240000 });
+                        res.cookie('recordame', userLogin.dataValues.email, { maxAge: 2400000 });
                     }
 
                     if (req.session.cart == undefined) {
