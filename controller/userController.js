@@ -44,7 +44,6 @@ let userController = {
         */
         let errorsResult = validationResult(req);
         if (errorsResult.isEmpty()) {
-            console.log('Here');
             db.User.findOne({
                 where: {
                     email: req.body.email
@@ -60,8 +59,7 @@ let userController = {
                     let userLogin = req.session.user;
                     console.log(req.body.recordame);
                     if (req.body.recordame === 'on') {
-                        console.log('Hola');
-                        res.cookie('recordame', userLogin.dataValues.email, { maxAge: 60000 });
+                        res.cookie('recordame', userLogin.dataValues.email, { maxAge: 240000 });
                     }
 
                     if (req.session.cart == undefined) {
@@ -93,11 +91,8 @@ let userController = {
                 carrito_idcarrito: '3',
                 grupo: 'user'
             }).then((userCreate) => {
-                console.log(userCreate);
                 req.session.user = userCreate;
-                req.session.admin = false;
-                // res.redirect('/');
-                res.render('index', { user: userCreate });
+                res.redirect('/user/detail/');
             })
                 .catch((catchedErrors) => {
                     res.render('index', { errors: catchedErrors });
@@ -130,8 +125,8 @@ let userController = {
                     idusuario: admin.idusuario
                 }
             })
-
-            res.redirect('/');
+            req.session.user= admin;
+            res.redirect('/user/detail/'+ admin.idusuario);
         } else {
             res.render('index', { errors: errors.errors });
         }

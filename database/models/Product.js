@@ -10,7 +10,7 @@
             type: DataTypes.STRING
         },
         price: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER
         },
         stock: {
             type: DataTypes.INTEGER

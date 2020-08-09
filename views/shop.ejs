@@ -35,9 +35,9 @@
                                 class="card-img-top img-thumbnail" style="height:260px" alt="..."></a>
                         <div class="card-body h-100">
                             <a class="text-decoration-none" href="/product/<%=item.idproducts%>">
-                                <h5 class="card-title"><%= item.title %></h5>
+                                <h5 class="card-title text-center" style="height: 8vh;"><%= item.title %></h5>
                             </a>
-                            <h2 class="card-text ">$<%= item.price %></h2>
+                            <h2 class="card-text text-center "><%=formatPrice( item.price ) %></h2>
                         </div>
                         <div class="card-footer  d-flex justify-content-center pb-2">
                             <% if( typeof user !== 'undefined'){ %>
@@ -47,6 +47,8 @@
                             <% }else{ %>
                             <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
                             <% } %>
+                            <% }else{ %>
+                            <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
                             <% } %>
                             <% }else { %>
                             <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>

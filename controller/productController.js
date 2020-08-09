@@ -54,7 +54,7 @@ let productController = {
             description: req.body.description,
             shop_idshop: req.session.user.shop_idshop
         });
-        res.redirect('/shop');
+        res.redirect('/user/detail/'+ req.session.user.idusuario);
     },
     detailEdit: async (req, res) => {
         let productoEditar = await db.Product.findByPk(req.params.id)

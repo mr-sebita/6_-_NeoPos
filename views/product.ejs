@@ -41,7 +41,7 @@
                                     <%=data.description%>
                                 </p>
                                 <h2 class="brand display-4">
-                                    $<%= data.price %>
+                                    <%=formatPrice( data.price ) %>
                                 </h2>
                                 <% if(admin == "true") {%>
                                 <div class="container">
