@@ -47,11 +47,14 @@ let shopController = {
         res.render('createShop');
     },
     saveShop: async ( req , res , next ) => {
-        let shop= await db.shop.create({
-            idshop: req.session.user.idusuario,
+        let shop= await db.Shop.update({
             shop_name: req.body.shopName,
-            shop_logo: req.files[0].filename,
-            shop_banner: req.files[1].filename
+            shop_logo: '/images/logos/'+req.files[0].filename,
+            shop_banner: '/images/logos/'+req.files[1].filename
+        },{
+            where:{
+                idshop: req.session.user.shop_idshop,
+            }
         })
         //  console.log(req.session.user.idusuario);
         res.redirect( '/' );

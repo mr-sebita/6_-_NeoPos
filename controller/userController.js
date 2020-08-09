@@ -130,8 +130,8 @@ let userController = {
                     idusuario: admin.idusuario
                 }
             })
-            
-            res.redirect('index');
+
+            res.redirect('/');
         } else {
             res.render('index', { errors: errors.errors });
         }

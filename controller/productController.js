@@ -69,7 +69,7 @@ let productController = {
     },
     edit: async (req, res, next) => {
         let editProduct = await db.Product.update({
-            img: '/images/' + req.files[0].filename,
+            img: '/images/products/' + req.files[0].filename,
             price: req.body.price.trim(),
             title: req.body.title.trim(),
             //brand: req.body.brand.trim(),
