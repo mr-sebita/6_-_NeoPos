@@ -45,17 +45,16 @@ let productController = {
     newProduct: (req, res, next) => {
         res.render('productNew', { title: 'Creacion del Producto', user: req.session.user, admin: req.session.admin });
     },
-    createProduct: (req, res, next) => {
-        console.log("creando producto");
-        db.Product.create({
-            img: req.files[0].filename,
-            price: req.body.price.trim(),
-            title: req.body.title.trim(),
-            brand: req.body.brand.trim(),
-            description: req.body.description.trim(),
-            categoria: req.body.categoria.trim()
+    createProduct: async (req, res, next) => {
+        let product = await db.Product.create({
+            img: '/images/products/' +  req.files[0].filename,
+            price: req.body.price,
+            title: req.body.title,
+            stock: req.body.stock,
+            description: req.body.description,
+            shop_idshop: req.session.user.shop_idshop
         });
-        res.redirect('shop');
+        res.redirect('/shop');
     },
     detailEdit: async (req, res) => {
         let productoEditar = await db.Product.findByPk(req.params.id)
@@ -83,11 +82,11 @@ let productController = {
         })
         res.redirect('/shop');
     },
-    delete: async (req, res) => {
+    delete: async ( req , res ) => {
 
-        db.Productos.destroy({
+       await db.Product.destroy({
             where: {
-                id: req.params.id
+                idproducts: req.params.id
             }
         })
         res.redirect('/');

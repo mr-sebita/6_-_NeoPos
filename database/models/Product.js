@@ -12,8 +12,8 @@
         price: {
             type: DataTypes.STRING
         },
-        brand: {
-            type: DataTypes.STRING
+        stock: {
+            type: DataTypes.INTEGER
         },
         title: {
             type: DataTypes.STRING
@@ -21,9 +21,6 @@
         description: {
             type: DataTypes.STRING
         },
-         categoria: {
-             type: DataTypes.STRING
-         },
         shop_idshop: {
             type: DataTypes.INTEGER 
          }
