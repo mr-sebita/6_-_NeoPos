@@ -36,48 +36,40 @@ let userController = {
     },
 
     /*  POST */
-    login: async ( req , res ) => {
-        /*
-        *1 . validation on form fields
-        *2 . validation on password field
-        *3 . send messages to user
-        */
+    login: async (req, res) => {
         let errorsResult = validationResult(req);
         if (errorsResult.isEmpty()) {
             console.log('Here');
-            db.User.findOne({
+            let userResult = await db.User.findOne({
                 where: {
                     email: req.body.email
                 },
                 include: [{
                     association: "userShop",
                 }]
-            }
-            ).then(userResult => {
-                if (bcrypt.compareSync(req.body.password, userResult.dataValues.password)) {
-
-                    req.session.user = userResult;
-                    let userLogin = req.session.user;
-                    console.log(req.body.recordame);
-                     if ( req.body.recordame === 'on' ){
-                         console.log('Hola');
-                          res.cookie('recordame' , userLogin.dataValues.email , { maxAge : 60000 } );
-                    }
-
-                    if (req.session.cart == undefined) {
-                        req.session.cart = [];
-                    }
-                    res.redirect('/');
-
-                } else {
-                    let errors = [{ msg: 'Contraseña incorrecta' }];
-                    res.render('login', { errors: errors });
+            });
+            if (bcrypt.compareSync(req.body.password, userResult.dataValues.password)) {
+                req.session.user = userResult;
+                let userLogin = req.session.user;
+                console.log(req.body.recordame);
+                if (req.body.recordame === 'on') {
+                    console.log('Hola');
+                    res.cookie('recordame', userLogin.dataValues.email, { maxAge: 60000 });
                 }
-            })
-                .catch(error => {
-                    let errors = [{ msg: 'El email no existe' }];
-                    res.render('login', { errors: errors })
-                })
+                if (req.session.cart == undefined) {
+                    req.session.cart = [];
+                }
+                // res.redirect('/');
+                if (req.session.user.group == admin) {
+                    res.render('profileAdmin', { user: req.session.user });
+                } else {
+                    // res.render('mall', {user: req.session.user});
+                    // res.redirect('/mall');
+                }
+            } else {
+                let errors = [{ msg: 'Contraseña incorrecta' }];
+                res.render('login', { errors: errors });
+            }
         } else {
             res.render('login', { errors: errorsResult.errors })
         }
@@ -95,29 +87,30 @@ let userController = {
             }).then((userCreate) => {
                 console.log(userCreate);
                 req.session.user = userCreate;
-                req.session.admin = false;
                 // res.redirect('/');
-                res.render('index', { user: userCreate });
+                res.render('profile', { user: userCreate });
             })
                 .catch((catchedErrors) => {
-                    res.render('index', { errors: catchedErrors });
+                    res.render('useradmin', { errors: catchedErrors });
                 })
         } else {
             res.render('useradmin', { errors: errors.errors });
         }
     },
+    
     registerAdmin: async (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) { //if true -> no errors
-            let admin = await db.User.create({
-                name: req.body.username,
-                 email: req.body.email,
-                 password: bcrypt.hashSync(req.body.password, 10),
-                 avatar: 'https://robohash.org/' + req.body.name,
-                 carrito_idcarrito: '4',
-                 grupo: 'admin'
+            let adminCreate = await db.User.create({
+                name: req.body.name,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                avatar: 'https://robohash.org/' + req.body.name,
+                carrito_idcarrito: '4',
+                grupo: 'admin',
             })
-            res.send(admin);
+            req.session.user = adminCreate;
+            res.render('profileAdmin', { user: req.session.user });
         } else {
             res.render('index', { errors: errors.errors });
         }
@@ -132,35 +125,36 @@ let userController = {
             }]
         })
         console.log(products);
-        res.render('profileAdmin', { user: req.session.user , data : products});
+        res.render('profileAdmin', { user: req.session.user, data: products });
     },
     userDetail: async (req, res, next) => {
         res.render('profile', { user: req.session.user });
     },
-        userEditProfile: (req, res) => {
-            console.log(req.params.id);
-            res.render('profileEdit', { user: req.session.user });
-        },
-            userEdit: (req, res, next) => {
-                db.User.update(
-                    {
-                        name: req.body.name,
-                    }, {
-                    where: {
-                        idusuario: req.params.id,
-                    }
-                })
-                db.User.findOne({
-                    where: {
-                        idusuario: req.params.id
-                    }
-                })
-                    .then((user) => {
-                        req.session.user = user.dataValues;
-                        console.log(req.session.user);
-                        res.redirect('/user/detail');
-                    })
+    userEditProfile: (req, res) => {
+        console.log(req.params.id);
+        res.render('profileEdit', { user: req.session.user });
+    },
+    userEdit: (req, res, next) => {
+        db.User.update(
+            {
+                name: req.body.name,
+            }, {
+            where: {
+                idusuario: req.params.id,
             }
+        })
+        db.User.findOne({
+            where: {
+                idusuario: req.params.id
+            }
+        })
+            .then((user) => {
+                req.session.user = user.dataValues;
+                console.log(req.session.user);
+                res.redirect('/user/detail');
+            })
+    },
+
 }
 
 module.exports = userController;
