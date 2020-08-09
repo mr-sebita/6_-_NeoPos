@@ -43,11 +43,18 @@ let shopController = {
             })
         res.render('shop', { formatPrice , data: datosquery ,user: req.session.user });
     },
-    createShop: ( req , res , next ) => {
-        res.render( 'createShop ' );
+    createShop: (req, res) => {
+        res.render('createShop');
     },
-    saveShop: ( req , res , next ) => {
-        res.send('Hola');
+    saveShop: async ( req , res , next ) => {
+        let shop= await db.shop.create({
+            idshop: req.session.user.idusuario,
+            shop_name: req.body.shopName,
+            shop_logo: req.files[0].filename,
+            shop_banner: req.files[1].filename
+        })
+        //  console.log(req.session.user.idusuario);
+        res.redirect( '/' );
     }
 };
 

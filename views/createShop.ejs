@@ -19,34 +19,34 @@
             <div class="row">
                 <div class="col-8 col-md-6 col-lg-4 mx-auto mt-5">
                     <div class="card">
-                        <div class="row card-header  text-white" style="background-color: var(--turquoise);">
+                        <div class="row card-header   text-white" style="background-color: var(--turquoise);">
                             <div class=" col-12 form-group">
-                                <h3 class="text-center">Crea tu shop!</h3>
+                                <h2 class="text-center">Creá tu shop!</h2>
                             </div>
                             <div class="dropdown-divider"></div>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="/user/registerUser" enctype="multipart/form-data">
+                            <form method="POST" action="/shop/edit" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="shop_name"
-                                        placeholder="Nombre del Shop" autofocus>
+                                    <input type="text" class="form-control" name="shopName" placeholder="Nombre"
+                                        autofocus>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button">Button</button>
-                                    </div>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="shop_logo" id="inputGroupFile03">
-                                        <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                        <input type="file" name="logo" class="custom-file-input" id="inputGroupFile04">
+                                        <label class="custom-file-label" for="inputGroupFile04">Logo</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button">Button</button>
                                     </div>
                                 </div>
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button">Button</button>
-                                    </div>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="shop_banner" id="inputGroupFile03">
-                                        <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                                        <input type="file" name="banner" class="custom-file-input" id="inputGroupFile04">
+                                        <label class="custom-file-label" for="inputGroupFile04">Banner</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button">Button</button>
                                     </div>
                                 </div>
 
@@ -63,8 +63,9 @@
             </div>
         </div>
     </main>
+    <footer>
 
-
+    </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

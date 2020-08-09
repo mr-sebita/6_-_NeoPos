@@ -36,7 +36,7 @@ let userController = {
     },
 
     /*  POST */
-    login: async ( req , res ) => {
+    login: async (req, res) => {
         /*
         *1 . validation on form fields
         *2 . validation on password field
@@ -59,9 +59,9 @@ let userController = {
                     req.session.user = userResult;
                     let userLogin = req.session.user;
                     console.log(req.body.recordame);
-                     if ( req.body.recordame === 'on' ){
-                         console.log('Hola');
-                          res.cookie('recordame' , userLogin.dataValues.email , { maxAge : 60000 } );
+                    if (req.body.recordame === 'on') {
+                        console.log('Hola');
+                        res.cookie('recordame', userLogin.dataValues.email, { maxAge: 60000 });
                     }
 
                     if (req.session.cart == undefined) {
@@ -111,13 +111,27 @@ let userController = {
         if (errors.isEmpty()) { //if true -> no errors
             let admin = await db.User.create({
                 name: req.body.username,
-                 email: req.body.email,
-                 password: bcrypt.hashSync(req.body.password, 10),
-                 avatar: 'https://robohash.org/' + req.body.name,
-                 carrito_idcarrito: '4',
-                 grupo: 'admin'
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                avatar: 'https://robohash.org/' + req.body.name,
+                carrito_idcarrito: '4',
+                grupo: 'admin',
             })
-            res.send(admin);
+
+            let shop = await db.Shop.create({
+                idshop: admin.idusuario,
+            })
+
+            let relation = await db.User.update(
+                {
+                    shop_idshop: shop.idshop
+                }, {
+                where: {
+                    idusuario: admin.idusuario
+                }
+            })
+            
+            res.redirect('index');
         } else {
             res.render('index', { errors: errors.errors });
         }
@@ -132,7 +146,7 @@ let userController = {
             }]
         })
         console.log(products);
-        res.render('profileAdmin', { user: req.session.user , data : products});
+        res.render('profileAdmin', { user: req.session.user, data: products });
     },
     userDetail: async (req, res, next) => {
         res.render('profile', { user: req.session.user });
