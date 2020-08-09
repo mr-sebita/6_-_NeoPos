@@ -56,7 +56,7 @@
                                         <td><%= item.title %></td>
                                         <td>
                                             <a href="/product/edit/<%= item.idproducts   %>"><button type="button" class="btn btn-success btn-sm mt-2">Editá</button></a>
-                                            <form action="/product/delete/<%= item.idproducts %>" method="POST">
+                                            <form action="/product/delete/<%= item.idproducts %>?_method=DELETE" method="POST">
                                             <button type="submit" class="btn btn-success btn-sm mt-2">Borrá</button>
                                             </form>
                                         </td>

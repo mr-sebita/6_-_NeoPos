@@ -35,10 +35,10 @@ router.get( '/create' , guestMiddlewares , administratorMiddlewares , productCon
 router.post('/create',upload.any() ,productController.createProduct);
 
 router.get('/:id', productController.detaildb);
-router.post('/delete/:id', administratorMiddlewares , productController.delete);
+router.delete('/delete/:id', administratorMiddlewares , productController.delete);
 
 router.get('/edit/:id' , guestMiddlewares , administratorMiddlewares , productController.detailEdit );
-router.post('/edit/:id', upload.any() ,productController.edit); 
+router.put('/edit/:id', upload.any() ,productController.edit); 
 
 
 module.exports = router;

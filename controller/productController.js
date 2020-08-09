@@ -70,17 +70,17 @@ let productController = {
         let editProduct = await db.Product.update({
             img: '/images/products/' + req.files[0].filename,
             price: req.body.price.trim(),
-            title: req.body.title.trim(),
-            //brand: req.body.brand.trim(),
-            description: req.body.description.trim(),
-            categoria: req.body.categoria.trim()
+            title: req.body.title,
+            description: req.body.description,
+            stock: req.body.stock.trim(),
+            shop_idshop: req.session.user.shop_idshop
         }, {
             /*  NO TE OLVIDES DE PONER EL WHERE EN EL UPDATE !!!!!*/
             where: {
                 idproducts: req.params.id
             }
         })
-        res.redirect('/shop');
+        res.redirect('/');
     },
     delete: async ( req , res ) => {
 

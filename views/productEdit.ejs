@@ -25,7 +25,7 @@
                         </div>  
                     </div>
                     <div class="container  ">
-                        <form action="/product/edit/<%= data.idproducts %>" method="POST" enctype="multipart/form-data">
+                        <form action="/product/edit/<%= data.idproducts %>?_method=PUT" method="POST" enctype="multipart/form-data">
                             <div class="row ">
                                 <div class="col-12 col-md-6 ">
                                     <div class="">
@@ -55,14 +55,10 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6 ">
-                                    <div>
-                                        <p>Selecciona la categoria</p>
-                                        <select class="form-control form-control-md " name="categoria">
-                                            <option>Electronica</option>
-                                            <option>Hogar</option>
-                                            <option>Indumentaria</option>
-                                            <option>Otro</option>
-                                        </select>
+                                    <div >
+                                        <p>Stock</p>
+                                        <input class="form-control form-control-md " type="number " placeholder="Stock "
+                                            name="stock">
                                     </div>
                                     <div>
                                         <p>Sube una imagen</p>
