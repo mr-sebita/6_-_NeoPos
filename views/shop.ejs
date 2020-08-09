@@ -22,7 +22,7 @@
             <img class="img-fluid rounded m-5" src="<%=data[0].shopProduct.shop_logo%>" style="height:150px;">
             <span style="font-size:30pt;font-weight: bold;"><%=data[0].shopProduct.shop_name%></span>
         </div>
-        <% if(  data == " " ){ %>
+        <% if(  data == undefined ){ %>
         Hola
         <% }else{ %>
         <%- include("partials/carrusel")%>

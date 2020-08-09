@@ -42,6 +42,12 @@ let shopController = {
                     association: "shopProduct",
                 }]
             })
+            console.log(datosquery);
+            if(datosquery == undefined){
+                datosquery = undefined;
+                res.render('shop', { formatPrice, data: datosquery, user: req.session.user });
+            }
+            console.log(undefined);
             res.render('shop', { formatPrice, data: datosquery, user: req.session.user });
         }catch(e){
             res.render('shop', { formatPrice, data: " ", user: req.session.user });
