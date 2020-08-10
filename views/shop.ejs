@@ -17,14 +17,23 @@
 <body>
     <%- include("partials/headerShop")%>
     <main>
+        <% if(data.length == 0){ %>
+         <div class="container-fluid banner"
+            style="background-image: url('<%=perfil.shop_banner%>');height:300px;">
+            <img class="img-fluid rounded m-5" src="<%=perfil.shop_logo%>" style="height:150px;">
+            <span style="font-size:30pt;font-weight: bold;"><%=perfil.shop_name%></span>
+        </div>
+        <div class="container  d-flex justify-content-center mt-5"><h2>No hay productos en este shop! </h2></div>
+        <div class = "container d-flex justify-content-center mt-4"><a href="/mall" class=" btn btn-success ">
+            <h4> Visitar otras tiendas </h4>
+        </a></div>
+        <% }else{ %>
         <div class="container-fluid banner"
             style="background-image: url('<%=data[0].shopProduct.shop_banner%>');height:300px;">
             <img class="img-fluid rounded m-5" src="<%=data[0].shopProduct.shop_logo%>" style="height:150px;">
             <span style="font-size:30pt;font-weight: bold;"><%=data[0].shopProduct.shop_name%></span>
         </div>
-        <% if(  data == undefined ){ %>
-        Hola
-        <% }else{ %>
+
         <%- include("partials/carrusel")%>
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">

@@ -42,15 +42,10 @@ let shopController = {
                     association: "shopProduct",
                 }]
             })
-            console.log(datosquery);
-            if(datosquery == undefined){
-                datosquery = undefined;
-                res.render('shop', { formatPrice, data: datosquery, user: req.session.user });
-            }
-            console.log(undefined);
-            res.render('shop', { formatPrice, data: datosquery, user: req.session.user });
-        }catch(e){
-            res.render('shop', { formatPrice, data: " ", user: req.session.user });
+            let perfilShop = await db.Shop.findByPk(req.params.id);
+            res.render('shop', { formatPrice, data: datosquery, user: req.session.user, perfil: perfilShop});
+        } catch (e) {
+            res.render('shop', { formatPrice, data: " ", user: req.session.user, perfil: perfilShop});
         }
     },
     createShop: (req, res) => {
