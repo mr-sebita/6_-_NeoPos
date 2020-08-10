@@ -22,6 +22,9 @@
             <img class="img-fluid rounded m-5" src="<%=data[0].shopProduct.shop_logo%>" style="height:150px;">
             <span style="font-size:30pt;font-weight: bold;"><%=data[0].shopProduct.shop_name%></span>
         </div>
+        <% if(  data == undefined ){ %>
+        Hola
+        <% }else{ %>
         <%- include("partials/carrusel")%>
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
@@ -32,20 +35,22 @@
                                 class="card-img-top img-thumbnail" style="height:260px" alt="..."></a>
                         <div class="card-body h-100">
                             <a class="text-decoration-none" href="/product/<%=item.idproducts%>">
-                                <h5 class="card-title"><%= item.title %></h5>
+                                <h5 class="card-title text-center" style="height: 8vh;"><%= item.title %></h5>
                             </a>
-                            <h2 class="card-text ">$<%= item.price %></h2>
+                            <h2 class="card-text text-center "><%=formatPrice( item.price ) %></h2>
                         </div>
                         <div class="card-footer  d-flex justify-content-center pb-2">
                             <% if( typeof user !== 'undefined'){ %>
-                                <% if( user.grupo == 'admin'){ %>
-                                    <% if( user.shop_idshop == data[0].shopProduct.idshop){ %> 
-                                    <a href="/product/edit/<%= item.idproducts %> " class="btn btn-success">Editá</a>
-                                    <% }else{ %>
-                                        <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
-                                    <% } %> 
-                                <% } %>
-                            <% }else { %> 
+                            <% if( user.grupo == 'admin'){ %>
+                            <% if( user.shop_idshop == data[0].shopProduct.idshop){ %>
+                            <a href="/product/edit/<%= item.idproducts %> " class="btn btn-success">Editá</a>
+                            <% }else{ %>
+                            <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
+                            <% } %>
+                            <% }else{ %>
+                            <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
+                            <% } %>
+                            <% }else { %>
                             <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
                             <% } %>
                         </div>
@@ -54,18 +59,19 @@
                 <%}%>        
             </div>
         </div> 
+        <% } %>
     </main>
 
-                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-                    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-                    crossorigin="anonymous"></script>
-                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-                    crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-                    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-                    crossorigin="anonymous"></script>
-                <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

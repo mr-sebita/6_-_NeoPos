@@ -5,7 +5,7 @@ function administratorMiddlewares( req , res , next ){
     if( req.session.user.grupo === 'admin' ){
         next();
     }else{
-        res.redirect( '/shop' );
+        res.redirect( '/' );
     }
 }
 

@@ -13,7 +13,7 @@ let administratorMiddlewares = require( '../middlewares/administratorMiddlewares
 var storage = multer.diskStorage(
   {
       destination: function (req, file, cb) {
-              cb(null, 'public/images')
+              cb(null, 'public/images/products')
       },
       filename: function (req, file, cb) {
               cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
@@ -38,7 +38,7 @@ router.get('/:id', productController.detaildb);
 router.delete('/delete/:id', administratorMiddlewares , productController.delete);
 
 router.get('/edit/:id' , guestMiddlewares , administratorMiddlewares , productController.detailEdit );
-router.post('/edit/:id', upload.any() ,productController.edit); 
+router.put('/edit/:id', upload.any() ,productController.edit); 
 
 
 module.exports = router;

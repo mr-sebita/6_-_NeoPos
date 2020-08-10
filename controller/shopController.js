@@ -12,14 +12,14 @@ const path = require('path');
 const db = require('../database/models');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-const formatPrice = (price,discount) => {
+const formatPrice = (price, discount) => {
     let priceDot;
     if (discount == undefined) {
         priceDot = toThousand(price.toFixed(2));
     } else {
-        priceDot = toThousand((price*(1-(discount/100))).toFixed(2));
+        priceDot = toThousand((price * (1 - (discount / 100))).toFixed(2));
     }
-    let first = priceDot.slice(0,-3);
+    let first = priceDot.slice(0, -3);
     let last = priceDot.slice(-3);
     let lastReplaced = last.replace(".", ",");
     return `$ ${first}${lastReplaced}`;
@@ -33,7 +33,8 @@ const formatPrice = (price,discount) => {
  */
 let shopController = {
     shopdb: async (req, res) => {
-        let datosquery = await db.Product.findAll({
+        try {
+            let datosquery = await db.Product.findAll({
                 where: {
                     shop_idshop: req.params.id
                 },
@@ -41,14 +42,39 @@ let shopController = {
                     association: "shopProduct",
                 }]
             })
-        res.render('shop', { formatPrice , data: datosquery ,user: req.session.user });
+            console.log(datosquery);
+            if(datosquery == undefined){
+                datosquery = undefined;
+                res.render('shop', { formatPrice, data: datosquery, user: req.session.user });
+            }
+            console.log(undefined);
+            res.render('shop', { formatPrice, data: datosquery, user: req.session.user });
+        }catch(e){
+            res.render('shop', { formatPrice, data: " ", user: req.session.user });
+        }
     },
-    createShop: ( req , res , next ) => {
-        res.render( 'createShop ' );
+    createShop: (req, res) => {
+        res.render('createShop');
     },
-    saveShop: ( req , res , next ) => {
-        res.send('Hola');
+    saveShop: async (req, res, next) => {
+        let shop = await db.Shop.update({
+            shop_name: req.body.shopName,
+            shop_logo: '/images/logos/' + req.files[0].filename,
+            shop_banner: '/images/logos/' + req.files[1].filename
+        }, {
+            where: {
+                idshop: req.session.user.shop_idshop,
+            }
+        })
+        //  console.log(req.session.user.idusuario);
+        res.redirect('/');
     }
 };
 
 module.exports = shopController;
+
+
+
+// if (datosquery == '') {
+//     res.render('shop', { formatPrice, data: " ", user: req.session.user });
+// } else {
