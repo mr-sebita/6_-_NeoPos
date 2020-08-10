@@ -26,14 +26,14 @@
                             <div class="dropdown-divider"></div>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="/shop/edit" enctype="multipart/form-data">
+                            <form method="POST" id="myform" action="/shop/edit" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="shopName" placeholder="Nombre"
+                                    <input type="text" class="form-control" id="shopName" name="shopName" placeholder="Nombre"
                                         autofocus>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" name="logo" class="custom-file-input" id="inputGroupFile04" accept="image/*">
+                                        <input type="file" name="logo" class="custom-file-input" id="logo" accept="image/*">
                                         <label class="custom-file-label" for="inputGroupFile04">Logo</label>
                                     </div>
                                     <div class="input-group-append">
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" name="banner" class="custom-file-input" id="inputGroupFile04" accept="image/*" >
+                                        <input type="file" name="banner" class="custom-file-input" id="banner" accept="image/*" >
                                         <label class="custom-file-label" for="inputGroupFile04">Banner</label>
                                     </div>
                                     <div class="input-group-append">
@@ -77,6 +77,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script>
+        window.onload= () => {
+            let myform = document.getElementById('myform');
+
+            myform.addEventListener('submit', (e) => {
+                let shopName = document.getElementBylogoId('shopName');
+
+                if( shopName.value == ""){
+                    e.preventDefault();
+                    alert('Alguno de los campos esta vacío, debe completarlo para que tu shop pueda visualizarse en nuestro Mall! ');
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>
