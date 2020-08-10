@@ -15,33 +15,32 @@
 </head>
 
 <body>
-    <%- include("partials/headerShop")%>
+        <%- include('partials/headerHome.ejs') %>
     <main>
-        <div class="container-fluid banner"
-            style="background-image: url('<%=data[0].shopProduct.shop_banner%>');height:300px;">
-            <img class="img-fluid rounded m-5" src="" style="height:150px;">
-            <span style="font-size:30pt;font-weight: bold;">MALL</span>
-        </div>
     <!-- Testimonials -->
     <section class="text-center bg-light">
         <div class="container p-5">
             <h2 class="mb-5">Nuestros E-commerce desarrollados</h2>
             <div class="row">
-                <% for( shop of shops ){ %> 
-                <div class="col-lg-4">
-                    <div class=" mx-auto mb-5 mb-lg-0">
+                <% for( shop of shops ){ %>
+                <% if (shop.shop_name != undefined){ %>
+                <div class="col-6 col-md-4">
+                    <div>
                         <a href="/shop/<%= shop.idshop %> " class="text-decoration-none">
-                            <picture>
-                                <img src="<%= shop.shop_logo %> " style="width: 20vh;height:20vh" class="img-fluid img-thumbnail" alt="">
-                            </picture> 
-                            <h3><%= shop.shop_name %> </h3>
+                            <picture class="rounded">
+                                <img src="<%= shop.shop_logo %> " style="width: 20vh;height:20vh"
+                                    class="img-fluid img-thumbnail  mb-2" alt="">
+                            </picture>
+                            <h3 class="mb-2"><%= shop.shop_name %> </h3>
                         </a>
                     </div>
                 </div>
-                <% } %> 
+                <% } %>
+                <% } %>
             </div>
         </div>
     </section>
+     <%- include("partials/footer2")%>
     </main>
 
                 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

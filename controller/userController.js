@@ -44,7 +44,7 @@ let userController = {
         */
         let errorsResult = validationResult(req);
         if (errorsResult.isEmpty()) {
-            db.User.findOne({
+             let userResult = await db.User.findOne({
                 where: {
                     email: req.body.email
                 },
@@ -52,7 +52,7 @@ let userController = {
                     association: "userShop",
                 }]
             }
-            ).then(userResult => {
+            )
                 if (bcrypt.compareSync(req.body.password, userResult.dataValues.password)) {
 
                     req.session.user = userResult;
@@ -65,17 +65,36 @@ let userController = {
                     if (req.session.cart == undefined) {
                         req.session.cart = [];
                     }
-                    res.redirect('/');
+                    /* REDIRECT */
+                    if (req.session.user.grupo == 'admin') {
+                        //let ahi = path.join('/user/detail', userResult.idusuario);
+                        console.log('/user/detail/' + userResult.idusuario);
+                        //res.redirect('/user/detail/' + userResult.idusuario);
 
+                        let products = await db.Product.findAll({
+                            where: {
+                                shop_idshop: userResult.shop_idshop
+                            },
+                            include: [{
+                                association: "shopProduct",
+                            }]
+                        })
+                        console.log(products);
+                        res.render('profileAdmin', { user: req.session.user, data: products });
+
+                    }else{
+                        res.redirect('/mall');
+                    }
                 } else {
                     let errors = [{ msg: 'Contraseña incorrecta' }];
                     res.render('login', { errors: errors });
                 }
-            })
-                .catch(error => {
-                    let errors = [{ msg: 'El email no existe' }];
-                    res.render('login', { errors: errors })
-                });
+            //})
+            //    .catch(error => {
+            //        let errors = [{ msg: 'El email no existe' }];
+            //        res.render('login', { errors: errors })
+            //    });
+
         } else {
             res.render('login', { errors: errorsResult.errors });
         }
