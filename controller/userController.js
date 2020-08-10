@@ -44,7 +44,7 @@ let userController = {
         */
         let errorsResult = validationResult(req);
         if (errorsResult.isEmpty()) {
-            db.User.findOne({
+             let userResult = await db.User.findOne({
                 where: {
                     email: req.body.email
                 },
@@ -52,7 +52,7 @@ let userController = {
                     association: "userShop",
                 }]
             }
-            ).then(userResult => {
+            )
                 if (bcrypt.compareSync(req.body.password, userResult.dataValues.password)) {
 
                     req.session.user = userResult;
@@ -65,19 +65,38 @@ let userController = {
                     if (req.session.cart == undefined) {
                         req.session.cart = [];
                     }
-                    res.redirect('/');
+                    /* REDIRECT */
+                    if (req.session.user.grupo == 'admin') {
+                        //let ahi = path.join('/user/detail', userResult.idusuario);
+                        console.log('/user/detail/' + userResult.idusuario);
+                        //res.redirect('/user/detail/' + userResult.idusuario);
 
+                        let products = await db.Product.findAll({
+                            where: {
+                                shop_idshop: userResult.shop_idshop
+                            },
+                            include: [{
+                                association: "shopProduct",
+                            }]
+                        })
+                        console.log(products);
+                        res.render('profileAdmin', { user: req.session.user, data: products });
+
+                    }else{
+                        res.redirect('/mall');
+                    }
                 } else {
                     let errors = [{ msg: 'Contraseña incorrecta' }];
                     res.render('login', { errors: errors });
                 }
-            })
-                .catch(error => {
-                    let errors = [{ msg: 'El email no existe' }];
-                    res.render('login', { errors: errors })
-                })
+            //})
+            //    .catch(error => {
+            //        let errors = [{ msg: 'El email no existe' }];
+            //        res.render('login', { errors: errors })
+            //    });
+
         } else {
-            res.render('login', { errors: errorsResult.errors })
+            res.render('login', { errors: errorsResult.errors });
         }
     },
     registerUser: (req, res) => {
@@ -95,12 +114,13 @@ let userController = {
                 res.redirect('/user/detail/');
             })
                 .catch((catchedErrors) => {
-                    res.render('index', { errors: catchedErrors });
+                    res.render('useradmin', { errors: catchedErrors });
                 })
         } else {
             res.render('useradmin', { errors: errors.errors });
         }
     },
+
     registerAdmin: async (req, res) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) { //if true -> no errors
@@ -125,8 +145,8 @@ let userController = {
                     idusuario: admin.idusuario
                 }
             })
-            req.session.user= admin;
-            res.redirect('/user/detail/'+ admin.idusuario);
+            req.session.user = admin;
+            res.redirect('/user/detail/' + admin.idusuario);
         } else {
             res.render('index', { errors: errors.errors });
         }
@@ -169,7 +189,8 @@ let userController = {
                 console.log(req.session.user);
                 res.redirect('/user/detail');
             })
-    }
+    },
+
 }
 
 module.exports = userController;
@@ -179,34 +200,3 @@ module.exports = userController;
 
 
 
-// <% if (req.session.user != undefined) { %>
-//     <img alt="team" class="flex-shrink-0 rounded-lg w-8 h-8 object-cover object-center sm:mb-0 mb-4 " src="/images/mauri.png ">
-//    <p><%= req.session.user %></p> 
-//         <% } else { %> 
-// <%  } %>
-
-
-// name: req.body.username,
-//                 email: req.body.email,
-//                 password: bcrypt.hashSync(req.body.password, 10),
-//                 /*
-//                 * DEBERIA GENERAR ID DE SHOP PARA CONECTARLO CON SU LUGAR DE COMPRA
-//                 */
-//                 avatar: 'https://robohash.org/' + req.body.name,
-//                 carrito_idcarrito: 'NULL',
-//                 shop_idshop: '3',
-//                 grupo: 'admin'
-//                 //    usershop: {
-//                 //        shop_name: 'Tu primer tienda',
-//                 //        shop_logo: 'Tu Logo',
-//                 //        shop_banner: 'Tu banner'
-//                 //    }
-//                 //},
-//                 //    {
-//                 //        include: usershop,
-//             }).then((adminCreate) => {
-//                 req.session.user = adminCreate;
-//                 req.session.admin = true;
-//                 res.render('index', { user: adminCreate });
-//             }).catch((catchedErrors) => {
-//                 res.render('index', { errors: catchedErrors });

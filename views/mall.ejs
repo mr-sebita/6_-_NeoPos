@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/root.css">
+    <link rel="stylesheet" href="/stylesheets/shop.css">
+</head>
+
+<body>
+        <%- include('partials/headerHome.ejs') %>
+    <main>
+    <!-- Testimonials -->
+    <section class="text-center bg-light">
+        <div class="container p-5">
+            <h2 class="mb-5">Nuestros E-commerce desarrollados</h2>
+            <div class="row">
+                <% for( shop of shops ){ %>
+                <% if (shop.shop_name != undefined){ %>
+                <div class="col-6 col-md-4">
+                    <div>
+                        <a href="/shop/<%= shop.idshop %> " class="text-decoration-none">
+                            <picture class="rounded">
+                                <img src="<%= shop.shop_logo %> " style="width: 20vh;height:20vh"
+                                    class="img-fluid img-thumbnail  mb-2" alt="">
+                            </picture>
+                            <h3 class="mb-2"><%= shop.shop_name %> </h3>
+                        </a>
+                    </div>
+                </div>
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+    </section>
+     <%- include("partials/footer2")%>
+    </main>
+
+                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+                    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                    crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+                    crossorigin="anonymous"></script>
+                <script src="https://kit.fontawesome.com/2aa1bb4704.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
