@@ -53,7 +53,7 @@ let userController = {
                 }]
             }
             )
-                if (bcrypt.compareSync(req.body.password, userResult.dataValues.password)) {
+              //  if (bcrypt.compareSync(req.body.password, userResult.dataValues.password)) {
 
                     req.session.user = userResult;
                     let userLogin = req.session.user;
@@ -85,10 +85,10 @@ let userController = {
                     }else{
                         res.redirect('/mall');
                     }
-                } else {
-                    let errors = [{ msg: 'Contraseña incorrecta' }];
-                    res.render('login', { errors: errors });
-                }
+              //  } else {
+              //      let errors = [{ msg: 'Contraseña incorrecta' }];
+              //      res.render('login', { errors: errors });
+              //  }
             //})
             //    .catch(error => {
             //        let errors = [{ msg: 'El email no existe' }];
