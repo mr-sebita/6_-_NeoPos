@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/root.css">
+
+</head>
+
+<body>
+    <%- include("partials/headerShop")%>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Resultados de la búsqueda: </h2>
+            </div>
+            <% if( data != " " ) %> 
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                <% for (item of data){ %>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <a class="text-decoration-none" href="/product/<%=item.idproducts%>"><img src="<%= item.img %>"
+                                class="card-img-top img-thumbnail" style="height:260px" alt="..."></a>
+                        <div class="card-body h-100">
+                            <a class="text-decoration-none" href="/product/<%=item.idproducts%>">
+                                <h5 class="card-title text-center" style="height: 8vh;"><%= item.title %></h5>
+                            </a>
+                            <h2 class="card-text text-center "><%=formatPrice( item.price ) %></h2>
+                        </div>
+                        <div class="card-footer  d-flex justify-content-center pb-2">
+                            <% if( typeof user !== 'undefined'){ %>
+                            <% if( user.grupo == 'admin'){ %>
+                            <% if( user.shop_idshop == data[0].shopProduct.idshop){ %>
+                            <a href="/product/edit/<%= item.idproducts %> " class="btn btn-success">Editá</a>
+                            <% }else{ %>
+                            <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
+                            <% } %>
+                            <% }else{ %>
+                            <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
+                            <% } %>
+                            <% }else { %>
+                            <a href="/product/<%= item.idproducts %> " class="btn btn-success">Comprá</a>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <%}%>        
+            </div>
+            <% } else{ %>
+
+            <div class="col-12">
+                <h2 style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <%- include("partials/footer2")%>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js "
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n "
+    crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+    crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js "
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 "
+    crossorigin="anonymous "></script>
+<script src="https://kit.fontawesome.com/2aa1bb4704.js " crossorigin="anonymous "></script>
+
+</html>

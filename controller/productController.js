@@ -11,6 +11,8 @@
 const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 /**
  * Producto Controller
@@ -34,6 +36,24 @@ const formatPrice = (price, discount) => {
 };
 
 let productController = {
+    
+    search: async ( req , res , next )=> {
+
+        console.log("Holaaaa" + req.query.search ) 
+        if (req.query.search == "") {
+            res.redirect("/");
+        } else {
+            let products = await db.Product.findAll({
+                where: {
+                    title: {
+                        [Op.like]: `%${req.query.search}%`
+                    }
+                }
+            })
+                res.render( "results" , {formatPrice, data : products  } );
+
+        }
+    },
     detaildb: async (req, res, next) => {
         let product = await db.Product.findByPk(req.params.id)
         if ( product != undefined ) {
@@ -99,7 +119,7 @@ let productController = {
             }
         })
         res.redirect('/');
-    }
+    },
 }
 
 module.exports = productController;

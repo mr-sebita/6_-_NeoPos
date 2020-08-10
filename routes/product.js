@@ -31,6 +31,8 @@ var upload = multer({ storage: storage });
 * @param {controller} controller method for that route
 *
 */
+router.get('/search', productController.search);
+
 router.get( '/create' , guestMiddlewares , administratorMiddlewares , productController.newProduct);
 router.post('/create',upload.any() ,productController.createProduct);
 
